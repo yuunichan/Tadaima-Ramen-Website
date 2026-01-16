@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Meja - Restoran</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/reservasi_detail.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="images/logo.jpg" alt="Logo">
+            </div>
+            <span>Tadaima Balige Restaurant</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="../beranda.html">Beranda</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="reservasi.html">Reservasi</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="keranjang.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                        class="bi bi-cart" viewBox="0 0 16 16">
+                        <path
+                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                    </svg>
+                </a>
+            </li>
+            <li><a href="../login_page.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                        class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="header-content">
+            <button class="back-button" onclick="history.back()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+            <div class="header-text">
+                <h1>Detail Meja</h1>
+                <p>Informasi lengkap meja No. A01</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="detail-container">
+        <div class="detail-card">
+            <!-- Table Image -->
+            <div class="table-detail-image">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=400&fit=crop"
+                    alt="Meja No. A03">
+                <span class="availability-badge">Tersedia</span>
+            </div>
+
+            <!-- Table Information -->
+            <div class="table-detail-info">
+                <h2 class="table-detail-title">Meja No. A03</h2>
+                <p class="table-detail-description">
+                    Meja outdoor dengan pemandangan taman yang indah. Cocok untuk santai sambil menikmati makanan dengan
+                    suasana alam yang menenangkan.
+                </p>
+
+                <!-- Quick Info -->
+                <div class="quick-info-grid">
+                    <div class="quick-info-item">
+                        <div class="quick-info-icon location-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </div>
+                        <div class="quick-info-content">
+                            <span class="quick-info-label">Lokasi</span>
+                            <span class="quick-info-value">Outdoor</span>
+                        </div>
+                    </div>
+
+                    <div class="quick-info-item">
+                        <div class="quick-info-icon capacity-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M16 11C17.66 11 18.99 9.66 18.99 8C18.99 6.34 17.66 5 16 5C14.34 5 13 6.34 13 8C13 9.66 14.34 11 16 11ZM8 11C9.66 11 10.99 9.66 10.99 8C10.99 6.34 9.66 5 8 5C6.34 5 5 6.34 5 8C5 9.66 6.34 11 8 11ZM8 13C5.67 13 1 14.17 1 16.5V19H15V16.5C15 14.17 10.33 13 8 13ZM16 13C15.71 13 15.38 13.02 15.03 13.05C16.19 13.89 17 15.02 17 16.5V19H23V16.5C23 14.17 18.33 13 16 13Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </div>
+                        <div class="quick-info-content">
+                            <span class="quick-info-label">Kapasitas</span>
+                            <span class="quick-info-value">2 Orang</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Facilities Section -->
+                <div class="facilities-section">
+                    <h3 class="facilities-title">Fasilitas</h3>
+                    <div class="facilities-grid">
+                        <div class="facility-item">
+                            <span class="facility-bullet">•</span>
+                            <span class="facility-text">AC tersedia</span>
+                        </div>
+                        <div class="facility-item">
+                            <span class="facility-bullet">•</span>
+                            <span class="facility-text">View taman yang indah</span>
+                        </div>
+                        <div class="facility-item">
+                            <span class="facility-bullet">•</span>
+                            <span class="facility-text">Dekat dengan area parkir</span>
+                        </div>
+                        <div class="facility-item">
+                            <span class="facility-bullet">•</span>
+                            <span class="facility-text">Akses WiFi cepat</span>
+                        </div>
+                        <div class="facility-item">
+                            <span class="facility-bullet">•</span>
+                            <span class="facility-text">Pencahayaan natural</span>
+                        </div>
+                        <div class="facility-item">
+                            <span class="facility-bullet">•</span>
+                            <span class="facility-text">Suasana romantis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reserve Button -->
+                <button class="reserve-detail-button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M19 4H5C3.89 4 3.01 4.9 3.01 6L3 20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V10H19V20ZM19 8H5V6H19V8ZM9 14H7V12H9V14ZM13 14H11V12H13V14ZM17 14H15V12H17V14ZM9 18H7V16H9V18ZM13 18H11V16H13V18ZM17 18H15V16H17V18Z"
+                            fill="currentColor" />
+                    </svg>
+                    Lakukan Reservasi
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Restoran</h3>
+                <p>Menyajikan cita rasa autentik rasa khas dengan bahan bahan terbaik</p>
+            </div>
+            <div class="footer-section">
+                <h3>Jam Buka</h3>
+                <ul>
+                    <li>Senin - Jumat: 09.00 - 10.00</li>
+                    <li>Sabtu - Minggu: 10.00 - 23.00</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <p>Jl. Simonangkir No. 120, Medan<br>
+                    +62 894-7468-4583<br>
+                    info.email@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Restoran. All right reserved</p>
+        </div>
+    </footer>   
+
+    <script src="../js/reservasi_detail.js"></script>
+</body>
+
+</html>
