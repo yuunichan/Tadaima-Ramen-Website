@@ -11,6 +11,9 @@
     max-width: 900px;
     margin: 0 auto;
 }
+svg {
+    color: var(--primary);
+}   
 
 /* Form Header */
 .form-header {

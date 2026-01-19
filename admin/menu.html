@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Management - Restaurant System</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/adminmenu.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <style>
+      svg {
+        color: var(--primary--dashboard);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="logo-icon">
+            <span>🍴</span>
+          </div>
+          <div class="sidebar-title">
+            <h2>Restaurant System</h2>
+            <p>Data Karyawan</p>
+          </div>
+        </div>
+
+        <div class="admin-profile">
+          <div class="admin-avatar">A</div>
+          <div class="admin-info">
+            <h3>Admin</h3>
+            <p>Administrator</p>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="nav-item">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Dashboard</span>
+          </a>
+          <a href="menu.html" class="nav-item active">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" />
+              <circle cx="6.5" cy="6.5" r="1.5" />
+            </svg>
+            <span>Menu</span>
+          </a>
+          <a href="#" class="nav-item">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>Reservasi</span>
+          </a>
+          <a href="karyawan.html" class="nav-item">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>Karyawan</span>
+          </a>
+          <a href="#" class="nav-item">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Meja</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <a href="#" class="nav-item">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="3"></circle>
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+              ></path>
+            </svg>
+            <span>Settings</span>
+          </a>
+          <a href="#" class="nav-item logout">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+            <span>Log Out</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="dashboard-main">
+        <!-- Form Section (Hidden by default) -->
+        <div class="form-section" id="formSection">
+          <div class="form-header">
+            <div class="form-header-icon">
+              <span>🍽️</span>
+            </div>
+            <div>
+              <h2 id="formTitle">Tambah Menu Baru</h2>
+              <p style="color: #999; margin: 0; font-size: 0.9rem">
+                Tambahkan menu baru ke restoran
+              </p>
+            </div>
+            <button class="btn-back" onclick="showList()">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+              Kembali ke Daftar
+            </button>
+          </div>
+
+          <form id="menuForm" onsubmit="handleSubmit(event)">
+            <div class="form-grid">
+              <!-- Left Column -->
+              <div class="form-left">
+                <!-- Image Upload -->
+                <div class="form-field">
+                  <label>Foto Menu</label>
+                  <div
+                    class="image-upload"
+                    onclick="document.getElementById('imageInput').click()"
+                  >
+                    <div class="image-upload-content" id="uploadContent">
+                      <div class="image-upload-icon">
+                        <svg
+                          class="upload-camera-icon"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path
+                            d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"
+                          ></path>
+                          <circle cx="12" cy="13" r="4"></circle>
+                        </svg>
+                      </div>
+                      <h3>Foto Menu</h3>
+                      <p>Klik icon kamera untuk upload foto menu</p>
+                      <p style="font-size: 0.85rem">
+                        Ukuran rekomendasi: 400x300px, Ukuran maksimal: 2MB
+                      </p>
+                      <p style="font-size: 0.85rem">Format: JPG, PNG</p>
+                    </div>
+                    <img
+                      id="imagePreview"
+                      class="image-preview"
+                      alt="Preview"
+                    />
+                  </div>
+                  <input
+                    type="file"
+                    id="imageInput"
+                    accept="image/jpeg,image/png"
+                    onchange="previewImage(event)"
+                  />
+                </div>
+              </div>
+
+              <!-- Right Column -->
+              <div class="form-right">
+                <!-- Nama Menu -->
+                <div class="form-field">
+                  <label>Nama Menu <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    id="namaMenu"
+                    placeholder="Contoh: Nasi Goreng Spesial"
+                    required
+                  />
+                </div>
+
+                <!-- Kategori -->
+                <div class="form-field">
+                  <label>Kategori <span class="required">*</span></label>
+                  <div class="category-buttons">
+                    <button
+                      type="button"
+                      class="category-btn active"
+                      onclick="selectCategory('Makanan', this)"
+                    >
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <circle cx="12" cy="8" r="7"></circle>
+                        <polyline
+                          points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"
+                        ></polyline>
+                      </svg>
+                      Makanan
+                    </button>
+                    <button
+                      type="button"
+                      class="category-btn minuman"
+                      onclick="selectCategory('Minuman', this)"
+                    >
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                        <path
+                          d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"
+                        ></path>
+                        <line x1="6" y1="1" x2="6" y2="4"></line>
+                        <line x1="10" y1="1" x2="10" y2="4"></line>
+                        <line x1="14" y1="1" x2="14" y2="4"></line>
+                      </svg>
+                      Minuman
+                    </button>
+                  </div>
+                  <input type="hidden" id="kategori" value="Makanan" />
+                </div>
+
+                <!-- Harga dan Stok -->
+                <div
+                  style="
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 1rem;
+                  "
+                >
+                  <div class="form-field">
+                    <label>Harga (Rp) <span class="required">*</span></label>
+                    <input
+                      type="number"
+                      id="harga"
+                      placeholder="35000"
+                      required
+                      min="0"
+                    />
+                  </div>
+                  <div class="form-field">
+                    <label>Jumlah Stok <span class="required">*</span></label>
+                    <input
+                      type="number"
+                      id="stok"
+                      placeholder="50"
+                      required
+                      min="0"
+                    />
+                  </div>
+                </div>
+
+                <!-- Deskripsi -->
+                <div class="form-field">
+                  <label>Deskripsi (Opsional)</label>
+                  <textarea
+                    id="deskripsi"
+                    placeholder="Masukkan deskripsi menu, bahan-bahan, atau catatan khusus..."
+                  ></textarea>
+                </div>
+
+                <!-- Tips Box -->
+                <div class="tips-box">
+                  <div class="tips-box-header">
+                    <div class="tips-icon">💡</div>
+                    <h4>Tips Menambahkan Menu</h4>
+                  </div>
+                  <ul>
+                    <li>Gunakan foto yang jelas dan berkualitas tinggi</li>
+                    <li>Pastikan harga akurat untuk menghindari kebingungan</li>
+                    <li>Update stok secara berkala sesuai ketersediaan</li>
+                    <li>
+                      Tambahkan deskripsi untuk highlight bahan atau metode
+                      memasak khusus
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+              <button type="button" class="btn-cancel" onclick="resetForm()">
+                Batal
+              </button>
+              <button type="submit" class="btn-submit">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
+                  ></path>
+                  <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                  <polyline points="7 3 7 8 15 8"></polyline>
+                </svg>
+                <span id="submitText">Tambah Menu</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- List Section -->
+        <div class="list-section" id="listSection">
+          <!-- Header -->
+          <div class="page-header">
+            <div class="header-content">
+              <h1>Menu Management</h1>
+              <p>Kelola menu makanan dan minuman restoran</p>
+            </div>
+            <button class="btn-add-menu" onclick="showForm()">
+              <span>+</span>
+              <span>Add Menu Item</span>
+            </button>
+          </div>
+
+          <!-- Stats Cards -->
+          <div class="menu-stats">
+            <div class="stat-card-small">
+              <div class="stat-icon-circle red">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <div class="stat-info-small">
+                <span class="stat-label-small">Total Menu</span>
+                <span class="stat-value-small" id="totalMenu">8</span>
+              </div>
+            </div>
+
+            <div class="stat-card-small">
+              <div class="stat-icon-circle yellow">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <div class="stat-info-small">
+                <span class="stat-label-small">Makanan</span>
+                <span class="stat-value-small" id="totalMakanan">4</span>
+              </div>
+            </div>
+
+            <div class="stat-card-small">
+              <div class="stat-icon-circle blue">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <div class="stat-info-small">
+                <span class="stat-label-small">Minuman</span>
+                <span class="stat-value-small" id="totalMinuman">4</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Search and Filter -->
+          <div class="menu-controls">
+            <div class="search-box">
+              <svg
+                class="search-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Cari nama menu..."
+                onkeyup="filterTable()"
+              />
+            </div>
+            <div class="filter-buttons">
+              <button
+                class="filter-btn active"
+                onclick="filterByCategory('all', this)"
+              >
+                Semua
+              </button>
+              <button
+                class="filter-btn"
+                onclick="filterByCategory('Makanan', this)"
+              >
+                Makanan
+              </button>
+              <button
+                class="filter-btn"
+                onclick="filterByCategory('Minuman', this)"
+              >
+                Minuman
+              </button>
+            </div>
+          </div>
+
+          <!-- Menu Table -->
+          <div class="menu-table-wrapper">
+            <table class="menu-table">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Nama Menu</th>
+                  <th>Kategori</th>
+                  <th>Harga</th>
+                  <th>Stock</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="menuTableBody">
+                <!-- Data will be populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="modal-overlay" id="deleteModal">
+      <div class="modal">
+        <div class="modal-header">
+          <div class="modal-header-content">
+            <div class="modal-warning-icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+                ></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <h3>Delete Menu</h3>
+          </div>
+          <button class="modal-close" onclick="closeDeleteModal()">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-icon">
+            <svg
+              class="trash-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path
+                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+              ></path>
+              <line x1="10" y1="11" x2="10" y2="17"></line>
+              <line x1="14" y1="11" x2="14" y2="17"></line>
+            </svg>
+          </div>
+          <h4>Are you sure you want to delete this menu?</h4>
+          <p>
+            This action cannot be undone. All menu data will be permanently
+            removed.
+          </p>
+
+          <div class="menu-info-box">
+            <div class="menu-info-avatar" id="deleteMenuAvatar">N</div>
+            <div class="menu-info-text">
+              <h5 id="deleteMenuName">Nasi Goreng Spesial</h5>
+              <p id="deleteMenuId">ID: 1</p>
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button class="btn-modal-cancel" onclick="closeDeleteModal()">
+              Cancel
+            </button>
+            <button class="btn-modal-delete" onclick="confirmDelete()">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path
+                  d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                ></path>
+              </svg>
+              Delete Menu
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Data menu
+      let menuData = [
+        {
+          id: 1,
+          nama: "Nasi Goreng Spesial",
+          kategori: "Makanan",
+          harga: 35000,
+          stok: 50,
+        },
+        {
+          id: 2,
+          nama: "Mie Goreng",
+          kategori: "Makanan",
+          harga: 30000,
+          stok: 45,
+        },
+        {
+          id: 3,
+          nama: "Ayam Geprek",
+          kategori: "Makanan",
+          harga: 32000,
+          stok: 40,
+        },
+        {
+          id: 4,
+          nama: "Sate Ayam",
+          kategori: "Makanan",
+          harga: 38000,
+          stok: 35,
+        },
+        {
+          id: 5,
+          nama: "Es Teh Manis",
+          kategori: "Minuman",
+          harga: 8000,
+          stok: 100,
+        },
+        {
+          id: 6,
+          nama: "Jus Alpukat",
+          kategori: "Minuman",
+          harga: 15000,
+          stok: 60,
+        },
+        {
+          id: 7,
+          nama: "Kopi Latte",
+          kategori: "Minuman",
+          harga: 18000,
+          stok: 80,
+        },
+        {
+          id: 8,
+          nama: "Smoothie Bowl",
+          kategori: "Minuman",
+          harga: 25000,
+          stok: 30,
+        },
+      ];
+
+      let editingId = null;
+      let deleteId = null;
+      let currentFilter = "all";
+
+      // Initialize
+      document.addEventListener("DOMContentLoaded", function () {
+        renderTable();
+        updateStats();
+      });
+
+      // Show/Hide Form
+      function showForm() {
+        document.getElementById("formSection").classList.add("active");
+        document.getElementById("listSection").classList.add("hidden");
+        document.getElementById("formTitle").textContent = "Tambah Menu Baru";
+        document.getElementById("submitText").textContent = "Tambah Menu";
+      }
+
+      function showList() {
+        document.getElementById("formSection").classList.remove("active");
+        document.getElementById("listSection").classList.remove("hidden");
+        resetForm();
+      }
+
+      // Category Selection
+      function selectCategory(category, button) {
+        const buttons = document.querySelectorAll(".category-btn");
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+        document.getElementById("kategori").value = category;
+      }
+
+      // Image Preview
+      function previewImage(event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            document.getElementById("imagePreview").src = e.target.result;
+            document.getElementById("imagePreview").classList.add("show");
+            document.getElementById("uploadContent").style.display = "none";
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+
+      // Form Submit
+      function handleSubmit(event) {
+        event.preventDefault();
+
+        const menu = {
+          nama: document.getElementById("namaMenu").value,
+          kategori: document.getElementById("kategori").value,
+          harga: parseInt(document.getElementById("harga").value),
+          stok: parseInt(document.getElementById("stok").value),
+          deskripsi: document.getElementById("deskripsi").value,
+        };
+
+        if (editingId) {
+          // Update
+          const index = menuData.findIndex((m) => m.id === editingId);
+          menuData[index] = { ...menuData[index], ...menu };
+          alert("Menu berhasil diupdate!");
+          editingId = null;
+        } else {
+          // Create
+          menu.id =
+            menuData.length > 0
+              ? Math.max(...menuData.map((m) => m.id)) + 1
+              : 1;
+          menuData.push(menu);
+          alert("Menu berhasil ditambahkan!");
+        }
+
+        renderTable();
+        updateStats();
+        showList();
+      }
+
+      // Reset Form
+      function resetForm() {
+        document.getElementById("menuForm").reset();
+        document.getElementById("imagePreview").classList.remove("show");
+        document.getElementById("uploadContent").style.display = "flex";
+        document.getElementById("kategori").value = "Makanan";
+        editingId = null;
+
+        const buttons = document.querySelectorAll(".category-btn");
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        buttons[0].classList.add("active");
+      }
+
+      // Edit Menu
+      function editMenu(id) {
+        const menu = menuData.find((m) => m.id === id);
+        if (!menu) return;
+
+        editingId = id;
+        document.getElementById("namaMenu").value = menu.nama;
+        document.getElementById("harga").value = menu.harga;
+        document.getElementById("stok").value = menu.stok;
+        document.getElementById("deskripsi").value = menu.deskripsi || "";
+        document.getElementById("kategori").value = menu.kategori;
+
+        const buttons = document.querySelectorAll(".category-btn");
+        buttons.forEach((btn) => {
+          btn.classList.remove("active");
+          if (btn.textContent.trim() === menu.kategori) {
+            btn.classList.add("active");
+          }
+        });
+
+        document.getElementById("formTitle").textContent = "Edit Menu";
+        document.getElementById("submitText").textContent = "Simpan Menu";
+        showForm();
+      }
+
+      // Delete Menu
+      function deleteMenu(id) {
+        const menu = menuData.find((m) => m.id === id);
+        if (!menu) return;
+
+        deleteId = id;
+        document.getElementById("deleteMenuName").textContent = menu.nama;
+        document.getElementById("deleteMenuId").textContent = `ID: ${id}`;
+        document.getElementById("deleteMenuAvatar").textContent = menu.nama
+          .charAt(0)
+          .toUpperCase();
+        document.getElementById("deleteModal").classList.add("active");
+      }
+
+      function closeDeleteModal() {
+        document.getElementById("deleteModal").classList.remove("active");
+        deleteId = null;
+      }
+
+      function confirmDelete() {
+        if (deleteId) {
+          menuData = menuData.filter((m) => m.id !== deleteId);
+          renderTable();
+          updateStats();
+          closeDeleteModal();
+          alert("Menu berhasil dihapus!");
+        }
+      }
+
+      // Render Table
+      function renderTable() {
+        const tbody = document.getElementById("menuTableBody");
+        const searchTerm = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+
+        let filteredData = menuData.filter((menu) => {
+          const matchesSearch = menu.nama.toLowerCase().includes(searchTerm);
+          const matchesCategory =
+            currentFilter === "all" || menu.kategori === currentFilter;
+          return matchesSearch && matchesCategory;
+        });
+
+        tbody.innerHTML = "";
+
+        if (filteredData.length === 0) {
+          tbody.innerHTML =
+            '<tr><td colspan="6" style="text-align: center; padding: 2rem; color: #999;">Tidak ada menu yang sesuai</td></tr>';
+          return;
+        }
+
+        filteredData.forEach((menu, index) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 0.8rem;">
+                            <div class="menu-avatar" style="width: 36px; height: 36px; background: linear-gradient(135deg, #ff6a00, #ff8533); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                ${menu.nama.charAt(0).toUpperCase()}
+                            </div>
+                            <span>${menu.nama}</span>
+                        </div>
+                    </td>
+                    <td><span class="kategori-badge ${menu.kategori === "Makanan" ? "makanan" : "minuman"}">${menu.kategori}</span></td>
+                    <td>Rp ${menu.harga.toLocaleString("id-ID")}</td>
+                    <td><span class="stok-badge ${menu.stok > 0 ? "tersedia" : "habis"}">${menu.stok} pcs</span></td>
+                    <td>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn-action btn-edit" onclick="editMenu(${menu.id})" title="Edit">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                </svg>
+                            </button>
+                            <button class="btn-action btn-delete" onclick="deleteMenu(${menu.id})" title="Delete">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </td>
+                `;
+          tbody.appendChild(row);
+        });
+      }
+
+      // Filter Table
+      function filterTable() {
+        renderTable();
+      }
+
+      // Filter by Category
+      function filterByCategory(category, button) {
+        currentFilter = category;
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        filterBtns.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+        renderTable();
+      }
+
+      // Update Stats
+      function updateStats() {
+        const totalMenu = menuData.length;
+        const totalMakanan = menuData.filter(
+          (m) => m.kategori === "Makanan",
+        ).length;
+        const totalMinuman = menuData.filter(
+          (m) => m.kategori === "Minuman",
+        ).length;
+
+        document.getElementById("totalMenu").textContent = totalMenu;
+        document.getElementById("totalMakanan").textContent = totalMakanan;
+        document.getElementById("totalMinuman").textContent = totalMinuman;
+      }
+    </script>
+  </body>
+</html>

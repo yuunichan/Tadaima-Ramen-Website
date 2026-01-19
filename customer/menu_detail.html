@@ -1,130 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sate Taichan - Detail Menu - Restoran</title>
-    <link rel="stylesheet" href="../css/menu_detail.css">
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
+    <link rel="stylesheet" href="../css/menu_detail.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
 
-<body>
+  <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">
-            <div class="logo-icon">
-                <img src="images/logo.jpg" alt="Logo">
-            </div>
-            <span>Tadaima Balige Restaurant</span>
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="../images/logo.jpg" alt="Logo" />
         </div>
-        <ul class="nav-menu">
-            <li><a href="../beranda.html">Beranda</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="reservasi.html">Reservasi</a></li>
-            <li><a href="about.html">Tentang Kami</a></li>
-            <li><a href="keranjang.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                        class="bi bi-cart" viewBox="0 0 16 16">
-                        <path
-                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                    </svg>
-                </a>
-            </li>
-            <li><a href="../login_page.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                        class="bi bi-person-fill" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                    </svg>
-                </a>
-            </li>
-        </ul>
+        <span>Tadaima Balige Restaurant</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="../beranda.html">Beranda</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="reservasi.html">Reservasi</a></li>
+        <li><a href="about.html">Tentang Kami</a></li>
+        <li>
+          <a href="keranjang.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="currentColor"
+              class="bi bi-cart"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="../login_page.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="currentColor"
+              class="bi bi-person-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
     </nav>
 
     <!-- Menu Detail Section -->
     <section class="menu-detail-section">
-        <div class="menu-detail-container">
-            <!-- Product Image -->
-            <div class="menu-detail-image-wrapper">
-                <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600&h=600&fit=crop"
-                    alt="Sate Taichan" class="menu-detail-image">
-            </div>
-
-            <!-- Product Info -->
-            <div class="menu-detail-info">
-                <!-- Category -->
-                <div class="menu-category">
-                    <span>Kategori</span>
-                    <span>Makanan</span>
-                </div>
-
-                <!-- Title -->
-                <h1 class="menu-detail-title">Sate Taichan</h1>
-
-                <!-- Description -->
-                <p class="menu-detail-description">
-                    Sate Taichan asli dengan potongan daging ayam pilihan yang diolah tanpa bumbu kacang,
-                    menghasilkan rasa gurih alami yang clean.
-                </p>
-
-                <!-- Price -->
-                <div class="menu-detail-price">Rp 15.000</div>
-
-                <!-- Notes Section -->
-                <div class="menu-notes-section">
-                    <label for="notes">Catatan</label>
-                    <textarea id="notes" class="menu-notes-input" rows="4" placeholder="Tambah Catatan..."></textarea>
-                </div>
-
-                <!-- Add to Cart Button -->
-                <button class="add-to-cart-btn" onclick="addToCart()">
-                    <span class="cart-icon-btn"><img src="images/icons/shopping-cart.svg" alt="cart"></span>
-                    <span>Add to Cart</span>
-                </button>
-            </div>
+      <div class="menu-detail-container">
+        <!-- Product Image -->
+        <div class="menu-detail-image-wrapper">
+          <img
+            src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600&h=600&fit=crop"
+            alt="Sate Taichan"
+            class="menu-detail-image"
+          />
         </div>
+
+        <!-- Product Info -->
+        <div class="menu-detail-info">
+          <!-- Category -->
+          <div class="menu-category">
+            <span>Kategori</span>
+            <span>Makanan</span>
+          </div>
+
+          <!-- Title -->
+          <h1 class="menu-detail-title">Sate Taichan</h1>
+
+          <!-- Description -->
+          <p class="menu-detail-description">
+            Sate Taichan asli dengan potongan daging ayam pilihan yang diolah
+            tanpa bumbu kacang, menghasilkan rasa gurih alami yang clean.
+          </p>
+
+          <!-- Price -->
+          <div class="menu-detail-price">Rp 15.000</div>
+
+          <!-- Notes Section -->
+          <div class="menu-notes-section">
+            <label for="notes">Catatan</label>
+            <textarea
+              id="notes"
+              class="menu-notes-input"
+              rows="4"
+              placeholder="Tambah Catatan..."
+            ></textarea>
+          </div>
+
+          <!-- Add to Cart Button -->
+          <button class="add-to-cart-btn" onclick="addToCart()">
+            <span class="cart-icon-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="currentColor"
+                class="bi bi-cart"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                />
+              </svg>
+            </span>
+            <span>Add to Cart</span>
+          </button>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Restoran</h3>
-                <p>Menyajikan cita rasa autentik rasa khas dengan bahan bahan terbaik</p>
-            </div>
-            <div class="footer-section">
-                <h3>Jam Buka</h3>
-                <ul>
-                    <li>Senin - Jumat: 09.00 - 10.00</li>
-                    <li>Sabtu - Minggu: 10.00 - 23.00</li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Kontak</h3>
-                <p>Jl. Simonangkir No. 120, Medan<br>
-                    +62 894-7468-4583<br>
-                    info.email@gmail.com</p>
-            </div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Restoran</h3>
+          <p>
+            Menyajikan cita rasa autentik rasa khas dengan bahan bahan terbaik
+          </p>
         </div>
-        <div class="footer-bottom">
-            <p>© 2025 Restoran. All right reserved</p>
+        <div class="footer-section">
+          <h3>Jam Buka</h3>
+          <ul>
+            <li>Senin - Jumat: 09.00 - 10.00</li>
+            <li>Sabtu - Minggu: 10.00 - 23.00</li>
+          </ul>
         </div>
+        <div class="footer-section">
+          <h3>Kontak</h3>
+          <p>
+            Jl. Simonangkir No. 120, Medan<br />
+            +62 894-7468-4583<br />
+            info.email@gmail.com
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Restoran. All right reserved</p>
+      </div>
     </footer>
 
     <script>
-        function addToCart() {
-            const notes = document.getElementById('notes').value;
+      function addToCart() {
+        const notes = document.getElementById("notes").value;
 
-            if (notes.trim()) {
-                alert(`Sate Taichan berhasil ditambahkan ke keranjang!\n\nCatatan: ${notes}`);
-            } else {
-                alert('Sate Taichan berhasil ditambahkan ke keranjang!');
-            }
-
-            // Di sini bisa tambahkan logika untuk menyimpan ke cart
-            // Misalnya: saveToCart('Sate Taichan', 15000, notes);
+        if (notes.trim()) {
+          alert(
+            `Sate Taichan berhasil ditambahkan ke keranjang!\n\nCatatan: ${notes}`,
+          );
+        } else {
+          alert("Sate Taichan berhasil ditambahkan ke keranjang!");
         }
-    </script>
-</body>
 
+        // Di sini bisa tambahkan logika untuk menyimpan ke cart
+        // Misalnya: saveToCart('Sate Taichan', 15000, notes);
+      }
+    </script>
+  </body>
 </html>

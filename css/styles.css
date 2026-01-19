@@ -2,11 +2,11 @@
 
 /* Root Variables - Using second CSS file colors */
 :root {
-    --primary: #ff6a00;
-    --primary-dark: #E64A19;
+    --primary: #9C0000;
+    --primary-dark: #440000;
     --primary-contrast: #ffffff;
-    --muted: #FF8A65;
-    --accent: #D84315;
+    --muted: #cf0202;
+    --accent: #4e0808;
     --bg: #FFF3E0;
     --text: #333;
     --card-bg: #ffffff;
@@ -21,6 +21,7 @@
     margin: 0;
     padding: 0;
 }
+
 
 html,
 body {
