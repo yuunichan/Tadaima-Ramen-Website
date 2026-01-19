@@ -48,6 +48,7 @@ let editingEmployeeId = null;
 let currentPhotoData = null;
 
 // DOM Elements
+console.log('Initializing DOM elements...');
 const employeeGrid = document.getElementById('employeeGrid');
 const employeeModal = document.getElementById('employeeModal');
 const deleteModal = document.getElementById('deleteModal');
@@ -56,6 +57,10 @@ const employeeForm = document.getElementById('employeeForm');
 const searchInput = document.getElementById('searchInput');
 const statusFilter = document.getElementById('statusFilter');
 
+console.log('employeeGrid:', employeeGrid);
+console.log('employeeModal:', employeeModal);
+console.log('employeeForm:', employeeForm);
+
 // Modal Controls
 const btnAddEmployee = document.getElementById('btnAddEmployee');
 const closeModal = document.getElementById('closeModal');
@@ -63,6 +68,8 @@ const btnCancel = document.getElementById('btnCancel');
 const closeDeleteModal = document.getElementById('closeDeleteModal');
 const btnCancelDelete = document.getElementById('btnCancelDelete');
 const closeViewModal = document.getElementById('closeViewModal');
+
+console.log('btnAddEmployee:', btnAddEmployee);
 
 // Photo Upload
 const photoInput = document.getElementById('photoInput');
@@ -75,6 +82,7 @@ const employmentStatus = document.getElementById('employmentStatus');
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing...');
     renderEmployees();
     updateStatistics();
     setupEventListeners();
@@ -82,13 +90,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Setup Event Listeners
 function setupEventListeners() {
+    console.log('Setting up event listeners...');
+    console.log('btnAddEmployee element:', btnAddEmployee);
+    
     // Modal controls
-    btnAddEmployee.addEventListener('click', openAddModal);
-    closeModal.addEventListener('click', closeEmployeeModal);
-    btnCancel.addEventListener('click', closeEmployeeModal);
-    closeDeleteModal.addEventListener('click', closeDeleteModalFunc);
-    btnCancelDelete.addEventListener('click', closeDeleteModalFunc);
-    closeViewModal.addEventListener('click', closeViewModalFunc);
+    if (btnAddEmployee) {
+        btnAddEmployee.addEventListener('click', function(e) {
+            console.log('Add Employee button clicked');
+            e.preventDefault();
+            openAddModal();
+        });
+    }
+    
+    if (closeModal) {
+        closeModal.addEventListener('click', closeEmployeeModal);
+    }
+    
+    if (btnCancel) {
+        btnCancel.addEventListener('click', closeEmployeeModal);
+    }
+    
+    if (closeDeleteModal) {
+        closeDeleteModal.addEventListener('click', closeDeleteModalFunc);
+    }
+    
+    if (btnCancelDelete) {
+        btnCancelDelete.addEventListener('click', closeDeleteModalFunc);
+    }
+    
+    if (closeViewModal) {
+        closeViewModal.addEventListener('click', closeViewModalFunc);
+    }
 
     // Form submission
     employeeForm.addEventListener('submit', handleFormSubmit);
@@ -215,30 +247,42 @@ function createEmployeeCard(employee) {
 }
 
 // Open Add Modal
-function openAddModal() {
+window.openAddModal = function() {
+    console.log('openAddModal called');
+    console.log('employeeModal element:', employeeModal);
+    
     editingEmployeeId = null;
     currentPhotoData = null;
     
-    document.getElementById('modalTitle').textContent = 'Add New Employee';
-    document.getElementById('modalSubtitle').textContent = 'Add new team member to the system';
-    document.getElementById('formTitle').textContent = 'Add New Employee';
-    document.getElementById('btnSubmit').innerHTML = '<span>💾</span> Save Employee';
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSubtitle = document.getElementById('modalSubtitle');
+    const formTitle = document.getElementById('formTitle');
+    const btnSubmit = document.getElementById('btnSubmit');
+    const employeeIdInput = document.getElementById('employeeId');
+    
+    if (modalTitle) modalTitle.textContent = 'Add New Employee';
+    if (modalSubtitle) modalSubtitle.textContent = 'Add new team member to the system';
+    if (formTitle) formTitle.textContent = 'Add New Employee';
+    if (btnSubmit) btnSubmit.innerHTML = '<span>💾</span> Save Employee';
     
     // Generate new employee ID
     const nextId = String(employees.length + 1).padStart(3, '0');
-    document.getElementById('employeeId').value = `EMP-2025-${nextId}`;
+    if (employeeIdInput) employeeIdInput.value = `EMP-2025-${nextId}`;
     
     // Reset form
-    employeeForm.reset();
-    photoPreview.innerHTML = '<span class="user-icon">👤</span>';
+    if (employeeForm) employeeForm.reset();
+    if (photoPreview) photoPreview.innerHTML = '<span class="user-icon">👤</span>';
     
     // Reset status to active
     statusButtons.forEach(b => b.classList.remove('active'));
-    statusButtons[0].classList.add('active');
-    employmentStatus.value = 'active';
+    if (statusButtons[0]) statusButtons[0].classList.add('active');
+    if (employmentStatus) employmentStatus.value = 'active';
     
-    employeeModal.classList.add('active');
-}
+    if (employeeModal) {
+        console.log('Adding active class to modal');
+        employeeModal.classList.add('active');
+    }
+};
 
 // Edit Employee
 window.editEmployee = function(employeeId) {
@@ -443,19 +487,33 @@ function deleteEmployee(employeeId) {
 }
 
 // Close Modals
-function closeEmployeeModal() {
-    employeeModal.classList.remove('active');
-    employeeForm.reset();
+window.closeEmployeeModal = function() {
+    console.log('closeEmployeeModal called');
+    if (employeeModal) {
+        employeeModal.classList.remove('active');
+    }
+    if (employeeForm) {
+        employeeForm.reset();
+    }
     editingEmployeeId = null;
     currentPhotoData = null;
-}
+};
 
 function closeDeleteModalFunc() {
-    deleteModal.classList.remove('active');
+    console.log('closeDeleteModalFunc called');
+    if (deleteModal) {
+        deleteModal.classList.remove('active');
+    }
 }
 
+// Export as window function
+window.closeDeleteModalFunc = closeDeleteModalFunc;
+
 window.closeViewModalFunc = function() {
-    viewModal.classList.remove('active');
+    console.log('closeViewModalFunc called');
+    if (viewModal) {
+        viewModal.classList.remove('active');
+    }
 };
 
 // Filter Employees

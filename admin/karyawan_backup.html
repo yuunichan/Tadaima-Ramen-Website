@@ -59,7 +59,7 @@
             </svg>
             <span>Menu</span>
           </a>
-          <a href="reservasi.html" class="nav-item">
+          <a href="#" class="nav-item">
             <svg
               class="nav-icon"
               viewBox="0 0 24 24"
@@ -120,7 +120,7 @@
             </svg>
             <span>Settings</span>
           </a>
-          <a href="#" class="nav-item logout" onclick="openLogoutModal(event)">
+          <a href="#" class="nav-item logout">
             <svg
               class="nav-icon"
               viewBox="0 0 24 24"
@@ -149,7 +149,7 @@
             <button
               class="btn-add-employee"
               id="btnAddEmployee"
-              onclick="openAddModal()"
+              onclick="openAddModalTest()"
             >
               <span>👤</span>
               Add Employee
@@ -242,7 +242,7 @@
             class="modal-close"
             id="closeModal"
             type="button"
-            onclick="closeEmployeeModal()"
+            onclick="closeEmployeeModalTest()"
           >
             &times;
           </button>
@@ -380,7 +380,7 @@
                 type="button"
                 class="btn-cancel"
                 id="btnCancel"
-                onclick="closeEmployeeModal()"
+                onclick="closeEmployeeModalTest()"
               >
                 Cancel
               </button>
@@ -402,14 +402,7 @@
             <span class="delete-icon">⚠️</span>
             <h3>Delete Employee</h3>
           </div>
-          <button
-            class="modal-close"
-            id="closeDeleteModal"
-            type="button"
-            onclick="closeDeleteModalFunc()"
-          >
-            &times;
-          </button>
+          <button class="modal-close" id="closeDeleteModal">&times;</button>
         </div>
         <div class="modal-body">
           <div class="delete-content">
@@ -427,12 +420,7 @@
             </div>
 
             <div class="delete-actions">
-              <button
-                type="button"
-                class="btn-cancel"
-                id="btnCancelDelete"
-                onclick="closeDeleteModalFunc()"
-              >
+              <button type="button" class="btn-cancel" id="btnCancelDelete">
                 Cancel
               </button>
               <button type="button" class="btn-delete" id="btnConfirmDelete">
@@ -453,14 +441,7 @@
             <h2 class="modal-title">Employee Details</h2>
             <p class="modal-subtitle">View employee information</p>
           </div>
-          <button
-            class="modal-close"
-            id="closeViewModal"
-            type="button"
-            onclick="closeViewModalFunc()"
-          >
-            &times;
-          </button>
+          <button class="modal-close" id="closeViewModal">&times;</button>
         </div>
         <div class="modal-body">
           <div class="employee-detail-view" id="employeeDetailView">
@@ -470,42 +451,27 @@
       </div>
     </div>
 
+    <script>
+      // Simple test functions
+      function openAddModalTest() {
+        console.log("openAddModalTest called");
+        const modal = document.getElementById("employeeModal");
+        if (modal) {
+          console.log("Adding active class");
+          modal.classList.add("active");
+        } else {
+          console.log("Modal not found!");
+        }
+      }
+
+      function closeEmployeeModalTest() {
+        console.log("closeEmployeeModalTest called");
+        const modal = document.getElementById("employeeModal");
+        if (modal) {
+          modal.classList.remove("active");
+        }
+      }
+    </script>
     <script src="../js/karyawan.js"></script>
-
-    <!-- Logout Modal -->
-    <div id="logoutModal" class="logout-modal">
-      <div class="logout-modal-content">
-        <div class="logout-modal-header">
-          <h2>Konfirmasi Logout</h2>
-          <button class="logout-modal-close" onclick="closeLogoutModal()">
-            &times;
-          </button>
-        </div>
-        <div class="logout-modal-body">
-          <svg
-            class="logout-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="8" x2="12" y2="12"></line>
-            <line x1="12" y1="16" x2="12.01" y2="16"></line>
-          </svg>
-          <p class="logout-modal-text">
-            Apakah Anda yakin ingin keluar dari sistem?
-          </p>
-        </div>
-        <div class="logout-modal-footer">
-          <button class="btn-cancel" onclick="closeLogoutModal()">Batal</button>
-          <button class="btn-logout" onclick="confirmLogout()">
-            Ya, Logout
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <script src="../js/logout.js"></script>
   </body>
 </html>

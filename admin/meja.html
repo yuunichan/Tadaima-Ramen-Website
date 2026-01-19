@@ -82,7 +82,7 @@
                     </svg>
                     <span>Settings</span>
                 </a>
-                <a href="#" class="nav-item logout">
+                <a href="#" class="nav-item logout" onclick="openLogoutModal(event)">
                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
                         <polyline points="16 17 21 12 16 7"></polyline>
@@ -282,5 +282,29 @@
     </div>
 
     <script src="../js/meja.js"></script>
+
+    <!-- Logout Modal -->
+    <div id="logoutModal" class="logout-modal">
+        <div class="logout-modal-content">
+            <div class="logout-modal-header">
+                <h2>Konfirmasi Logout</h2>
+                <button class="logout-modal-close" onclick="closeLogoutModal()">&times;</button>
+            </div>
+            <div class="logout-modal-body">
+                <svg class="logout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <p class="logout-modal-text">Apakah Anda yakin ingin keluar dari sistem?</p>
+            </div>
+            <div class="logout-modal-footer">
+                <button class="btn-cancel" onclick="closeLogoutModal()">Batal</button>
+                <button class="btn-logout" onclick="confirmLogout()">Ya, Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/logout.js"></script>
 </body>
 </html>

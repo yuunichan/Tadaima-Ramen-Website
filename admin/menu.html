@@ -64,7 +64,7 @@
             </svg>
             <span>Menu</span>
           </a>
-          <a href="#" class="nav-item">
+          <a href="reservasi.html" class="nav-item">
             <svg
               class="nav-icon"
               viewBox="0 0 24 24"
@@ -92,9 +92,10 @@
               <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
               <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
+            
             <span>Karyawan</span>
           </a>
-          <a href="#" class="nav-item">
+          <a href="meja.html" class="nav-item">
             <svg
               class="nav-icon"
               viewBox="0 0 24 24"
@@ -125,7 +126,7 @@
             </svg>
             <span>Settings</span>
           </a>
-          <a href="#" class="nav-item logout">
+          <a href="#" class="nav-item logout" onclick="openLogoutModal(event)">
             <svg
               class="nav-icon"
               viewBox="0 0 24 24"
@@ -880,5 +881,41 @@
         document.getElementById("totalMinuman").textContent = totalMinuman;
       }
     </script>
+
+    <!-- Logout Modal -->
+    <div id="logoutModal" class="logout-modal">
+      <div class="logout-modal-content">
+        <div class="logout-modal-header">
+          <h2>Konfirmasi Logout</h2>
+          <button class="logout-modal-close" onclick="closeLogoutModal()">
+            &times;
+          </button>
+        </div>
+        <div class="logout-modal-body">
+          <svg
+            class="logout-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <p class="logout-modal-text">
+            Apakah Anda yakin ingin keluar dari sistem?
+          </p>
+        </div>
+        <div class="logout-modal-footer">
+          <button class="btn-cancel" onclick="closeLogoutModal()">Batal</button>
+          <button class="btn-logout" onclick="confirmLogout()">
+            Ya, Logout
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/logout.js"></script>
   </body>
 </html>

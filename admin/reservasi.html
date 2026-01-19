@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Employee Management - Restaurant System</title>
+    <title>Reservasi Management - Restaurant System</title>
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/dashboard.css" />
-    <link rel="stylesheet" href="../css/adminkaryawan.css" />
+    <link rel="stylesheet" href="../css/adminreservasi.css" />
   </head>
   <body>
     <div class="dashboard-layout">
@@ -18,7 +18,7 @@
           </div>
           <div class="sidebar-title">
             <h2>Restaurant System</h2>
-            <p>Data Karyawan</p>
+            <p>Data Reservasi</p>
           </div>
         </div>
 
@@ -59,7 +59,7 @@
             </svg>
             <span>Menu</span>
           </a>
-          <a href="reservasi.html" class="nav-item">
+          <a href="reservasi.html" class="nav-item active">
             <svg
               class="nav-icon"
               viewBox="0 0 24 24"
@@ -74,7 +74,7 @@
             </svg>
             <span>Reservasi</span>
           </a>
-          <a href="karyawan.html" class="nav-item active">
+          <a href="karyawan.html" class="nav-item">
             <svg
               class="nav-icon"
               viewBox="0 0 24 24"
@@ -142,18 +142,18 @@
         <!-- Header -->
         <header class="dashboard-header">
           <div class="header-left">
-            <h1>Employee Management</h1>
-            <p>Manage your team and update profile</p>
+            <h1>Reservasi Management</h1>
+            <p>Manage customer reservations and bookings</p>
           </div>
           <div class="header-right">
-            <button
-              class="btn-add-employee"
-              id="btnAddEmployee"
-              onclick="openAddModal()"
+            <!-- <button
+              class="btn-add-reservasi"
+              id="btnAddReservasi"
+              onclick="openAddReservasi()"
             >
-              <span>👤</span>
-              Add Employee
-            </button>
+              <span>📅</span>
+              Add Reservation
+            </button> -->
           </div>
         </header>
 
@@ -163,40 +163,40 @@
             <div class="stat-content">
               <div class="stat-label">
                 <span>Total</span>
-                <span>Employee</span>
+                <span>Reservations</span>
               </div>
               <h2>
-                <span id="totalEmployees">24</span>
-                <span class="stat-sublabel">Employee</span>
+                <span id="totalReservations">12</span>
+                <span class="stat-sublabel">Booking</span>
               </h2>
             </div>
-            <div class="stat-icon red">👥</div>
+            <div class="stat-icon red">📅</div>
           </div>
           <div class="stat-card">
             <div class="stat-content">
               <div class="stat-label">
-                <span>Employee</span>
-                <span>Leave</span>
+                <span>Today</span>
+                <span>Reservations</span>
               </div>
               <h2>
-                <span id="employeesLeave">12</span>
-                <span class="stat-sublabel">Employee</span>
+                <span id="todayReservations">3</span>
+                <span class="stat-sublabel">Booking</span>
               </h2>
             </div>
-            <div class="stat-icon yellow">📤</div>
+            <div class="stat-icon yellow">👥</div>
           </div>
           <div class="stat-card">
             <div class="stat-content">
               <div class="stat-label">
-                <span>New this</span>
-                <span>Month</span>
+                <span>Pending</span>
+                <span>Confirmation</span>
               </div>
               <h2>
-                <span id="newEmployees">24</span>
-                <span class="stat-sublabel">Employee</span>
+                <span id="pendingReservations">5</span>
+                <span class="stat-sublabel">Booking</span>
               </h2>
             </div>
-            <div class="stat-icon blue">👤</div>
+            <div class="stat-icon blue">⏳</div>
           </div>
         </div>
 
@@ -207,14 +207,16 @@
             <input
               type="text"
               id="searchInput"
-              placeholder="Search employees by name..."
+              placeholder="Search reservations by name or ID..."
             />
           </div>
           <div class="toolbar-actions">
             <select class="filter-select" id="statusFilter">
               <option value="">All Status</option>
-              <option value="active">Active</option>
-              <option value="inactive">Inactive</option>
+              <option value="pending">Pending</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="completed">Completed</option>
+              <option value="cancelled">Cancelled</option>
             </select>
             <button class="btn-export">
               <span>⬇️</span>
@@ -223,82 +225,74 @@
           </div>
         </div>
 
-        <!-- Employee Grid -->
-        <div class="employee-grid" id="employeeGrid">
-          <!-- Employee cards will be inserted here by JavaScript -->
+        <!-- Reservations Table -->
+        <div class="reservasi-container">
+          <table class="reservasi-table" id="reservasiTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Customer Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Date & Time</th>
+                <th>Guests</th>
+                <th>Table</th>
+                <th>Status</th>
+                <th>Notes</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="reservasiTableBody">
+              <!-- Table rows will be inserted here by JavaScript -->
+            </tbody>
+          </table>
         </div>
       </main>
     </div>
-    <div class="modal" id="employeeModal">
+
+    <!-- Modal for Add/Edit Reservasi -->
+    <div class="modal" id="reservasiModal">
       <div class="modal-content">
         <div class="modal-header">
           <div>
-            <h2 class="modal-title" id="modalTitle">Add New Employee</h2>
+            <h2 class="modal-title" id="modalTitle">Add New Reservation</h2>
             <p class="modal-subtitle" id="modalSubtitle">
-              Add new team member to the system
+              Create a new customer reservation
             </p>
           </div>
           <button
             class="modal-close"
             id="closeModal"
             type="button"
-            onclick="closeEmployeeModal()"
+            onclick="closeReservasiModal()"
           >
             &times;
           </button>
         </div>
 
-        <div class="modal-body">
-          <div class="employee-form-header">
-            <span class="form-icon">👤</span>
-            <h3 id="formTitle">Add New Employee</h3>
-          </div>
-
-          <form id="employeeForm">
-            <div class="photo-upload">
-              <div class="photo-preview" id="photoPreview">
-                <span class="user-icon">👤</span>
-              </div>
-              <div class="photo-upload-info">
-                <p class="photo-label">Employee Photo</p>
-                <p class="photo-hint">Click camera icon to upload photo</p>
-                <input
-                  type="file"
-                  id="photoInput"
-                  accept="image/*"
-                  style="display: none"
-                />
-                <button
-                  type="button"
-                  class="photo-upload-btn"
-                  id="photoUploadBtn"
-                >
-                  📷
-                </button>
-              </div>
-            </div>
-
+        
             <div class="form-row">
               <div class="form-group">
-                <label>Employee ID <span class="required">*</span></label>
+                <label>Date & Time <span class="required">*</span></label>
                 <div class="input-with-icon">
-                  <span class="input-icon">🆔</span>
+                  <span class="input-icon">📅</span>
                   <input
-                    type="text"
-                    id="employeeId"
-                    placeholder="EMP-2025-001"
+                    type="datetime-local"
+                    id="reservationDateTime"
                     required
                   />
                 </div>
               </div>
               <div class="form-group">
-                <label>Full Name <span class="required">*</span></label>
+                <label>Number of Guests <span class="required">*</span></label>
                 <div class="input-with-icon">
-                  <span class="input-icon">👤</span>
+                  <span class="input-icon">👥</span>
                   <input
-                    type="text"
-                    id="fullName"
-                    placeholder="Enter full name"
+                    type="number"
+                    id="numberOfGuests"
+                    placeholder="2"
+                    min="1"
+                    max="20"
                     required
                   />
                 </div>
@@ -307,71 +301,42 @@
 
             <div class="form-row">
               <div class="form-group">
-                <label>Phone Number <span class="required">*</span></label>
+                <label>Table <span class="required">*</span></label>
                 <div class="input-with-icon">
-                  <span class="input-icon">📱</span>
-                  <input
-                    type="tel"
-                    id="phoneNumber"
-                    placeholder="+6281234567890"
-                    required
-                  />
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Email Address <span class="required">*</span></label>
-                <div class="input-with-icon">
-                  <span class="input-icon">📧</span>
-                  <input
-                    type="email"
-                    id="emailAddress"
-                    placeholder="email@example.com"
-                    required
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label
-                  >Position / Job Title <span class="required">*</span></label
-                >
-                <div class="input-with-icon">
-                  <span class="input-icon">💼</span>
-                  <select id="position" required>
-                    <option value="">Select Position</option>
-                    <option value="Restaurant Manager">
-                      Restaurant Manager
-                    </option>
-                    <option value="Head Chef">Head Chef</option>
-                    <option value="Sous Chef">Sous Chef</option>
-                    <option value="Waiter/Waitress">Waiter/Waitress</option>
-                    <option value="Cashier">Cashier</option>
+                  <span class="input-icon">🪑</span>
+                  <select id="tableSelect" required>
+                    <option value="">Select Table</option>
+                    <option value="Table 1">Table 1</option>
+                    <option value="Table 2">Table 2</option>
+                    <option value="Table 3">Table 3</option>
+                    <option value="Table 4">Table 4</option>
+                    <option value="Table 5">Table 5</option>
                   </select>
                 </div>
               </div>
               <div class="form-group">
-                <label>Employment Status <span class="required">*</span></label>
-                <div class="status-toggle">
-                  <button
-                    type="button"
-                    class="status-btn active"
-                    data-status="active"
-                  >
-                    <span class="status-dot"></span>
-                    Active
-                  </button>
-                  <button
-                    type="button"
-                    class="status-btn"
-                    data-status="inactive"
-                  >
-                    <span class="status-dot"></span>
-                    Inactive
-                  </button>
+                <label>Status <span class="required">*</span></label>
+                <div class="input-with-icon">
+                  <span class="input-icon">⏱️</span>
+                  <select id="statusSelect" required>
+                    <option value="pending">Pending</option>
+                    <option value="confirmed">Confirmed</option>
+                    <option value="completed">Completed</option>
+                    <option value="cancelled">Cancelled</option>
+                  </select>
                 </div>
-                <input type="hidden" id="employmentStatus" value="active" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Special Notes</label>
+              <div class="input-with-icon">
+                <span class="input-icon">📝</span>
+                <textarea
+                  id="specialNotes"
+                  placeholder="Any special requests or notes..."
+                  rows="3"
+                ></textarea>
               </div>
             </div>
 
@@ -380,16 +345,41 @@
                 type="button"
                 class="btn-cancel"
                 id="btnCancel"
-                onclick="closeEmployeeModal()"
+                onclick="closeReservasiModal()"
               >
                 Cancel
               </button>
               <button type="submit" class="btn-submit" id="btnSubmit">
                 <span>💾</span>
-                Save Employee
+                Save Reservation
               </button>
             </div>
           </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for View Reservation Details -->
+    <div class="modal" id="viewModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title">Reservation Details</h2>
+            <p class="modal-subtitle">View reservation information</p>
+          </div>
+          <button
+            class="modal-close"
+            id="closeViewModal"
+            type="button"
+            onclick="closeViewModalFunc()"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="reservasi-detail-view" id="reservasiDetailView">
+            <!-- Will be filled by JavaScript -->
+          </div>
         </div>
       </div>
     </div>
@@ -400,7 +390,7 @@
         <div class="modal-header delete-header">
           <div class="delete-icon-wrapper">
             <span class="delete-icon">⚠️</span>
-            <h3>Delete Employee</h3>
+            <h3>Cancel Reservation</h3>
           </div>
           <button
             class="modal-close"
@@ -413,16 +403,15 @@
         </div>
         <div class="modal-body">
           <div class="delete-content">
-            <div class="delete-trash-icon">🗑️</div>
+            <div class="delete-trash-icon">❌</div>
             <p class="delete-question">
-              Are you sure you want to delete this employee?
+              Are you sure you want to cancel this reservation?
             </p>
             <p class="delete-warning">
-              This action cannot be undone. All employee data will be
-              permanently removed.
+              The customer will be notified about the cancellation.
             </p>
 
-            <div class="employee-delete-info" id="employeeDeleteInfo">
+            <div class="reservasi-delete-info" id="reservasiDeleteInfo">
               <!-- Will be filled by JavaScript -->
             </div>
 
@@ -436,8 +425,8 @@
                 Cancel
               </button>
               <button type="button" class="btn-delete" id="btnConfirmDelete">
-                <span>🗑️</span>
-                Delete Employee
+                <span>❌</span>
+                Cancel Reservation
               </button>
             </div>
           </div>
@@ -445,65 +434,28 @@
       </div>
     </div>
 
-    <!-- Modal for View Employee Details -->
-    <div class="modal" id="viewModal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div>
-            <h2 class="modal-title">Employee Details</h2>
-            <p class="modal-subtitle">View employee information</p>
-          </div>
-          <button
-            class="modal-close"
-            id="closeViewModal"
-            type="button"
-            onclick="closeViewModalFunc()"
-          >
-            &times;
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="employee-detail-view" id="employeeDetailView">
-            <!-- Will be filled by JavaScript -->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="../js/karyawan.js"></script>
+    <script src="../js/reservasi.js"></script>
 
     <!-- Logout Modal -->
     <div id="logoutModal" class="logout-modal">
-      <div class="logout-modal-content">
-        <div class="logout-modal-header">
-          <h2>Konfirmasi Logout</h2>
-          <button class="logout-modal-close" onclick="closeLogoutModal()">
-            &times;
-          </button>
+        <div class="logout-modal-content">
+            <div class="logout-modal-header">
+                <h2>Konfirmasi Logout</h2>
+                <button class="logout-modal-close" onclick="closeLogoutModal()">&times;</button>
+            </div>
+            <div class="logout-modal-body">
+                <svg class="logout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <p class="logout-modal-text">Apakah Anda yakin ingin keluar dari sistem?</p>
+            </div>
+            <div class="logout-modal-footer">
+                <button class="btn-cancel" onclick="closeLogoutModal()">Batal</button>
+                <button class="btn-logout" onclick="confirmLogout()">Ya, Logout</button>
+            </div>
         </div>
-        <div class="logout-modal-body">
-          <svg
-            class="logout-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="8" x2="12" y2="12"></line>
-            <line x1="12" y1="16" x2="12.01" y2="16"></line>
-          </svg>
-          <p class="logout-modal-text">
-            Apakah Anda yakin ingin keluar dari sistem?
-          </p>
-        </div>
-        <div class="logout-modal-footer">
-          <button class="btn-cancel" onclick="closeLogoutModal()">Batal</button>
-          <button class="btn-logout" onclick="confirmLogout()">
-            Ya, Logout
-          </button>
-        </div>
-      </div>
     </div>
 
     <script src="../js/logout.js"></script>
