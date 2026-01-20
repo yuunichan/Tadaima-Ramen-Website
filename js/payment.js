@@ -56,31 +56,100 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Change button text
         confirmBtn.textContent = 'Kembali ke Menu';
-        confirmBtn.onclick = function() {
-            window.location.href = 'menu.html';
-        };
     }
     
-    // Cancel order button
-    confirmBtn.addEventListener('click', function() {
+    // Cancel order button - Handle both "Batalkan Pesanan" and "Kembali ke Menu"
+    confirmBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
         if (confirmBtn.textContent === 'Batalkan Pesanan') {
-            const confirmCancel = confirm('Apakah Anda yakin ingin membatalkan pesanan ini?');
-            
-            if (confirmCancel) {
-                clearInterval(timerInterval);
-                showLoadingOverlay();
-                
-                setTimeout(() => {
-                    hideLoadingOverlay();
-                    showNotification('Pesanan telah dibatalkan', 'warning');
-                    
-                    setTimeout(() => {
-                        window.location.href = 'menu.html';
-                    }, 1500);
-                }, 1000);
-            }
+            console.log('Batalkan Pesanan clicked');
+            showCancelConfirmationModal();
+        } else if (confirmBtn.textContent === 'Kembali ke Menu') {
+            window.location.href = 'menu.html';
         }
     });
+    
+    // Show cancel confirmation modal
+    function showCancelConfirmationModal() {
+        console.log('showCancelConfirmationModal called');
+        
+        // Create modal overlay
+        const modalOverlay = document.createElement('div');
+        modalOverlay.className = 'modal-overlay-cancel';
+        modalOverlay.id = 'modalOverlayCancel';
+        
+        // Create modal content
+        const modalContent = document.createElement('div');
+        modalContent.className = 'modal-content-cancel';
+        
+        modalContent.innerHTML = `
+            <div class="modal-header-cancel">
+                <h2>Batalkan Pesanan</h2>
+            </div>
+            <div class="modal-body-cancel">
+                <p>Apakah Anda yakin ingin membatalkan pesanan ini?</p>
+                <p class="modal-warning">Pesanan yang dibatalkan tidak dapat dikembalikan.</p>
+            </div>
+            <div class="modal-footer-cancel">
+                <button class="modal-btn-cancel modal-btn-no" id="cancelNo">Tidak</button>
+                <button class="modal-btn-cancel modal-btn-yes" id="cancelYes">Ya, Batalkan</button>
+            </div>
+        `;
+        
+        modalOverlay.appendChild(modalContent);
+        document.body.appendChild(modalOverlay);
+        
+        console.log('Modal added to DOM');
+        
+        // Trigger animation
+        setTimeout(() => {
+            modalOverlay.classList.add('show');
+            console.log('Show class added to modal');
+        }, 10);
+        
+        // Handle "Tidak" button
+        document.getElementById('cancelNo').addEventListener('click', function() {
+            console.log('Tidak button clicked');
+            closeCancelModal();
+        });
+        
+        // Handle "Ya, Batalkan" button
+        document.getElementById('cancelYes').addEventListener('click', function() {
+            console.log('Ya, Batalkan button clicked');
+            clearInterval(timerInterval);
+            closeCancelModal();
+            showLoadingOverlay();
+            
+            setTimeout(() => {
+                hideLoadingOverlay();
+                showNotification('Pesanan telah dibatalkan', 'warning');
+                
+                setTimeout(() => {
+                    window.location.href = 'checkout.html';
+                }, 1500);
+            }, 1000);
+        });
+        
+        // Close modal when clicking overlay
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) {
+                console.log('Overlay clicked');
+                closeCancelModal();
+            }
+        });
+    }
+    
+    // Close cancel modal
+    function closeCancelModal() {
+        const modalOverlay = document.getElementById('modalOverlayCancel');
+        if (modalOverlay) {
+            modalOverlay.classList.remove('show');
+            setTimeout(() => {
+                modalOverlay.remove();
+            }, 300);
+        }
+    }
     
     // Simulate payment check (for demo purposes)
     function checkPaymentStatus() {
@@ -214,3 +283,36 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Payment page loaded successfully');
     console.log('Timer started: 5:00 minutes');
 });
+
+// Modal Functions for Cancel Order
+function openCancelOrderModal() {
+    const modal = document.getElementById('cancelOrderModal');
+    if (modal) {
+        modal.classList.add('active');
+    }
+}
+
+function closeCancelOrderModal() {
+    const modal = document.getElementById('cancelOrderModal');
+    if (modal) {
+        modal.classList.remove('active');
+    }
+}
+
+function confirmCancelOrder() {
+    closeCancelOrderModal();
+    
+    // Show loading or notification
+    const notification = document.createElement('div');
+    notification.className = 'payment-status warning show';
+    notification.innerHTML = `
+        <span class="status-icon">⚠</span>
+        <span class="status-message">Pesanan telah dibatalkan</span>
+    `;
+    document.body.appendChild(notification);
+    
+    // Redirect to checkout after 1.5 seconds
+    setTimeout(() => {
+        window.location.href = 'checkout.html';
+    }, 1500);
+}

@@ -1,244 +1,287 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pembayaran - Restoran</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/payment_reservation.css">
-</head>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/payment_reservation.css" />
+  </head>
 
-<body>
+  <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">
-            <div class="logo-icon">
-                <img src="../images/logo.jpg" alt="Logo">
-            </div>
-            <span>Tadaima Balige Restaurant</span>
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="../images/logo.jpg" alt="Logo" />
         </div>
-        <ul class="nav-menu">
-            <li><a href="../beranda.html">Beranda</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="reservasi.html">Reservasi</a></li>
-            <li><a href="about.html">Tentang Kami</a></li>
-            <li><a href="keranjang.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                        class="bi bi-cart" viewBox="0 0 16 16">
-                        <path
-                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                    </svg>
-                </a>
-            </li>
-            <li><a href="../login_page.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                        class="bi bi-person-fill" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                    </svg>
-                </a>
-            </li>
-        </ul>
+        <span>Tadaima Balige Restaurant</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="../beranda.html">Beranda</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="reservasi.html">Reservasi</a></li>
+        <li><a href="about.html">Tentang Kami</a></li>
+        <li>
+          <a href="keranjang.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="currentColor"
+              class="bi bi-cart"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="../login_page.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="white"
+              class="bi bi-person-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
     </nav>
 
     <!-- Payment Section -->
     <div class="payment-container">
-        <div class="payment-wrapper">
-            <!-- Header -->
-            <div class="payment-header">
-                <button class="back-btn" onclick="history.back()">
-                    <span>←</span>
-                </button>
-                <div class="payment-header-text">
-                    <h1>Pembayaran</h1>
-                    <p>Pilih metode pembayaran Anda</p>
-                </div>
-            </div>
-
-            <!-- Main Content -->
-            <div class="payment-content">
-                <!-- Ringkasan Reservasi -->
-                <div class="payment-section">
-                    <h3 class="section-title">Ringkasan Reservasi</h3>
-
-                    <div class="summary-grid">
-                        <div class="summary-item">
-                            <span class="summary-label">Nama Pemesan</span>
-                            <span class="summary-value">vd</span>
-                        </div>
-                        <div class="summary-item">
-                            <span class="summary-label">Nomor Meja</span>
-                            <span class="summary-value">No. A01</span>
-                        </div>
-                        <div class="summary-item">
-                            <span class="summary-label">Tanggal & Waktu</span>
-                            <span class="summary-value">21/4/214 - 12:32</span>
-                        </div>
-                        <div class="summary-item">
-                            <span class="summary-label">Jumlah Tamu</span>
-                            <span class="summary-value">2 Orang</span>
-                        </div>
-                    </div>
-
-                    <div class="cost-breakdown">
-                        <div class="cost-item">
-                            <span>Biaya Reservasi</span>
-                            <span>Rp 50.000</span>
-                        </div>
-                        <div class="cost-item">
-                            <span>Biaya Admin</span>
-                            <span>Rp 5.000</span>
-                        </div>
-                        <div class="cost-total">
-                            <span>Total Pembayaran</span>
-                            <span class="total-amount">Rp 55.000</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Metode Pembayaran -->
-                <div class="payment-section">
-                    <h3 class="section-title">Metode Pembayaran</h3>
-
-                    <form class="payment-form" id="paymentForm">
-                        <!-- Transfer Bank -->
-                        <label class="payment-method">
-                            <input type="radio" name="payment" value="transfer" required>
-                            <div class="method-content">
-                                <div class="method-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <rect x="2" y="4" width="20" height="16" rx="2" />
-                                        <path d="M2 10h20" />
-                                    </svg>
-                                </div>
-                                <div class="method-info">
-                                    <h4>Transfer Bank</h4>
-                                    <p>Transfer melalui BCA, Mandiri, BNI, BRI</p>
-                                </div>
-                            </div>
-                            <div class="method-radio"></div>
-                        </label>
-
-                        <!-- E-Wallet -->
-                        <label class="payment-method">
-                            <input type="radio" name="payment" value="ewallet" required>
-                            <div class="method-content">
-                                <div class="method-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <rect x="2" y="7" width="20" height="14" rx="2" />
-                                        <path d="M16 3h4v4M4 7l8-4" />
-                                    </svg>
-                                </div>
-                                <div class="method-info">
-                                    <h4>E-Wallet</h4>
-                                    <p>GoPay, OVO, Dana, ShopeePay</p>
-                                </div>
-                            </div>
-                            <div class="method-radio"></div>
-                        </label>
-
-                        <!-- Kartu Kredit/Debit -->
-                        <label class="payment-method">
-                            <input type="radio" name="payment" value="card" required>
-                            <div class="method-content">
-                                <div class="method-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <rect x="1" y="4" width="22" height="16" rx="2" />
-                                        <path d="M1 10h22" />
-                                    </svg>
-                                </div>
-                                <div class="method-info">
-                                    <h4>Kartu Kredit/Debit</h4>
-                                    <p>Visa, Mastercard, JCB</p>
-                                </div>
-                            </div>
-                            <div class="method-radio"></div>
-                        </label>
-
-                        <!-- Submit Button -->
-                        <button type="submit" class="pay-button" disabled>
-                            Bayar Sekarang
-                        </button>
-                    </form>
-                </div>
-            </div>
+      <div class="payment-wrapper">
+        <!-- Header -->
+        <div class="payment-header">
+          <button class="back-btn" onclick="history.back()">
+            <span>←</span>
+          </button>
+          <div class="payment-header-text">
+            <h1>Pembayaran</h1>
+            <p>Pilih metode pembayaran Anda</p>
+          </div>
         </div>
+
+        <!-- Main Content -->
+        <div class="payment-content">
+          <!-- Ringkasan Reservasi -->
+          <div class="payment-section">
+            <h3 class="section-title">Ringkasan Reservasi</h3>
+
+            <div class="summary-grid">
+              <div class="summary-item">
+                <span class="summary-label">Nama Pemesan</span>
+                <span class="summary-value">vd</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Nomor Meja</span>
+                <span class="summary-value">No. A01</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Tanggal & Waktu</span>
+                <span class="summary-value">21/4/214 - 12:32</span>
+              </div>
+              <div class="summary-item">
+                <span class="summary-label">Jumlah Tamu</span>
+                <span class="summary-value">2 Orang</span>
+              </div>
+            </div>
+
+            <div class="cost-breakdown">
+              <div class="cost-item">
+                <span>Biaya Reservasi</span>
+                <span>Rp 50.000</span>
+              </div>
+              <div class="cost-item">
+                <span>Biaya Admin</span>
+                <span>Rp 5.000</span>
+              </div>
+              <div class="cost-total">
+                <span>Total Pembayaran</span>
+                <span class="total-amount">Rp 55.000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metode Pembayaran -->
+          <div class="payment-section">
+            <h3 class="section-title">Metode Pembayaran</h3>
+
+            <form class="payment-form" id="paymentForm">
+              <!-- Transfer Bank -->
+              <label class="payment-method">
+                <input type="radio" name="payment" value="transfer" required />
+                <div class="method-content">
+                  <div class="method-icon">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="2" y="4" width="20" height="16" rx="2" />
+                      <path d="M2 10h20" />
+                    </svg>
+                  </div>
+                  <div class="method-info">
+                    <h4>Transfer Bank</h4>
+                    <p>Transfer melalui BCA, Mandiri, BNI, BRI</p>
+                  </div>
+                </div>
+                <div class="method-radio"></div>
+              </label>
+
+              <!-- E-Wallet -->
+              <label class="payment-method">
+                <input type="radio" name="payment" value="ewallet" required />
+                <div class="method-content">
+                  <div class="method-icon">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="2" y="7" width="20" height="14" rx="2" />
+                      <path d="M16 3h4v4M4 7l8-4" />
+                    </svg>
+                  </div>
+                  <div class="method-info">
+                    <h4>E-Wallet</h4>
+                    <p>GoPay, OVO, Dana, ShopeePay</p>
+                  </div>
+                </div>
+                <div class="method-radio"></div>
+              </label>
+
+              <!-- Kartu Kredit/Debit -->
+              <label class="payment-method">
+                <input type="radio" name="payment" value="card" required />
+                <div class="method-content">
+                  <div class="method-icon">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="1" y="4" width="22" height="16" rx="2" />
+                      <path d="M1 10h22" />
+                    </svg>
+                  </div>
+                  <div class="method-info">
+                    <h4>Kartu Kredit/Debit</h4>
+                    <p>Visa, Mastercard, JCB</p>
+                  </div>
+                </div>
+                <div class="method-radio"></div>
+              </label>
+
+              <!-- Submit Button -->
+              <button type="submit" class="pay-button" disabled>
+                Bayar Sekarang
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Restoran</h3>
-                <p>Menyajikan cita rasa autentik rasa khas dengan bahan bahan terbaik</p>
-            </div>
-            <div class="footer-section">
-                <h3>Jam Buka</h3>
-                <ul>
-                    <li>Senin - Jumat: 09.00 - 10.00</li>
-                    <li>Sabtu - Minggu: 10.00 - 23.00</li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Kontak</h3>
-                <p>Jl. Simonangkir No. 120, Medan<br>
-                    +62 894-7468-4583<br>
-                    info.email@gmail.com</p>
-            </div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Restoran</h3>
+          <p>
+            Menyajikan cita rasa autentik rasa khas dengan bahan bahan terbaik
+          </p>
         </div>
-        <div class="footer-bottom">
-            <p>© 2025 Restoran. All right reserved</p>
+        <div class="footer-section">
+          <h3>Jam Buka</h3>
+          <ul>
+            <li>Senin - Jumat: 09.00 - 10.00</li>
+            <li>Sabtu - Minggu: 10.00 - 23.00</li>
+          </ul>
         </div>
+        <div class="footer-section">
+          <h3>Kontak</h3>
+          <p>
+            Jl. Simonangkir No. 120, Medan<br />
+            +62 894-7468-4583<br />
+            info.email@gmail.com
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Restoran. All right reserved</p>
+      </div>
     </footer>
 
     <script>
-        // Enable/disable pay button based on payment method selection
-        const paymentForm = document.getElementById('paymentForm');
-        const payButton = document.querySelector('.pay-button');
-        const radioButtons = document.querySelectorAll('input[name="payment"]');
+      // Enable/disable pay button based on payment method selection
+      const paymentForm = document.getElementById("paymentForm");
+      const payButton = document.querySelector(".pay-button");
+      const radioButtons = document.querySelectorAll('input[name="payment"]');
 
-        radioButtons.forEach(radio => {
-            radio.addEventListener('change', function () {
-                if (this.checked) {
-                    payButton.disabled = false;
-                    payButton.classList.add('active');
-                }
-            });
+      radioButtons.forEach((radio) => {
+        radio.addEventListener("change", function () {
+          if (this.checked) {
+            payButton.disabled = false;
+            payButton.classList.add("active");
+          }
         });
+      });
 
-        // Form submission
-        paymentForm.addEventListener('submit', function (e) {
-            e.preventDefault();
+      // Form submission
+      paymentForm.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-            const selectedMethod = document.querySelector('input[name="payment"]:checked');
+        const selectedMethod = document.querySelector(
+          'input[name="payment"]:checked',
+        );
 
-            if (selectedMethod) {
-                const methodValue = selectedMethod.value;
-                let methodName = '';
+        if (selectedMethod) {
+          const methodValue = selectedMethod.value;
+          let methodName = "";
 
-                switch (methodValue) {
-                    case 'transfer':
-                        methodName = 'Transfer Bank';
-                        break;
-                    case 'ewallet':
-                        methodName = 'E-Wallet';
-                        break;
-                    case 'card':
-                        methodName = 'Kartu Kredit/Debit';
-                        break;
-                }
+          switch (methodValue) {
+            case "transfer":
+              methodName = "Transfer Bank";
+              break;
+            case "ewallet":
+              methodName = "E-Wallet";
+              break;
+            case "card":
+              methodName = "Kartu Kredit/Debit";
+              break;
+          }
 
-                console.log('Metode Pembayaran:', methodName);
-                alert('Pembayaran dengan ' + methodName + ' sedang diproses...\n\nTotal: Rp 55.000');
+          console.log("Metode Pembayaran:", methodName);
+          alert(
+            "Pembayaran dengan " +
+              methodName +
+              " sedang diproses...\n\nTotal: Rp 55.000",
+          );
 
-                // Redirect to confirmation page
-                window.location.href = 'reservasi_success.html';
-            }
-        });
+          // Redirect to confirmation page
+          window.location.href = "reservasi_success.html";
+        }
+      });
     </script>
-</body>
-
+  </body>
 </html>

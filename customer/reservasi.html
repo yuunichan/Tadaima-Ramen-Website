@@ -1,270 +1,361 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reservasi Meja - Restoran</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
 
-<body>
+  <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">
-            <div class="logo-icon">
-                <img src="../images/logo.jpg" alt="Logo">
-            </div>
-            <span>Tadaima Balige Restaurant</span>
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="../images/logo.jpg" alt="Logo" />
         </div>
-        <ul class="nav-menu">
-            <li><a href="../beranda.html">Beranda</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="reservasi.html">Reservasi</a></li>
-            <li><a href="about.html">Tentang Kami</a></li>
-            <li><a href="keranjang.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                        class="bi bi-cart" viewBox="0 0 16 16">
-                        <path
-                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                    </svg>
-                </a>
-            </li>
-            <li><a href="../login_page.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                        class="bi bi-person-fill" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                    </svg>
-                </a>
-            </li>
-        </ul>
+        <span>Tadaima Balige Restaurant</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="../beranda.html">Beranda</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="reservasi.html">Reservasi</a></li>
+        <li><a href="about.html">Tentang Kami</a></li>
+        <li>
+          <a href="keranjang.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="currentColor"
+              class="bi bi-cart"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="../login_page.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="white"
+              class="bi bi-person-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
     </nav>
 
     <!-- Hero Section -->
     <section class="reservation-hero">
-        <div class="reservation-hero-content justify-center text-center">
-            <h1>Reservasi Meja</h1>
-            <p>Pilih meja favorit Anda dan lakukan reservasi dengan mudah</p>
-        </div>
+      <div class="reservation-hero-content justify-center text-center">
+        <h1>Reservasi Meja</h1>
+        <p>Pilih meja favorit Anda dan lakukan reservasi dengan mudah</p>
+      </div>
     </section>
 
     <!-- Filter Section -->
     <section class="filter-section">
-        <div class="filter-tabs">
-            <button class="tab-btn active" onclick="filterTables('semua')">Semua</button>
-            <button class="tab-btn" onclick="filterTables('indoor')">Indoor</button>
-            <button class="tab-btn" onclick="filterTables('outdoor')">Outdoor</button>
-        </div>
+      <div class="filter-tabs">
+        <button class="tab-btn active" onclick="filterTables('semua')">
+          Semua
+        </button>
+        <button class="tab-btn" onclick="filterTables('indoor')">Indoor</button>
+        <button class="tab-btn" onclick="filterTables('outdoor')">
+          Outdoor
+        </button>
+      </div>
     </section>
 
     <!-- Reservation Grid -->
     <section class="reservation-section">
-        <div class="reservation-grid">
-            <!-- Table Card 1 -->
+      <div class="reservation-grid">
+        <!-- Table Card 1 -->
 
-            <div class="table-card" data-location="outdoor" data-table="A01" data-status="tersedia">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop"
-                    alt="Meja A01" class="table-image">
-                <span class="table-status tersedia">Tersedia</span>
-                <div class="table-content">
-                    <h3 class="table-number">No. A01</h3>
-                    <div class="table-info">
-                        <div class="info-item">
-                            <span class="info-icon">📍</span>
-                            <span>Lokasi: Outdoor</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-icon">👥</span>
-                            <span>Kapasitas: 2 orang</span>
-                        </div>
-                    </div>
-                    <button class="reserve-btn" onclick="reserveTable('A01')">Reservasi</button>
-                </div>
+        <div
+          class="table-card"
+          data-location="outdoor"
+          data-table="A01"
+          data-status="tersedia"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop"
+            alt="Meja A01"
+            class="table-image"
+          />
+          <span class="table-status tersedia">Tersedia</span>
+          <div class="table-content">
+            <h3 class="table-number">No. A01</h3>
+            <div class="table-info">
+              <div class="info-item">
+                <span class="info-icon">📍</span>
+                <span>Lokasi: Outdoor</span>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">👥</span>
+                <span>Kapasitas: 2 orang</span>
+              </div>
             </div>
-
-            <!-- Table Card 2 -->
-            <div class="table-card" data-location="indoor" data-table="A02" data-status="tersedia">
-                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=300&fit=crop" alt="Meja A02"
-                    class="table-image">
-                <span class="table-status tersedia">Tersedia</span>
-                <div class="table-content">
-                    <h3 class="table-number">No. A02</h3>
-                    <div class="table-info">
-                        <div class="info-item">
-                            <span class="info-icon">📍</span>
-                            <span>Lokasi: Indoor</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-icon">👥</span>
-                            <span>Kapasitas: 4 orang</span>
-                        </div>
-                    </div>
-                    <button class="reserve-btn" onclick="reserveTable('A02')">Reservasi</button>
-                </div>
-            </div>
-
-            <!-- Table Card 3 -->
-            <div class="table-card" data-location="indoor" data-table="A03" data-status="tersedia">
-                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop"
-                    alt="Meja A03" class="table-image">
-                <span class="table-status tersedia">Tersedia</span>
-                <div class="table-content">
-                    <h3 class="table-number">No. A03</h3>
-                    <div class="table-info">
-                        <div class="info-item">
-                            <span class="info-icon">📍</span>
-                            <span>Lokasi: Indoor</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-icon">👥</span>
-                            <span>Kapasitas: 2 orang</span>
-                        </div>
-                    </div>
-                    <button class="reserve-btn" onclick="reserveTable('A03')">Reservasi</button>
-                </div>
-            </div>
-
-            <!-- Table Card 4 -->
-            <div class="table-card" data-location="indoor" data-table="A04" data-status="tersedia">
-                <img src="https://images.unsplash.com/photo-1530062845289-9109b2c9c868?w=400&h=300&fit=crop"
-                    alt="Meja A04" class="table-image">
-                <span class="table-status tersedia">Tersedia</span>
-                <div class="table-content">
-                    <h3 class="table-number">No. A04</h3>
-                    <div class="table-info">
-                        <div class="info-item">
-                            <span class="info-icon">📍</span>
-                            <span>Lokasi: Indoor</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-icon">👥</span>
-                            <span>Kapasitas: 4 orang</span>
-                        </div>
-                    </div>
-                    <button class="reserve-btn" onclick="reserveTable('A04')">Reservasi</button>
-                </div>
-            </div>
-
-            <!-- Table Card 5 -->
-            <div class="table-card" data-location="outdoor" data-table="A05" data-status="dipesan">
-                <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=400&h=300&fit=crop"
-                    alt="Meja A05" class="table-image">
-                <span class="table-status dipesan">Dipesan</span>
-                <div class="table-content">
-                    <h3 class="table-number">No. A05</h3>
-                    <div class="table-info">
-                        <div class="info-item">
-                            <span class="info-icon">📍</span>
-                            <span>Lokasi: Outdoor</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-icon">👥</span>
-                            <span>Kapasitas: 4 orang</span>
-                        </div>
-                    </div>
-                    <button class="reserve-btn" disabled>Tidak Tersedia</button>
-                </div>
-            </div>
-
-            <!-- Table Card 6 -->
-            <div class="table-card" data-location="outdoor" data-table="A06" data-status="tersedia">
-                <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=400&h=300&fit=crop" alt="Meja A06"
-                    class="table-image">
-                <span class="table-status tersedia">Tersedia</span>
-                <div class="table-content">
-                    <h3 class="table-number">No. A06</h3>
-                    <div class="table-info">
-                        <div class="info-item">
-                            <span class="info-icon">📍</span>
-                            <span>Lokasi: Outdoor</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-icon">👥</span>
-                            <span>Kapasitas: 6 orang</span>
-                        </div>
-                    </div>
-                    <button class="reserve-btn" onclick="reserveTable('A06')">Reservasi</button>
-                </div>
-            </div>
+            <button class="reserve-btn" onclick="reserveTable('A01')">
+              Reservasi
+            </button>
+          </div>
         </div>
+
+        <!-- Table Card 2 -->
+        <div
+          class="table-card"
+          data-location="indoor"
+          data-table="A02"
+          data-status="tersedia"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=300&fit=crop"
+            alt="Meja A02"
+            class="table-image"
+          />
+          <span class="table-status tersedia">Tersedia</span>
+          <div class="table-content">
+            <h3 class="table-number">No. A02</h3>
+            <div class="table-info">
+              <div class="info-item">
+                <span class="info-icon">📍</span>
+                <span>Lokasi: Indoor</span>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">👥</span>
+                <span>Kapasitas: 4 orang</span>
+              </div>
+            </div>
+            <button class="reserve-btn" onclick="reserveTable('A02')">
+              Reservasi
+            </button>
+          </div>
+        </div>
+
+        <!-- Table Card 3 -->
+        <div
+          class="table-card"
+          data-location="indoor"
+          data-table="A03"
+          data-status="tersedia"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop"
+            alt="Meja A03"
+            class="table-image"
+          />
+          <span class="table-status tersedia">Tersedia</span>
+          <div class="table-content">
+            <h3 class="table-number">No. A03</h3>
+            <div class="table-info">
+              <div class="info-item">
+                <span class="info-icon">📍</span>
+                <span>Lokasi: Indoor</span>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">👥</span>
+                <span>Kapasitas: 2 orang</span>
+              </div>
+            </div>
+            <button class="reserve-btn" onclick="reserveTable('A03')">
+              Reservasi
+            </button>
+          </div>
+        </div>
+
+        <!-- Table Card 4 -->
+        <div
+          class="table-card"
+          data-location="indoor"
+          data-table="A04"
+          data-status="tersedia"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1530062845289-9109b2c9c868?w=400&h=300&fit=crop"
+            alt="Meja A04"
+            class="table-image"
+          />
+          <span class="table-status tersedia">Tersedia</span>
+          <div class="table-content">
+            <h3 class="table-number">No. A04</h3>
+            <div class="table-info">
+              <div class="info-item">
+                <span class="info-icon">📍</span>
+                <span>Lokasi: Indoor</span>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">👥</span>
+                <span>Kapasitas: 4 orang</span>
+              </div>
+            </div>
+            <button class="reserve-btn" onclick="reserveTable('A04')">
+              Reservasi
+            </button>
+          </div>
+        </div>
+
+        <!-- Table Card 5 -->
+        <div
+          class="table-card"
+          data-location="outdoor"
+          data-table="A05"
+          data-status="dipesan"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=400&h=300&fit=crop"
+            alt="Meja A05"
+            class="table-image"
+          />
+          <span class="table-status dipesan">Dipesan</span>
+          <div class="table-content">
+            <h3 class="table-number">No. A05</h3>
+            <div class="table-info">
+              <div class="info-item">
+                <span class="info-icon">📍</span>
+                <span>Lokasi: Outdoor</span>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">👥</span>
+                <span>Kapasitas: 4 orang</span>
+              </div>
+            </div>
+            <button class="reserve-btn" disabled>Tidak Tersedia</button>
+          </div>
+        </div>
+
+        <!-- Table Card 6 -->
+        <div
+          class="table-card"
+          data-location="outdoor"
+          data-table="A06"
+          data-status="tersedia"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=400&h=300&fit=crop"
+            alt="Meja A06"
+            class="table-image"
+          />
+          <span class="table-status tersedia">Tersedia</span>
+          <div class="table-content">
+            <h3 class="table-number">No. A06</h3>
+            <div class="table-info">
+              <div class="info-item">
+                <span class="info-icon">📍</span>
+                <span>Lokasi: Outdoor</span>
+              </div>
+              <div class="info-item">
+                <span class="info-icon">👥</span>
+                <span>Kapasitas: 6 orang</span>
+              </div>
+            </div>
+            <button class="reserve-btn" onclick="reserveTable('A06')">
+              Reservasi
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Restoran</h3>
-                <p>Menyajikan cita rasa autentik rasa khas dengan bahan bahan terbaik</p>
-            </div>
-            <div class="footer-section">
-                <h3>Jam Buka</h3>
-                <ul>
-                    <li>Senin - Jumat: 09.00 - 10.00</li>
-                    <li>Sabtu - Minggu: 10.00 - 23.00</li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Kontak</h3>
-                <p>Jl. Simonangkir No. 120, Medan<br>
-                    +62 894-7468-4583<br>
-                    info.email@gmail.com</p>
-            </div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Restoran</h3>
+          <p>
+            Menyajikan cita rasa autentik rasa khas dengan bahan bahan terbaik
+          </p>
         </div>
-        <div class="footer-bottom">
-            <p>© 2025 Restoran. All right reserved</p>
+        <div class="footer-section">
+          <h3>Jam Buka</h3>
+          <ul>
+            <li>Senin - Jumat: 09.00 - 10.00</li>
+            <li>Sabtu - Minggu: 10.00 - 23.00</li>
+          </ul>
         </div>
+        <div class="footer-section">
+          <h3>Kontak</h3>
+          <p>
+            Jl. Simonangkir No. 120, Medan<br />
+            +62 894-7468-4583<br />
+            info.email@gmail.com
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Restoran. All right reserved</p>
+      </div>
     </footer>
     <script src="../js/nav-active.js"></script>
     <script>
-        // Filter tables by location
-        function filterTables(location) {
-            const cards = document.querySelectorAll('.table-card');
-            const buttons = document.querySelectorAll('.tab-btn');
+      // Filter tables by location
+      function filterTables(location) {
+        const cards = document.querySelectorAll(".table-card");
+        const buttons = document.querySelectorAll(".tab-btn");
 
-            // Update active button
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+        // Update active button
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        event.target.classList.add("active");
 
-            // Filter cards
-            cards.forEach(card => {
-                if (location === 'semua') {
-                    card.style.display = 'block';
-                } else {
-                    if (card.dataset.location === location) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                }
-            });
-        }
-
-        // Navigate to reservation detail page for a given table (reads the table's status from data attributes)
-        function goToDetail(tableNumber) {
-            const card = document.querySelector(`.table-card[data-table="${tableNumber}"]`);
-            const status = card?.dataset.status || 'tersedia';
-            window.location.href = `reservasi_detail.html?table=${encodeURIComponent(tableNumber)}&status=${encodeURIComponent(status)}`;
-        }
-
-        // Make entire card clickable and navigate to the detail page
-        document.querySelectorAll('.table-card').forEach(card => {
-            card.style.cursor = 'pointer';
-            card.addEventListener('click', function (e) {
-                // Ignore clicks on disabled buttons inside the card
-                if (e.target.tagName.toLowerCase() === 'button' && e.target.disabled) return;
-
-                const table = card.dataset.table || (card.querySelector('.table-number')?.textContent || '').replace(/\D/g, '');
-                let status = card.dataset.status;
-                if (!status) {
-                    const statusEl = card.querySelector('.table-status');
-                    status = statusEl ? statusEl.textContent.trim().toLowerCase() : 'tersedia';
-                }
-                status = status.includes('dipesan') ? 'dipesan' : 'tersedia';
-
-                window.location.href = `reservasi_detail.html?table=${encodeURIComponent(table)}&status=${encodeURIComponent(status)}`;
-            });
+        // Filter cards
+        cards.forEach((card) => {
+          if (location === "semua") {
+            card.style.display = "block";
+          } else {
+            if (card.dataset.location === location) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          }
         });
-    </script>
-</body>
+      }
 
+      // Navigate to reservation detail page for a given table (reads the table's status from data attributes)
+      function goToDetail(tableNumber) {
+        const card = document.querySelector(
+          `.table-card[data-table="${tableNumber}"]`,
+        );
+        const status = card?.dataset.status || "tersedia";
+        window.location.href = `reservasi_detail.html?table=${encodeURIComponent(tableNumber)}&status=${encodeURIComponent(status)}`;
+      }
+
+      // Make entire card clickable and navigate to the detail page
+      document.querySelectorAll(".table-card").forEach((card) => {
+        card.style.cursor = "pointer";
+        card.addEventListener("click", function (e) {
+          // Ignore clicks on disabled buttons inside the card
+          if (e.target.tagName.toLowerCase() === "button" && e.target.disabled)
+            return;
+
+          const table =
+            card.dataset.table ||
+            (card.querySelector(".table-number")?.textContent || "").replace(
+              /\D/g,
+              "",
+            );
+          let status = card.dataset.status;
+          if (!status) {
+            const statusEl = card.querySelector(".table-status");
+            status = statusEl
+              ? statusEl.textContent.trim().toLowerCase()
+              : "tersedia";
+          }
+          status = status.includes("dipesan") ? "dipesan" : "tersedia";
+
+          window.location.href = `reservasi_detail.html?table=${encodeURIComponent(table)}&status=${encodeURIComponent(status)}`;
+        });
+      });
+    </script>
+  </body>
 </html>

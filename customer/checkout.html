@@ -1,177 +1,209 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pemesanan - Restoran</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/pemesanan.css">
-</head>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/pemesanan.css" />
+  </head>
 
-<body>
+  <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">
-            <div class="logo-icon">
-                <img src="../images/logo.jpg" alt="Logo">
-            </div>
-            <span>Tadaima Balige Restaurant</span>
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="../images/logo.jpg" alt="Logo" />
         </div>
-        <ul class="nav-menu">
-            <li><a href="beranda.html">Beranda</a></li>
-            <li><a href="customer/menu.html">Menu</a></li>
-            <li><a href="customer/reservasi.html">Reservasi</a></li>
-            <li><a href="customer/about.html">Tentang Kami</a></li>
-            <li><a href="customer/keranjang.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                        class="bi bi-cart" viewBox="0 0 16 16">
-                        <path
-                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                    </svg>
-                </a>
-            </li>
-            <li><a href="../login_page.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                        class="bi bi-person-fill" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                    </svg>
-                </a>
-            </li>
-        </ul>
+        <span>Tadaima Balige Restaurant</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="beranda.html">Beranda</a></li>
+        <li><a href="customer/menu.html">Menu</a></li>
+        <li><a href="customer/reservasi.html">Reservasi</a></li>
+        <li><a href="customer/about.html">Tentang Kami</a></li>
+        <li>
+          <a href="customer/keranjang.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="currentColor"
+              class="bi bi-cart"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="../login_page.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="white"
+              class="bi bi-person-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
     </nav>
 
     <!-- Main Content -->
     <div class="checkout-container">
-        <!-- Left Section - Order Items -->
-        <div class="checkout-left">
-            <div class="order-header">
-                <h1>Pesanan Anda <span class="item-count">(2 Item)</span></h1>
-            </div>
-
-            <!-- Order Items List -->
-            <div class="order-items">
-                <!-- Item 1 -->
-                <div class="order-item">
-                    <div class="item-image">
-                        <img src="../images/udangbakar.png" alt="Udang Bakar   ">
-                    </div>
-                    <div class="item-info">
-                        <h3 class="item-name">Udang Bakar</h3>
-                        <p class="item-unit-price">Rp 15.000</p>
-                        <p class="item-total-price">Rp 30.000</p>
-                    </div>
-                    <div class="item-quantity">
-                        <span class="quantity-badge">x2</span>
-                        <button class="delete-item-btn">Hapus</button>
-                    </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="order-item">
-                    <div class="item-image">
-                        <img src="../images/suptomyam.png" alt="Sup Tomyam">
-                    </div>
-                    <div class="item-info">
-                        <h3 class="item-name">Sup Tomyam</h3>
-                        <p class="item-unit-price">Rp 15.000</p>
-                        <p class="item-total-price">Rp 30.000</p>
-                    </div>
-                    <div class="item-quantity">
-                        <span class="quantity-badge">x2</span>
-                        <button class="delete-item-btn">Hapus</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Payment Methods -->
-            <div class="payment-section">
-                <h2>Metode Pembayaran</h2>
-                <div class="payment-methods">
-                    <div class="payment-option">
-                        <input type="radio" id="dana" name="payment" value="dana" checked>
-                        <label for="dana">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="DANA"
-                                class="payment-logo">
-                        </label>
-                    </div>
-                    <div class="payment-option">
-                        <input type="radio" id="bri" name="payment" value="bri">
-                        <label for="bri">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/BRI_2020.svg" alt="BRI"
-                                class="payment-logo">
-                        </label>
-                    </div>
-                    <div class="payment-option">
-                        <input type="radio" id="qris" name="payment" value="qris">
-                        <label for="qris">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/QRIS_logo.svg" alt="QRIS"
-                                class="payment-logo">
-                        </label>
-                    </div>
-                </div>
-            </div>
+      <!-- Left Section - Order Items -->
+      <div class="checkout-left">
+        <div class="order-header">
+          <h1>Pesanan Anda <span class="item-count">(2 Item)</span></h1>
         </div>
 
-        <!-- Right Section - Payment Summary -->
-        <div class="checkout-right">
-            <div class="payment-summary">
-                <h2>Ringkasan Pembayaran</h2>
-
-                <div class="summary-details">
-                    <div class="summary-row">
-                        <span>Subtotal</span>
-                        <span class="summary-value">Rp 60.000</span>
-                    </div>
-                    <div class="summary-row">
-                        <span>Ongkir</span>
-                        <span class="summary-value">Rp 15.000</span>
-                    </div>
-                    <div class="summary-row">
-                        <span>Biaya Layanan</span>
-                        <span class="summary-value">Rp 2.000</span>
-                    </div>
-                </div>
-
-                <div class="summary-total">
-                    <span class="total-label">TOTAL AKHIR :</span>
-                    <span class="total-amount">Rp 67.000</span>
-                </div>
-
-                <button class="continue-payment-btn">
-                    Lanjutkan Pembayaran
-                </button>
+        <!-- Order Items List -->
+        <div class="order-items">
+          <!-- Item 1 -->
+          <div class="order-item">
+            <div class="item-image">
+              <img src="../images/udangbakar.png" alt="Udang Bakar   " />
             </div>
+            <div class="item-info">
+              <h3 class="item-name">Udang Bakar</h3>
+              <p class="item-unit-price">Rp 15.000</p>
+              <p class="item-total-price">Rp 30.000</p>
+            </div>
+            <div class="item-quantity">
+              <span class="quantity-badge">x2</span>
+              <button class="delete-item-btn">Hapus</button>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="order-item">
+            <div class="item-image">
+              <img src="../images/suptomyam.png" alt="Sup Tomyam" />
+            </div>
+            <div class="item-info">
+              <h3 class="item-name">Sup Tomyam</h3>
+              <p class="item-unit-price">Rp 15.000</p>
+              <p class="item-total-price">Rp 30.000</p>
+            </div>
+            <div class="item-quantity">
+              <span class="quantity-badge">x2</span>
+              <button class="delete-item-btn">Hapus</button>
+            </div>
+          </div>
         </div>
+
+        <!-- Payment Methods -->
+        <div class="payment-section">
+          <h2>Metode Pembayaran</h2>
+          <div class="payment-methods">
+            <div class="payment-option">
+              <input
+                type="radio"
+                id="dana"
+                name="payment"
+                value="dana"
+                checked
+              />
+              <label for="dana">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg"
+                  alt="DANA"
+                  class="payment-logo"
+                />
+              </label>
+            </div>
+            <div class="payment-option">
+              <input type="radio" id="bri" name="payment" value="bri" />
+              <label for="bri">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/2/2e/BRI_2020.svg"
+                  alt="BRI"
+                  class="payment-logo"
+                />
+              </label>
+            </div>
+            <div class="payment-option">
+              <input type="radio" id="qris" name="payment" value="qris" />
+              <label for="qris">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/e/e1/QRIS_logo.svg"
+                  alt="QRIS"
+                  class="payment-logo"
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Section - Payment Summary -->
+      <div class="checkout-right">
+        <div class="payment-summary">
+          <h2>Ringkasan Pembayaran</h2>
+
+          <div class="summary-details">
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span class="summary-value">Rp 60.000</span>
+            </div>
+            <div class="summary-row">
+              <span>Ongkir</span>
+              <span class="summary-value">Rp 15.000</span>
+            </div>
+            <div class="summary-row">
+              <span>Biaya Layanan</span>
+              <span class="summary-value">Rp 2.000</span>
+            </div>
+          </div>
+
+          <div class="summary-total">
+            <span class="total-label">TOTAL AKHIR :</span>
+            <span class="total-amount">Rp 67.000</span>
+          </div>
+
+          <button class="continue-payment-btn">Lanjutkan Pembayaran</button>
+        </div>
+      </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Restoran</h3>
-                <p>Menyajikan cita rasa autentik rasa khas dengan bahan bahan terbaik</p>
-            </div>
-            <div class="footer-section">
-                <h3>Jam Buka</h3>
-                <ul>
-                    <li>Senin - Jumat: 09.00 - 10.00</li>
-                    <li>Sabtu - Minggu: 10.00 - 23.00</li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Kontak</h3>
-                <p>Jl. Simonangkir No. 120, Medan<br>
-                    +62 894-7468-4583<br>
-                    info.email@gmail.com</p>
-            </div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Restoran</h3>
+          <p>
+            Menyajikan cita rasa autentik rasa khas dengan bahan bahan terbaik
+          </p>
         </div>
-        <div class="footer-bottom">
-            <p>© 2025 Restoran. All right reserved</p>
+        <div class="footer-section">
+          <h3>Jam Buka</h3>
+          <ul>
+            <li>Senin - Jumat: 09.00 - 10.00</li>
+            <li>Sabtu - Minggu: 10.00 - 23.00</li>
+          </ul>
         </div>
+        <div class="footer-section">
+          <h3>Kontak</h3>
+          <p>
+            Jl. Simonangkir No. 120, Medan<br />
+            +62 894-7468-4583<br />
+            info.email@gmail.com
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Restoran. All right reserved</p>
+      </div>
     </footer>
 
     <script src="../js/pemesanan.js"></script>
-</body>
-
+  </body>
 </html>

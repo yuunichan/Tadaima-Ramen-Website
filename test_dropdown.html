@@ -3,10 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Restoran - Nikmati Pengalaman Kuliner Terbaik</title>
+    <title>Test Dropdown Menu</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      body {
+        padding-top: 80px;
+      }
+      .test-container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 8px;
+      }
+      .test-container h1 {
+        margin-bottom: 1rem;
+      }
+      .instructions {
+        background: #f5f5f5;
+        padding: 1rem;
+        border-radius: 6px;
+        margin-bottom: 1rem;
+        border-left: 4px solid #9c0000;
+      }
+    </style>
   </head>
-
   <body>
     <!-- Navigation -->
     <nav>
@@ -69,64 +90,31 @@
         </li>
       </ul>
     </nav>
-    <!-- Hero Section -->
-    <section class="hero" id="beranda">
-      <video
-        class="hero-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        aria-hidden="true"
-      >
-        <source src="images/tadaima.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div class="hero-content">
-        <h1>Selamat Datang<br />Di Restoran</h1>
-        <p>Nikmati pengalaman kuliner terbaik dengan cita rasa istimewa</p>
-        <a href="customer/menu_login.html" class="cta-button">Lihat Menu</a>
-      </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Restoran Tadaima Balige</h3>
-          <p>
-            Ramen pertama dan satu-satunya di Balige All Food & Beverage no pork
-            no lard
-          </p>
-        </div>
-        <div class="footer-section">
-          <h3>Jam Buka</h3>
-          <ul>
-            <li>Selasa - Minggu: 12.00 - 22.00</li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Kontak</h3>
-          <div class="contact-item">
-            <span class="contact-icon">📍</span>
-            <span>Jl. Gereja no 3C, Balige</span>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">📞</span>
-            <span>+62 813 9653 7191</span>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">✉️</span>
-            <span
-              ><a href="mailto:info@restoran.com">info@restoran.com</a></span
-            >
-          </div>
-        </div>
+    <div class="test-container">
+      <h1>✅ Test Dropdown Menu</h1>
+
+      <div class="instructions">
+        <h3>Instruksi Test:</h3>
+        <p>1. Klik ikon user (👤) di navbar sebelah kanan</p>
+        <p>2. Dropdown menu seharusnya muncul dengan dua opsi:</p>
+        <ul>
+          <li>👤 Profil Saya</li>
+          <li>🚪 Logout</li>
+        </ul>
+        <p>3. Klik di luar dropdown untuk menutup</p>
+        <p>4. Klik "Logout" untuk test logout modal</p>
       </div>
-      <div class="footer-bottom">
-        <p>© 2025 Restoran. All right reserved</p>
-      </div>
-    </footer>
+
+      <h2>Debug Info:</h2>
+      <p>Buka Browser Console (F12) untuk melihat messages:</p>
+      <pre style="background: #f5f5f5; padding: 1rem; border-radius: 6px">
+Akan menampilkan:
+- "toggleUserDropdown called"
+- "Dropdown toggled"
+        </pre
+      >
+    </div>
 
     <!-- Logout Modal -->
     <div id="logoutModal" class="logout-modal">
@@ -162,7 +150,22 @@
       </div>
     </div>
 
-    <script src="js/nav-active.js"></script>
     <script src="js/logout.js"></script>
+    <script>
+      // Override toggleUserDropdown dengan logging
+      const originalToggle = window.toggleUserDropdown;
+      window.toggleUserDropdown = function () {
+        console.log("toggleUserDropdown called");
+        const dropdown = document.getElementById("userDropdown");
+        console.log("Dropdown element:", dropdown);
+        console.log("Dropdown classes before:", dropdown.className);
+
+        if (dropdown) {
+          dropdown.classList.toggle("active");
+          console.log("Dropdown classes after:", dropdown.className);
+          console.log("Dropdown toggled");
+        }
+      };
+    </script>
   </body>
 </html>

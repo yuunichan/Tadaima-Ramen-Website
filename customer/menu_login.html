@@ -1,433 +1,706 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Menu Kami - Restoran</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
 
-<body>
+  <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">
-            <div class="logo-icon">
-                <img src="../images/logo.jpg" alt="Logo">
-            </div>
-            <span>Tadaima Balige Restaurant</span>
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="../images/logo.jpg" alt="Logo" />
         </div>
-        <ul class="nav-menu">
-            <li><a href="../beranda.html">Beranda</a></li>
-            <li><a href="customer/menu.html">Menu</a></li>
-            <li><a href="reservasi.html">Reservasi</a></li>
-            <li><a href="customer/about.html">Tentang Kami</a></li>
-            <li><a href="customer/keranjang.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                        class="bi bi-cart" viewBox="0 0 16 16">
-                        <path
-                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                    </svg>
-                </a>
-            </li>
-            <li><a href="../login_page.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                        class="bi bi-person-fill" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                    </svg>
-                </a>
-            </li>
-        </ul>
+        <span>Tadaima Balige Restaurant</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="../beranda.html">Beranda</a></li>
+        <li><a href="customer/menu.html">Menu</a></li>
+        <li><a href="reservasi.html">Reservasi</a></li>
+        <li><a href="customer/about.html">Tentang Kami</a></li>
+        <li>
+          <a href="customer/keranjang.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="currentColor"
+              class="bi bi-cart"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="../login_page.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="white"
+              class="bi bi-person-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
     </nav>
-
 
     <!-- Menu Section -->
     <section class="menu-section">
-        <div class="menu-header">
-            <h1>Menu Kami</h1>
-            <p>Jelajahi pilihan hidangan lezat kami yang disiapkan dengan kualitas bahan yang baik dan segar</p>
+      <div class="menu-header">
+        <h1>Menu Kami</h1>
+        <p>
+          Jelajahi pilihan hidangan lezat kami yang disiapkan dengan kualitas
+          bahan yang baik dan segar
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="tab-btn active" data-filter="semua">Semua</button>
+        <button class="tab-btn" data-filter="makanan">Makanan</button>
+        <button class="tab-btn" data-filter="minuman">Minuman</button>
+      </div>
+
+      <!-- Menu Grid -->
+      <div class="menu-grid">
+        <!-- Card 1 -->
+        <div
+          class="menu-card"
+          data-type="makanan"
+          data-id="seafood-tumpah"
+          tabindex="0"
+        >
+          <div class="menu-image pattern-1">
+            <img
+              src="../images/seafood.png"
+              alt="Seafood Tumpah"
+              width="100%"
+              height="150px"
+            />
+          </div>
+          <div class="menu-content">
+            <h3 class="menu-title">Seafood Tumpah</h3>
+            <p class="menu-description">
+              Seafood Tumpah lezat kaya bumbu melimpah
+            </p>
+            <div class="menu-footer">
+              <span class="menu-price">Rp 60.000</span>
+              <button class="add-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
 
-        <!-- Filter Tabs -->
-        <div class="filter-tabs">
-            <button class="tab-btn active" data-filter="semua">Semua</button>
-            <button class="tab-btn" data-filter="makanan">Makanan</button>
-            <button class="tab-btn" data-filter="minuman">Minuman</button>
+        <!-- Card 2 -->
+        <div
+          class="menu-card"
+          data-type="makanan"
+          data-id="cumi-bakar"
+          tabindex="0"
+        >
+          <div class="menu-image pattern-2">
+            <img
+              src="../images/cumibakar.png"
+              alt="Cumi Bakar"
+              width="100%"
+              height="150px"
+            />
+          </div>
+          <div class="menu-content">
+            <h3 class="menu-title">Cumi Bakar</h3>
+            <p class="menu-description">Cumi Bakar gurih segar aroma khas</p>
+            <div class="menu-footer">
+              <span class="menu-price">Rp 50.000</span>
+              <button class="add-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
 
-        <!-- Menu Grid -->
-        <div class="menu-grid">
-            <!-- Card 1 -->
-            <div class="menu-card" data-type="makanan" data-id="seafood-tumpah" tabindex="0">
-                <div class="menu-image pattern-1">
-                    <img src="../images/seafood.png" alt="Seafood Tumpah" width="100%" height="150px">
-                </div>
-                <div class="menu-content">
-                    <h3 class="menu-title">Seafood Tumpah</h3>
-                    <p class="menu-description">Seafood Tumpah lezat kaya bumbu melimpah</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 60.000</span>
-                        <button class="add-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-cart" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                            </svg> </button>
-                    </div>
-                </div>
+        <!-- Card 3 -->
+        <div
+          class="menu-card"
+          data-type="makanan"
+          data-id="spaghetti-aglio-olio"
+          tabindex="0"
+        >
+          <div class="menu-image pattern-3">
+            <img
+              src="../images/spaghetti.png"
+              alt="Spaghetti Aglio Olio"
+              width="100%"
+              height="150px"
+            />
+          </div>
+          <div class="menu-content">
+            <h3 class="menu-title">Spaghetti Aglio Olio</h3>
+            <p class="menu-description">
+              Spaghetti Aglio Olio dengan cita rasa gurih
+            </p>
+            <div class="menu-footer">
+              <span class="menu-price">Rp 45.000</span>
+              <button class="add-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                  />
+                </svg>
+              </button>
             </div>
-
-            <!-- Card 2 -->
-            <div class="menu-card" data-type="makanan" data-id="cumi-bakar" tabindex="0">
-                <div class="menu-image pattern-2">
-                    <img src="../images/cumibakar.png" alt="Cumi Bakar" width="100%" height="150px">
-                </div>
-                <div class="menu-content">
-                    <h3 class="menu-title">Cumi Bakar</h3>
-                    <p class="menu-description">Cumi Bakar gurih segar aroma khas </p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 50.000</span>
-                        <button class="add-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-cart" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                            </svg> </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="menu-card" data-type="makanan" data-id="spaghetti-aglio-olio" tabindex="0">
-                <div class="menu-image pattern-3">
-                    <img src="../images/spaghetti.png" alt="Spaghetti Aglio Olio" width="100%" height="150px">
-                </div>
-                <div class="menu-content">
-                    <h3 class="menu-title">Spaghetti Aglio Olio</h3>
-                    <p class="menu-description">Spaghetti Aglio Olio dengan cita rasa gurih</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 45.000</span>
-                        <button class="add-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-cart" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                            </svg> </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="menu-card" data-type="makanan" data-id="udang-bakar-jimbaran" tabindex="0">
-                <div class="menu-image pattern-4">
-                    <img src="../images/udangbakar.png" alt="Udang Bakar Jimbaran" width="100%" height="150px">
-                </div>
-                <div class="menu-content">
-                    <h3 class="menu-title">Udang Bakar Jimbaran</h3>
-                    <p class="menu-description">Udang Bakar Jimbaran khas bumbu lezat</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 45.000</span>
-                        <button class="add-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-cart" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                            </svg> </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="menu-card" data-type="makanan" data-id="sup-tomyam" tabindex="0">
-                <div class="menu-image pattern-5">
-                    <img src="../images/suptomyam.png" alt="Sup Tomyam" width="100%" height="150px">
-                </div>
-                <div class="menu-content">
-                    <h3 class="menu-title">Sup Tomyam</h3>
-                    <p class="menu-description">Sup Tomyam pedas segar kaya rempah</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 35.000</span>
-                        <button class="add-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-cart" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                            </svg> </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="menu-card" data-type="makanan" data-id="gulai-kepala-kakap" tabindex="0">
-                <div class="menu-image pattern-6">
-                    <img src="../images/gulaikakap.png" alt="Gulai Kepala Kakap" width="100%" height="150px">
-                </div>
-                <div class="menu-content">
-                    <h3 class="menu-title">Gulai Kepala Kakap</h3>
-                    <p class="menu-description">Gulai Kepala Kakap kaya rempah</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 95.000</span>
-                        <button class="add-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-cart" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                            </svg> </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 7 -->
-            <div class="menu-card" data-type="makanan" data-id="gurita-bakar" tabindex="0">
-                <div class="menu-image pattern-7">
-                    <img src="../images/guritabakar.png" alt="Gurita Bakar" width="100%" height="150px">
-                </div>
-                <div class="menu-content">
-                    <h3 class="menu-title">Gurita Bakar</h3>
-                    <p class="menu-description">Gurita Bakar empuk gurih aroma smokey</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 70.000</span>
-                        <button class="add-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-cart" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                            </svg> </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 8 -->
-            <div class="menu-card" data-type="makanan" data-id="udang-tempura" tabindex="0">
-                <div class="menu-image pattern-8">
-                    <img src="../images/udangtempura.png" alt="Udang Tempura" width="100%" height="150px">
-                </div>
-                <div class="menu-content">
-                    <h3 class="menu-title">Udang Tempura</h3>
-                    <p class="menu-description">Udang Tempura renyah lembut bercita rasa</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 35.000</span>
-                        <button class="add-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-cart" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                            </svg> </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 9 -->
-            <div class="menu-card" data-type="minuman" data-id="matcha-latte" tabindex="0">
-                <div class="menu-image pattern-9"></div>
-                <div class="menu-content">
-                    <h3 class="menu-title">Matcha Latte</h3>
-                    <p class="menu-description">Matcha Latte creamy lembut aroma matcha</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 20.000</span>
-                        <button class="add-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-cart" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                            </svg> </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 10 -->
-            <div class="menu-card" data-type="minuman" data-id="es-melon-salsih" tabindex="0">
-                <div class="menu-image pattern-10"></div>
-                <div class="menu-content">
-                    <h3 class="menu-title">Es Melon Salsih</h3>
-                    <p class="menu-description">Es Melon Salsih segar manis dingin</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 15.000</span>
-                        <button class="add-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-cart" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                            </svg> </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 11 -->
-            <div class="menu-card" data-type="minuman" data-id="strawberry-mojito" tabindex="0">
-                <div class="menu-image pattern-11"></div>
-                <div class="menu-content">
-                    <h3 class="menu-title">Strawberry Mojito</h3>
-                    <p class="menu-description">Strawberry Mojito segar manis minty </p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 22.000</span>
-                        <button class="add-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-cart" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                            </svg> </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 12 -->
-            <div class="menu-card" data-type="minuman" data-id="chocolate" tabindex="0">
-                <div class="menu-image pattern-12"></div>
-                <div class="menu-content">
-                    <h3 class="menu-title">Chocolate</h3>
-                    <p class="menu-description">Chocolate lembut manis pekat nikmat</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 20.000</span>
-                        <button class="add-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-cart" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                            </svg> </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 13 -->
-            <div class="menu-card" data-type="minuman" data-id="float-chocolate" tabindex="0">
-                <div class="menu-image pattern-13"></div>
-                <div class="menu-content">
-                    <h3 class="menu-title">Float Chocolate</h3>
-                    <p class="menu-description">Float Chocolate manis creamy segar dingin</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">18.000</span>
-                        <button class="add-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-cart" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                            </svg> </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 14 -->
-            <div class="menu-card" data-type="minuman" data-id="orange-juice" tabindex="0">
-                <div class="menu-image pattern-14"></div>
-                <div class="menu-content">
-                    <h3 class="menu-title">Orange Juice</h3>
-                    <p class="menu-description">Orange Juice segar manis asam alami</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 18. 000</span>
-                        <button class="add-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-cart" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                            </svg> </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 15 -->
-            <div class="menu-card" data-type="minuman" data-id="americano-coffee" tabindex="0">
-                <div class="menu-image pattern-14"></div>
-                <div class="menu-content">
-                    <h3 class="menu-title">Americano Coffee</h3>
-                    <p class="menu-description">Americano Coffee pahit ringan khas espresso</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 15.000</span>
-                        <button class="add-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-cart" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                            </svg> </button>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+
+        <!-- Card 4 -->
+        <div
+          class="menu-card"
+          data-type="makanan"
+          data-id="udang-bakar-jimbaran"
+          tabindex="0"
+        >
+          <div class="menu-image pattern-4">
+            <img
+              src="../images/udangbakar.png"
+              alt="Udang Bakar Jimbaran"
+              width="100%"
+              height="150px"
+            />
+          </div>
+          <div class="menu-content">
+            <h3 class="menu-title">Udang Bakar Jimbaran</h3>
+            <p class="menu-description">
+              Udang Bakar Jimbaran khas bumbu lezat
+            </p>
+            <div class="menu-footer">
+              <span class="menu-price">Rp 45.000</span>
+              <button class="add-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div
+          class="menu-card"
+          data-type="makanan"
+          data-id="sup-tomyam"
+          tabindex="0"
+        >
+          <div class="menu-image pattern-5">
+            <img
+              src="../images/suptomyam.png"
+              alt="Sup Tomyam"
+              width="100%"
+              height="150px"
+            />
+          </div>
+          <div class="menu-content">
+            <h3 class="menu-title">Sup Tomyam</h3>
+            <p class="menu-description">Sup Tomyam pedas segar kaya rempah</p>
+            <div class="menu-footer">
+              <span class="menu-price">Rp 35.000</span>
+              <button class="add-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div
+          class="menu-card"
+          data-type="makanan"
+          data-id="gulai-kepala-kakap"
+          tabindex="0"
+        >
+          <div class="menu-image pattern-6">
+            <img
+              src="../images/gulaikakap.png"
+              alt="Gulai Kepala Kakap"
+              width="100%"
+              height="150px"
+            />
+          </div>
+          <div class="menu-content">
+            <h3 class="menu-title">Gulai Kepala Kakap</h3>
+            <p class="menu-description">Gulai Kepala Kakap kaya rempah</p>
+            <div class="menu-footer">
+              <span class="menu-price">Rp 95.000</span>
+              <button class="add-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div
+          class="menu-card"
+          data-type="makanan"
+          data-id="gurita-bakar"
+          tabindex="0"
+        >
+          <div class="menu-image pattern-7">
+            <img
+              src="../images/guritabakar.png"
+              alt="Gurita Bakar"
+              width="100%"
+              height="150px"
+            />
+          </div>
+          <div class="menu-content">
+            <h3 class="menu-title">Gurita Bakar</h3>
+            <p class="menu-description">
+              Gurita Bakar empuk gurih aroma smokey
+            </p>
+            <div class="menu-footer">
+              <span class="menu-price">Rp 70.000</span>
+              <button class="add-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div
+          class="menu-card"
+          data-type="makanan"
+          data-id="udang-tempura"
+          tabindex="0"
+        >
+          <div class="menu-image pattern-8">
+            <img
+              src="../images/udangtempura.png"
+              alt="Udang Tempura"
+              width="100%"
+              height="150px"
+            />
+          </div>
+          <div class="menu-content">
+            <h3 class="menu-title">Udang Tempura</h3>
+            <p class="menu-description">
+              Udang Tempura renyah lembut bercita rasa
+            </p>
+            <div class="menu-footer">
+              <span class="menu-price">Rp 35.000</span>
+              <button class="add-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div
+          class="menu-card"
+          data-type="minuman"
+          data-id="matcha-latte"
+          tabindex="0"
+        >
+          <div class="menu-image pattern-9"></div>
+          <div class="menu-content">
+            <h3 class="menu-title">Matcha Latte</h3>
+            <p class="menu-description">
+              Matcha Latte creamy lembut aroma matcha
+            </p>
+            <div class="menu-footer">
+              <span class="menu-price">Rp 20.000</span>
+              <button class="add-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 10 -->
+        <div
+          class="menu-card"
+          data-type="minuman"
+          data-id="es-melon-salsih"
+          tabindex="0"
+        >
+          <div class="menu-image pattern-10"></div>
+          <div class="menu-content">
+            <h3 class="menu-title">Es Melon Salsih</h3>
+            <p class="menu-description">Es Melon Salsih segar manis dingin</p>
+            <div class="menu-footer">
+              <span class="menu-price">Rp 15.000</span>
+              <button class="add-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 11 -->
+        <div
+          class="menu-card"
+          data-type="minuman"
+          data-id="strawberry-mojito"
+          tabindex="0"
+        >
+          <div class="menu-image pattern-11"></div>
+          <div class="menu-content">
+            <h3 class="menu-title">Strawberry Mojito</h3>
+            <p class="menu-description">Strawberry Mojito segar manis minty</p>
+            <div class="menu-footer">
+              <span class="menu-price">Rp 22.000</span>
+              <button class="add-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 12 -->
+        <div
+          class="menu-card"
+          data-type="minuman"
+          data-id="chocolate"
+          tabindex="0"
+        >
+          <div class="menu-image pattern-12"></div>
+          <div class="menu-content">
+            <h3 class="menu-title">Chocolate</h3>
+            <p class="menu-description">Chocolate lembut manis pekat nikmat</p>
+            <div class="menu-footer">
+              <span class="menu-price">Rp 20.000</span>
+              <button class="add-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 13 -->
+        <div
+          class="menu-card"
+          data-type="minuman"
+          data-id="float-chocolate"
+          tabindex="0"
+        >
+          <div class="menu-image pattern-13"></div>
+          <div class="menu-content">
+            <h3 class="menu-title">Float Chocolate</h3>
+            <p class="menu-description">
+              Float Chocolate manis creamy segar dingin
+            </p>
+            <div class="menu-footer">
+              <span class="menu-price">18.000</span>
+              <button class="add-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 14 -->
+        <div
+          class="menu-card"
+          data-type="minuman"
+          data-id="orange-juice"
+          tabindex="0"
+        >
+          <div class="menu-image pattern-14"></div>
+          <div class="menu-content">
+            <h3 class="menu-title">Orange Juice</h3>
+            <p class="menu-description">Orange Juice segar manis asam alami</p>
+            <div class="menu-footer">
+              <span class="menu-price">Rp 18. 000</span>
+              <button class="add-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 15 -->
+        <div
+          class="menu-card"
+          data-type="minuman"
+          data-id="americano-coffee"
+          tabindex="0"
+        >
+          <div class="menu-image pattern-14"></div>
+          <div class="menu-content">
+            <h3 class="menu-title">Americano Coffee</h3>
+            <p class="menu-description">
+              Americano Coffee pahit ringan khas espresso
+            </p>
+            <div class="menu-footer">
+              <span class="menu-price">Rp 15.000</span>
+              <button class="add-btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Restoran</h3>
-                <p>Menyajikan cita rasa autentik rasa khas dengan bahan bahan terbaik</p>
-            </div>
-            <div class="footer-section">
-                <h3>Jam Buka</h3>
-                <ul>
-                    <li>Senin - Jumat: 09.00 - 10.00</li>
-                    <li>Sabtu - Minggu: 10.00 - 23.00</li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Kontak</h3>
-                <p>Jl. Simonangkir No. 120, Medan<br>
-                    +62 894-7468-4583<br>
-                    info.email@gmail.com</p>
-            </div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Restoran</h3>
+          <p>
+            Menyajikan cita rasa autentik rasa khas dengan bahan bahan terbaik
+          </p>
         </div>
-        <div class="footer-bottom">
-            <p>© 2025 Restoran. All right reserved</p>
+        <div class="footer-section">
+          <h3>Jam Buka</h3>
+          <ul>
+            <li>Senin - Jumat: 09.00 - 10.00</li>
+            <li>Sabtu - Minggu: 10.00 - 23.00</li>
+          </ul>
         </div>
+        <div class="footer-section">
+          <h3>Kontak</h3>
+          <p>
+            Jl. Simonangkir No. 120, Medan<br />
+            +62 894-7468-4583<br />
+            info.email@gmail.com
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Restoran. All right reserved</p>
+      </div>
     </footer>
 
     <script src="../js/nav-active.js"></script>
     <script>
-        // Filter functionality
-        const tabs = document.querySelectorAll('.tab-btn');
-        const cards = document.querySelectorAll('.menu-card');
+      // Filter functionality
+      const tabs = document.querySelectorAll(".tab-btn");
+      const cards = document.querySelectorAll(".menu-card");
 
-        function filterMenu(filter) {
-            cards.forEach(card => {
-                if (filter === 'semua' || card.dataset.type === filter) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function () {
-                tabs.forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                const filter = this.dataset.filter || 'semua';
-                filterMenu(filter);
-            });
+      function filterMenu(filter) {
+        cards.forEach((card) => {
+          if (filter === "semua" || card.dataset.type === filter) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
         });
+      }
 
-        // initialize filter (in case non-default active tab set)
-        const activeTab = document.querySelector('.tab-btn.active');
-        if (activeTab) {
-            filterMenu(activeTab.dataset.filter || 'semua');
-        }
-
-        // Add to cart functionality & prevent card click navigation
-        const addBtns = document.querySelectorAll('.add-btn');
-        addBtns.forEach(btn => {
-            btn.addEventListener('click', function (e) {
-                e.stopPropagation(); // prevent parent card click
-                alert('Item ditambahkan ke keranjang!');
-            });
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", function () {
+          tabs.forEach((t) => t.classList.remove("active"));
+          this.classList.add("active");
+          const filter = this.dataset.filter || "semua";
+          filterMenu(filter);
         });
+      });
 
-        // Card click navigation and keyboard accessibility
-        const clickableCards = document.querySelectorAll('.menu-card');
-        clickableCards.forEach(card => {
-            card.addEventListener('click', function () {
-                const id = card.dataset.id;
-                if (id) {
-                    window.location.href = 'menu_detail.html?item=' + encodeURIComponent(id);
-                }
-            });
-            card.addEventListener('keydown', function (e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    card.click();
-                }
-            });
+      // initialize filter (in case non-default active tab set)
+      const activeTab = document.querySelector(".tab-btn.active");
+      if (activeTab) {
+        filterMenu(activeTab.dataset.filter || "semua");
+      }
+
+      // Add to cart functionality & prevent card click navigation
+      const addBtns = document.querySelectorAll(".add-btn");
+      addBtns.forEach((btn) => {
+        btn.addEventListener("click", function (e) {
+          e.stopPropagation(); // prevent parent card click
+          alert("Item ditambahkan ke keranjang!");
         });
+      });
+
+      // Card click navigation and keyboard accessibility
+      const clickableCards = document.querySelectorAll(".menu-card");
+      clickableCards.forEach((card) => {
+        card.addEventListener("click", function () {
+          const id = card.dataset.id;
+          if (id) {
+            window.location.href =
+              "menu_detail.html?item=" + encodeURIComponent(id);
+          }
+        });
+        card.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            card.click();
+          }
+        });
+      });
     </script>
-</body>
-
+  </body>
 </html>

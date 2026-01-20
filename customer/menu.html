@@ -39,28 +39,31 @@
         </li>
         <li>
           <button
-            class="logout-btn"
-            onclick="openLogoutModal(event)"
+            class="user-profile-btn"
+            onclick="toggleUserDropdown()"
             style="background: none; border: none; cursor: pointer; padding: 0"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
               height="25"
-              fill="currentColor"
-              class="bi bi-box-arrow-right"
+              fill="white"
+              class="bi bi-person-fill"
               viewBox="0 0 16 16"
             >
               <path
-                fill-rule="evenodd"
-                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 1h-8A1.5 1.5 0 0 0 0 2.5v9A1.5 1.5 0 0 0 1.5 13h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"
-              />
-              <path
-                fill-rule="evenodd"
-                d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708l2.147-2.146H4.5a.5.5 0 0 1 0-1h10.293L12.146 4.854a.5.5 0 0 1 .708-.708l3 3z"
+                d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
               />
             </svg>
           </button>
+
+          <!-- User Dropdown Menu -->
+          <div class="user-dropdown" id="userDropdown">
+            <a href="user_profile.html" class="dropdown-item">👤 Profil Saya</a>
+            <button class="dropdown-item" onclick="openLogoutModal(event)">
+              🚪 Logout
+            </button>
+          </div>
         </li>
       </ul>
     </nav>

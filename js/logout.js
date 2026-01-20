@@ -1,5 +1,27 @@
 // Logout Modal Functions
 
+// Toggle User Dropdown Menu
+function toggleUserDropdown() {
+    console.log('toggleUserDropdown called');
+    const dropdown = document.getElementById('userDropdown');
+    console.log('Dropdown element found:', dropdown !== null);
+    
+    if (dropdown) {
+        dropdown.classList.toggle('active');
+        console.log('Dropdown active status:', dropdown.classList.contains('active'));
+    }
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(e) {
+    const userBtn = document.querySelector('.user-profile-btn');
+    const dropdown = document.getElementById('userDropdown');
+    
+    if (dropdown && userBtn && !userBtn.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.classList.remove('active');
+    }
+});
+
 // Open logout modal
 function openLogoutModal(event) {
     if (event) {
@@ -8,6 +30,12 @@ function openLogoutModal(event) {
     const modal = document.getElementById('logoutModal');
     if (modal) {
         modal.classList.add('active');
+    }
+    
+    // Close dropdown if open
+    const dropdown = document.getElementById('userDropdown');
+    if (dropdown) {
+        dropdown.classList.remove('active');
     }
 }
 
