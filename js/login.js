@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (password === adminPassword) {
         sessionStorage.setItem('role', 'admin');
         alert('Login admin berhasil. Mengalihkan ke dashboard admin...');
-        window.location.href = 'admin.html';
+        window.location.href = 'admin/dashboard.html';
       } else {
         alert('Login admin gagal. Periksa email/username dan kata sandi.');
       }
