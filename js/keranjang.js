@@ -4,221 +4,223 @@ document.addEventListener('DOMContentLoaded', function() {
     // Select All functionality
     const selectAll = document.getElementById('selectAll');
     const itemCheckboxes = document.querySelectorAll('.item-checkbox');
-    
+
     if (selectAll) {
         selectAll.addEventListener('change', function() {
-            itemCheckboxes.forEach(checkbox => {
-                checkbox.checked = selectAll.checked;
-            });
+            itemCheckboxes.forEach(checkbox => checkbox.checked = selectAll.checked);
             updateSummary();
         });
     }
 
-    // Individual checkbox change
     itemCheckboxes.forEach(checkbox => {
         checkbox.addEventListener('change', function() {
             const allChecked = Array.from(itemCheckboxes).every(cb => cb.checked);
-            selectAll.checked = allChecked;
+            if (selectAll) selectAll.checked = allChecked;
             updateSummary();
         });
     });
 
     // Quantity controls
-    const minusButtons = document.querySelectorAll('.qty-btn.minus');
-    const plusButtons = document.querySelectorAll('.qty-btn.plus');
-    const qtyInputs = document.querySelectorAll('.qty-input');
-
-    minusButtons.forEach(btn => {
+    document.querySelectorAll('.qty-btn.minus').forEach(btn => {
         btn.addEventListener('click', function() {
             const input = this.nextElementSibling;
-            let value = parseInt(input.value);
-            if (value > 1) {
-                input.value = value - 1;
-                updateSummary();
-            }
+            let value = parseInt(input.value) || 1;
+            if (value > 1) input.value = value - 1;
+            updateSummary();
         });
     });
 
-    plusButtons.forEach(btn => {
+    document.querySelectorAll('.qty-btn.plus').forEach(btn => {
         btn.addEventListener('click', function() {
             const input = this.previousElementSibling;
-            let value = parseInt(input.value);
+            let value = parseInt(input.value) || 1;
             input.value = value + 1;
             updateSummary();
         });
     });
 
-    qtyInputs.forEach(input => {
+    document.querySelectorAll('.qty-input').forEach(input => {
         input.addEventListener('change', function() {
-            if (parseInt(this.value) < 1) {
-                this.value = 1;
-            }
+            if (parseInt(this.value) < 1 || isNaN(parseInt(this.value))) this.value = 1;
             updateSummary();
         });
     });
 
-    // Delete button
-    const deleteButtons = document.querySelectorAll('.delete-btn');
-    deleteButtons.forEach(btn => {
+    // Delete single item
+    document.querySelectorAll('.delete-btn').forEach(btn => {
         btn.addEventListener('click', function() {
-            if (confirm('Apakah Anda yakin ingin menghapus item ini dari keranjang?')) {
-                const cartItem = this.closest('.cart-item');
+            const cartItem = this.closest('.cart-item');
+            const itemName = cartItem.querySelector('.item-name')?.textContent || 'item ini';
+
+            if (confirm(`Hapus ${itemName} dari keranjang?`)) {
                 cartItem.style.transition = 'opacity 0.3s, transform 0.3s';
                 cartItem.style.opacity = '0';
                 cartItem.style.transform = 'translateX(-20px)';
-                
+
                 setTimeout(() => {
                     cartItem.remove();
                     updateItemCount();
                     updateSummary();
+                    ReservationNotification.showSuccess({
+                        message: `${itemName} berhasil dihapus dari keranjang`,
+                        duration: 3000
+                    });
                 }, 300);
             }
         });
     });
 
-    // Clear cart
+    // Clear selected items
     const clearCart = document.querySelector('.clear-cart');
     if (clearCart) {
         clearCart.addEventListener('click', function(e) {
             e.preventDefault();
-            const checkedItems = document.querySelectorAll('.item-checkbox:checked');
-            
-            if (checkedItems.length === 0) {
-                alert('Silakan pilih item yang ingin dihapus');
+            const checked = document.querySelectorAll('.item-checkbox:checked');
+
+            if (checked.length === 0) {
+                ReservationNotification.showError({
+                    message: 'Silakan pilih item yang ingin dihapus',
+                    duration: 4000
+                });
                 return;
             }
-            
-            if (confirm(`Hapus ${checkedItems.length} item terpilih?`)) {
-                checkedItems.forEach(checkbox => {
-                    const cartItem = checkbox.closest('.cart-item');
-                    cartItem.style.transition = 'opacity 0.3s, transform 0.3s';
-                    cartItem.style.opacity = '0';
-                    cartItem.style.transform = 'translateX(-20px)';
-                    
-                    setTimeout(() => {
-                        cartItem.remove();
-                        updateItemCount();
-                        updateSummary();
-                    }, 300);
+
+            if (confirm(`Hapus ${checked.length} item terpilih?`)) {
+                checked.forEach(cb => {
+                    const item = cb.closest('.cart-item');
+                    item.style.transition = 'opacity 0.3s, transform 0.3s';
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateX(-20px)';
+
+                    setTimeout(() => item.remove(), 300);
                 });
+
+                setTimeout(() => {
+                    updateItemCount();
+                    updateSummary();
+                    ReservationNotification.showSuccess({
+                        message: `${checked.length} item berhasil dihapus`,
+                        duration: 3500
+                    });
+                }, 400);
             }
         });
     }
 
-    // Voucher button
+    // Voucher
     const voucherBtn = document.querySelector('.voucher-btn');
     if (voucherBtn) {
         voucherBtn.addEventListener('click', function() {
-            const voucherInput = document.querySelector('.voucher-input');
-            const code = voucherInput.value.trim().toUpperCase();
-            
-            if (code === '') {
-                alert('Silakan masukkan kode voucher');
+            const input = document.querySelector('.voucher-input');
+            const code = input?.value.trim().toUpperCase() || '';
+
+            if (!code) {
+                ReservationNotification.showError({ message: 'Masukkan kode voucher', duration: 4000 });
                 return;
             }
-            
-            // Simulasi validasi voucher
+
             if (code === 'DISKON10') {
-                alert('Voucher berhasil diterapkan! Diskon 10%');
-                voucherInput.value = '';
-                updateSummary(0.1); // 10% discount
+                ReservationNotification.showSuccess({ message: 'Voucher DISKON10 diterapkan! Diskon 10%', duration: 5000 });
+                input.value = '';
+                updateSummary(0.1);
             } else {
-                alert('Kode voucher tidak valid');
+                ReservationNotification.showError({ message: 'Kode voucher tidak valid', duration: 5000 });
             }
         });
     }
 
-    // Checkout button
-    const checkoutBtn = document.querySelector('.checkout-btn');
-    if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', function() {
-            const checkedItems = document.querySelectorAll('.item-checkbox:checked');
-            
-            if (checkedItems.length === 0) {
-                alert('Silakan pilih item yang ingin di-checkout');
-                return;
-            }
-            
-            // Redirect to checkout page or show checkout modal
-            alert(`Checkout ${checkedItems.length} item - Total: ${document.querySelector('.total-amount').textContent}`);
-            window.location.href = 'checkout.html';
+    // Checkout
+   // Checkout button
+const checkoutBtn = document.querySelector('.checkout-btn');
+if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', function() {
+        const checkedItems = document.querySelectorAll('.item-checkbox:checked');
+        
+        if (checkedItems.length === 0) {
+            ReservationNotification.showError({
+                message: 'Silakan pilih minimal satu item untuk checkout',
+                duration: 4000
+            });
+            return;
+        }
+        
+        const totalText = document.querySelector('.total-amount')?.textContent || 'Rp 0';
+        
+        ReservationNotification.showSuccess({
+            message: `Checkout berhasil diproses untuk ${checkedItems.length} item<br>Total: ${totalText}`,
+            duration: 6000,
+            style: 'payment'
         });
-    }
 
-    // Suggestion add buttons
-    const suggestionBtns = document.querySelectorAll('.suggestion-add-btn');
-    suggestionBtns.forEach(btn => {
+        // Redirect ke halaman checkout (path relatif dari keranjang.html)
+        setTimeout(() => {
+            window.location.href = 'checkout.html';   // ← PERBAIKAN UTAMA DI SINI
+        }, 1800);  // tunggu notifikasi selesai ~1.8 detik
+    });
+}
+
+    // Suggestion add
+    document.querySelectorAll('.suggestion-add-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             const item = this.closest('.suggestion-item');
-            const itemName = item.querySelector('h4').textContent;
-            
-            // Animation feedback
+            const name = item.querySelector('h4')?.textContent || 'Item';
+
             this.style.transform = 'scale(1.2)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 200);
-            
-            alert(`${itemName} ditambahkan ke keranjang!`);
+            setTimeout(() => this.style.transform = 'scale(1)', 200);
+
+            ReservationNotification.showSuccess({
+                message: `${name} berhasil ditambahkan ke keranjang!`,
+                duration: 3500
+            });
         });
     });
 
-    // Navigation arrows for suggestions
-    const prevBtn = document.querySelector('.nav-arrow.prev');
-    const nextBtn = document.querySelector('.nav-arrow.next');
-    
-    if (prevBtn && nextBtn) {
-        prevBtn.addEventListener('click', function() {
-            const container = document.querySelector('.suggestions-list');
-            container.scrollBy({ left: -300, behavior: 'smooth' });
-        });
-        
-        nextBtn.addEventListener('click', function() {
-            const container = document.querySelector('.suggestions-list');
-            container.scrollBy({ left: 300, behavior: 'smooth' });
-        });
+    // Suggestion navigation
+    const prev = document.querySelector('.nav-arrow.prev');
+    const next = document.querySelector('.nav-arrow.next');
+    if (prev && next) {
+        prev.addEventListener('click', () => document.querySelector('.suggestions-list')?.scrollBy({ left: -300, behavior: 'smooth' }));
+        next.addEventListener('click', () => document.querySelector('.suggestions-list')?.scrollBy({ left: 300, behavior: 'smooth' }));
     }
 
-    // Helper Functions
+    // Helpers
     function updateItemCount() {
-        const items = document.querySelectorAll('.cart-item');
-        const itemCount = document.querySelector('.item-count');
-        if (itemCount) {
-            itemCount.textContent = `(${items.length} Item${items.length !== 1 ? '' : ''})`;
-        }
+        const count = document.querySelectorAll('.cart-item').length;
+        const el = document.querySelector('.item-count');
+        if (el) el.textContent = `(${count} Item${count !== 1 ? '' : ''})`;
     }
 
-    function updateSummary(discount = 0) {
-        const cartItems = document.querySelectorAll('.cart-item');
+    function updateSummary(discountRate = 0) {
         let subtotal = 0;
         let checkedCount = 0;
 
-        cartItems.forEach(item => {
-            const checkbox = item.querySelector('.item-checkbox');
-            if (checkbox && checkbox.checked) {
-                const priceText = item.querySelector('.item-price').textContent;
-                const price = parseInt(priceText.replace(/[^0-9]/g, ''));
-                const qty = parseInt(item.querySelector('.qty-input').value);
+        document.querySelectorAll('.cart-item').forEach(item => {
+            const cb = item.querySelector('.item-checkbox');
+            if (cb?.checked) {
+                const priceStr = item.querySelector('.item-price')?.textContent || '0';
+                const price = parseInt(priceStr.replace(/[^0-9]/g, '')) || 0;
+                const qty = parseInt(item.querySelector('.qty-input')?.value || '1');
                 subtotal += price * qty;
                 checkedCount++;
             }
         });
 
         const ppn = subtotal * 0.1;
-        const discountAmount = subtotal * discount;
-        const total = subtotal + ppn - discountAmount;
+        const discount = subtotal * discountRate;
+        const total = subtotal + ppn - discount;
 
-        // Update UI
         const subtotalEl = document.querySelector('.summary-details .summary-row:first-child span:last-child');
-        const ppnEl = document.querySelector('.summary-details .summary-row:last-child span:last-child');
-        const totalEl = document.querySelector('.total-amount');
-        const subtotalLabel = document.querySelector('.summary-details .summary-row:first-child span:first-child');
+        const ppnEl     = document.querySelector('.summary-details .summary-row:last-child span:last-child');
+        const totalEl   = document.querySelector('.total-amount');
+        const labelEl   = document.querySelector('.summary-details .summary-row:first-child span:first-child');
 
         if (subtotalEl) subtotalEl.textContent = `Rp ${subtotal.toLocaleString('id-ID')}`;
         if (ppnEl) ppnEl.textContent = `Rp ${Math.round(ppn).toLocaleString('id-ID')}`;
         if (totalEl) totalEl.textContent = `Rp ${Math.round(total).toLocaleString('id-ID')}`;
-        if (subtotalLabel) subtotalLabel.textContent = `Subtotal (${checkedCount} Produk)`;
+        if (labelEl) labelEl.textContent = `Subtotal (${checkedCount} Produk)`;
     }
 
-    // Initial update
+    // Init
     updateSummary();
+    updateItemCount();
 });

@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pembayaran - Restoran</title>
+    <title>Konfirmasi Reservasi - Restoran</title>
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/payment_reservation.css" />
+    <link rel="stylesheet" href="../css/form_reservasi.css" />
+    <link rel="stylesheet" href="../css/payment.css" />
   </head>
 
   <body>
@@ -20,7 +22,7 @@
       <ul class="nav-menu">
         <li><a href="../beranda.html">Beranda</a></li>
         <li><a href="menu.html">Menu</a></li>
-        <li><a href="reservasi.html">Reservasi</a></li>
+        <li><a href="reservasi.html">Meja</a></li>
         <li><a href="about.html">Tentang Kami</a></li>
         <li>
           <a href="keranjang.html">
@@ -66,8 +68,8 @@
             <span>←</span>
           </button>
           <div class="payment-header-text">
-            <h1>Pembayaran</h1>
-            <p>Pilih metode pembayaran Anda</p>
+            <h1>Konfirmasi Reservasi</h1>
+            <p>Periksa detail reservasi Anda</p>
           </div>
         </div>
 
@@ -80,121 +82,28 @@
             <div class="summary-grid">
               <div class="summary-item">
                 <span class="summary-label">Nama Pemesan</span>
-                <span class="summary-value">vd</span>
+                <span class="summary-value" id="summaryName">vd</span>
               </div>
               <div class="summary-item">
                 <span class="summary-label">Nomor Meja</span>
-                <span class="summary-value">No. A01</span>
+                <span class="summary-value" id="summaryTable">No. A01</span>
               </div>
               <div class="summary-item">
                 <span class="summary-label">Tanggal & Waktu</span>
-                <span class="summary-value">21/4/214 - 12:32</span>
+                <span class="summary-value" id="summaryDateTime"
+                  >21/4/214 - 12:32</span
+                >
               </div>
               <div class="summary-item">
                 <span class="summary-label">Jumlah Tamu</span>
-                <span class="summary-value">2 Orang</span>
+                <span class="summary-value" id="summaryGuests">2 Orang</span>
               </div>
             </div>
 
-            <div class="cost-breakdown">
-              <div class="cost-item">
-                <span>Biaya Reservasi</span>
-                <span>Rp 50.000</span>
-              </div>
-              <div class="cost-item">
-                <span>Biaya Admin</span>
-                <span>Rp 5.000</span>
-              </div>
-              <div class="cost-total">
-                <span>Total Pembayaran</span>
-                <span class="total-amount">Rp 55.000</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Metode Pembayaran -->
-          <div class="payment-section">
-            <h3 class="section-title">Metode Pembayaran</h3>
-
-            <form class="payment-form" id="paymentForm">
-              <!-- Transfer Bank -->
-              <label class="payment-method">
-                <input type="radio" name="payment" value="transfer" required />
-                <div class="method-content">
-                  <div class="method-icon">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <rect x="2" y="4" width="20" height="16" rx="2" />
-                      <path d="M2 10h20" />
-                    </svg>
-                  </div>
-                  <div class="method-info">
-                    <h4>Transfer Bank</h4>
-                    <p>Transfer melalui BCA, Mandiri, BNI, BRI</p>
-                  </div>
-                </div>
-                <div class="method-radio"></div>
-              </label>
-
-              <!-- E-Wallet -->
-              <label class="payment-method">
-                <input type="radio" name="payment" value="ewallet" required />
-                <div class="method-content">
-                  <div class="method-icon">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <rect x="2" y="7" width="20" height="14" rx="2" />
-                      <path d="M16 3h4v4M4 7l8-4" />
-                    </svg>
-                  </div>
-                  <div class="method-info">
-                    <h4>E-Wallet</h4>
-                    <p>GoPay, OVO, Dana, ShopeePay</p>
-                  </div>
-                </div>
-                <div class="method-radio"></div>
-              </label>
-
-              <!-- Kartu Kredit/Debit -->
-              <label class="payment-method">
-                <input type="radio" name="payment" value="card" required />
-                <div class="method-content">
-                  <div class="method-icon">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <rect x="1" y="4" width="22" height="16" rx="2" />
-                      <path d="M1 10h22" />
-                    </svg>
-                  </div>
-                  <div class="method-info">
-                    <h4>Kartu Kredit/Debit</h4>
-                    <p>Visa, Mastercard, JCB</p>
-                  </div>
-                </div>
-                <div class="method-radio"></div>
-              </label>
-
-              <!-- Submit Button -->
-              <button type="submit" class="pay-button" disabled>
-                Bayar Sekarang
+            <!-- Submit Button -->
+            <form id="confirmationForm">
+              <button type="submit" class="submit-btn">
+                Konfirmasi Reservasi
               </button>
             </form>
           </div>
@@ -233,54 +142,68 @@
     </footer>
 
     <script>
-      // Enable/disable pay button based on payment method selection
-      const paymentForm = document.getElementById("paymentForm");
-      const payButton = document.querySelector(".pay-button");
-      const radioButtons = document.querySelectorAll('input[name="payment"]');
+      // Show notification function
+      function showNotification(message, type = "success") {
+        // Remove existing notification
+        const existing = document.querySelector(".payment-status");
+        if (existing) {
+          existing.remove();
+        }
 
-      radioButtons.forEach((radio) => {
-        radio.addEventListener("change", function () {
-          if (this.checked) {
-            payButton.disabled = false;
-            payButton.classList.add("active");
-          }
-        });
-      });
+        // Create notification element
+        const notification = document.createElement("div");
+        notification.className = `payment-status ${type} show`;
 
-      // Form submission
-      paymentForm.addEventListener("submit", function (e) {
+        const icon =
+          type === "success"
+            ? "✓"
+            : type === "error"
+              ? "✗"
+              : type === "warning"
+                ? "⚠"
+                : "ℹ";
+
+        notification.innerHTML = `
+          <span class="status-icon">${icon}</span>
+          <span class="status-message">${message}</span>
+        `;
+
+        document.body.appendChild(notification);
+
+        // Auto hide after 3 seconds
+        setTimeout(() => {
+          notification.classList.remove("show");
+          setTimeout(() => notification.remove(), 300);
+        }, 3000);
+      }
+
+      // Form submission for confirmation
+      const confirmationForm = document.getElementById("confirmationForm");
+
+      confirmationForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        const selectedMethod = document.querySelector(
-          'input[name="payment"]:checked',
+        // Get reservation details from summary
+        const reservationDetails = {
+          name: document.getElementById("summaryName").textContent,
+          table: document.getElementById("summaryTable").textContent,
+          dateTime: document.getElementById("summaryDateTime").textContent,
+          guests: document.getElementById("summaryGuests").textContent,
+        };
+
+        // Save to session storage to pass to next page
+        sessionStorage.setItem(
+          "reservationDetails",
+          JSON.stringify(reservationDetails),
         );
 
-        if (selectedMethod) {
-          const methodValue = selectedMethod.value;
-          let methodName = "";
+        // Show success notification
+        showNotification("Reservasi berhasil dikonfirmasi! ✓", "success");
 
-          switch (methodValue) {
-            case "transfer":
-              methodName = "Transfer Bank";
-              break;
-            case "ewallet":
-              methodName = "E-Wallet";
-              break;
-            case "card":
-              methodName = "Kartu Kredit/Debit";
-              break;
-          }
-
-          console.log("Metode Pembayaran:", methodName);
-          alert(
-            "Pembayaran dengan " +
-              methodName +
-              " sedang diproses...\n\nTotal: Rp 55.000",
-          );
-
-          // Redirect to confirmation page
-          window.location.href = "reservasi_success.html";
-        }
+        // Redirect after notification
+        setTimeout(function () {
+          window.location.href = "wa_admin.html";
+        }, 3000);
       });
     </script>
   </body>

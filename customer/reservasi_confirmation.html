@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pembayaran Berhasil - Restoran</title>
+    <title>Konfirmasi Reservasi - Restoran</title>
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/success.css" />
+    <link rel="stylesheet" href="../css/payment.css" />
   </head>
 
   <body>
@@ -13,7 +14,7 @@
     <nav>
       <div class="logo">
         <div class="logo-icon">
-          <img src="../r images/logo.jpg" alt="Logo" />
+          <img src="../images/logo.jpg" alt="Logo" />
         </div>
         <span>Tadaima Balige Restaurant</span>
       </div>
@@ -85,11 +86,11 @@
           </div>
 
           <!-- Success Title -->
-          <h1 class="success-title">Pembayaran Berhasil!</h1>
+          <h1 class="success-title">Reservasi Dikonfirmasi!</h1>
 
           <!-- Success Message -->
           <p class="success-message">
-            Reservasi Anda untuk meja No. A01 telah dikonfirmasi.<br />
+            Reservasi Anda telah dikonfirmasi dengan sukses.<br />
             Kami tunggu kedatangan Anda.
           </p>
 
@@ -107,13 +108,33 @@
                   stroke="currentColor"
                   stroke-width="2"
                 >
+                  <path d="M10 1a9 9 0 0 0 0 18 9 9 0 0 0 0-18z" />
+                  <path d="M10 5v5l4 2" />
+                </svg>
+              </div>
+              <div class="detail-content">
+                <span class="detail-label">Nama Pemesan</span>
+                <span class="detail-value" id="detailName">-</span>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
                   <path d="M3 3h14v14H3z" />
                   <path d="M7 1v4M13 1v4M3 7h14" />
                 </svg>
               </div>
               <div class="detail-content">
-                <span class="detail-label">Meja No.</span>
-                <span class="detail-value">A01</span>
+                <span class="detail-label">Nomor Meja</span>
+                <span class="detail-value" id="detailTable">-</span>
               </div>
             </div>
 
@@ -132,7 +153,8 @@
                 </svg>
               </div>
               <div class="detail-content">
-                <span class="detail-label">Kamis, 21 April 214</span>
+                <span class="detail-label">Tanggal & Waktu</span>
+                <span class="detail-value" id="detailDateTime">-</span>
               </div>
             </div>
 
@@ -147,68 +169,47 @@
                   stroke-width="2"
                 >
                   <circle cx="10" cy="10" r="8" />
-                  <path d="M10 5v5l3 3" />
+                  <path d="M10 6v4l3 3" />
                 </svg>
               </div>
               <div class="detail-content">
-                <span class="detail-label">12:32 WIB</span>
+                <span class="detail-label">Jumlah Tamu</span>
+                <span class="detail-value" id="detailGuests">-</span>
               </div>
             </div>
+          </div>
 
-            <div class="detail-item">
-              <div class="detail-icon">
+          <!-- WhatsApp Contact Section -->
+          <div class="whatsapp-section">
+            <h3 class="whatsapp-title">Hubungi Kami via WhatsApp</h3>
+            <p class="whatsapp-description">
+              Jika ada pertanyaan atau perubahan, hubungi kami melalui WhatsApp
+            </p>
+            <div class="whatsapp-contact">
+              <a
+                href="https://wa.me/6289474684583"
+                target="_blank"
+                class="whatsapp-button"
+              >
                 <svg
                   width="20"
                   height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
                 >
-                  <path d="M14 18v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                  <circle cx="8" cy="6" r="4" />
-                  <path d="M18 8a4 4 0 0 0-1-2.646" />
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371 0-.57 0-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.868 1.17l-.348.202-3.615-.962.978 3.57-.235.374a9.861 9.861 0 .15 15.494c1.5.886 3.187 1.353 4.992 1.353a9.86 9.86 0 004.533-1.113l.375-.187 3.632.765-.987-3.631.236-.374a9.86 9.86 0 .15-15.494m0-1.95c1.966 0 3.852.356 5.635 1.051l.896 1.006-3.686.777c-.703-.358-1.489-.574-2.317-.574-3.056 0-5.543 2.487-5.543 5.544 0 .906.19 1.768.543 2.56l-.374 3.097 3.199-.677c.765.35 1.615.543 2.507.543 3.056 0 5.544-2.487 5.544-5.544 0-.915-.189-1.776-.543-2.56l.374-3.097-3.199.677a5.55 5.55 0 00-2.317-.544z"
+                  />
                 </svg>
-              </div>
-              <div class="detail-content">
-                <span class="detail-label">2 Orang</span>
-              </div>
+                +62 894-7468-4583
+              </a>
             </div>
           </div>
 
           <!-- Action Buttons -->
           <div class="action-buttons">
-            <button class="btn-outline" onclick="window.print()">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M5 7V3h10v4" />
-                <rect x="3" y="7" width="14" height="8" rx="1" />
-                <path d="M5 13h10v4H5z" />
-              </svg>
-              Cetak Bukti
-            </button>
-            <button
-              class="btn-primary"
-              onclick="window.location.href = 'reservasi.html'"
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M3 10h14M10 3l7 7-7 7" />
-              </svg>
-              Kembali ke Beranda
-            </button>
+            <a href="reservasi.html" class="btn btn-secondary">Kembali</a>
+            <a href="../beranda.html" class="btn btn-primary">Beranda</a>
           </div>
         </div>
       </div>
@@ -245,43 +246,61 @@
     </footer>
 
     <script>
-      // Add animation on page load
-      window.addEventListener("load", function () {
-        const successIcon = document.querySelector(".success-icon");
-        const successCard = document.querySelector(".success-card");
+      // Load reservation details from session storage
+      const reservationDetails = JSON.parse(
+        sessionStorage.getItem("reservationDetails") || "{}",
+      );
 
-        setTimeout(() => {
-          successIcon.classList.add("animate");
-        }, 200);
-
-        setTimeout(() => {
-          successCard.classList.add("show");
-        }, 400);
-      });
-
-      // Confetti effect (optional)
-      function createConfetti() {
-        const colors = ["#ff6a00", "#2ecc71", "#e74c3c", "#f39c12", "#3498db"];
-        const confettiCount = 50;
-
-        for (let i = 0; i < confettiCount; i++) {
-          const confetti = document.createElement("div");
-          confetti.className = "confetti";
-          confetti.style.left = Math.random() * 100 + "%";
-          confetti.style.backgroundColor =
-            colors[Math.floor(Math.random() * colors.length)];
-          confetti.style.animationDelay = Math.random() * 3 + "s";
-          confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
-          document.body.appendChild(confetti);
-
-          setTimeout(() => {
-            confetti.remove();
-          }, 5000);
-        }
+      if (Object.keys(reservationDetails).length > 0) {
+        document.getElementById("detailName").textContent =
+          reservationDetails.name || "-";
+        document.getElementById("detailTable").textContent =
+          reservationDetails.table || "-";
+        document.getElementById("detailDateTime").textContent =
+          reservationDetails.dateTime || "-";
+        document.getElementById("detailGuests").textContent =
+          reservationDetails.guests || "-";
       }
 
-      // Trigger confetti on load
-      window.addEventListener("load", createConfetti);
+      // Show success notification function
+      function showNotification(message, type = "success") {
+        // Remove existing notification
+        const existing = document.querySelector(".payment-status");
+        if (existing) {
+          existing.remove();
+        }
+
+        // Create notification element
+        const notification = document.createElement("div");
+        notification.className = `payment-status ${type} show`;
+
+        const icon =
+          type === "success"
+            ? "✓"
+            : type === "error"
+              ? "✗"
+              : type === "warning"
+                ? "⚠"
+                : "ℹ";
+
+        notification.innerHTML = `
+          <span class="status-icon">${icon}</span>
+          <span class="status-message">${message}</span>
+        `;
+
+        document.body.appendChild(notification);
+
+        // Auto hide after 5 seconds
+        setTimeout(() => {
+          notification.classList.remove("show");
+          setTimeout(() => notification.remove(), 300);
+        }, 5000);
+      }
+
+      // Show success notification when page loads
+      window.addEventListener("load", function () {
+        showNotification("Reservasi Anda berhasil dikonfirmasi! ✓", "success");
+      });
     </script>
   </body>
 </html>

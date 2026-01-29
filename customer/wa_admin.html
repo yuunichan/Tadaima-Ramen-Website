@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hubungi Admin - WhatsApp</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background: var(--bg);
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1rem;
+      }
+
+      .wa-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        max-width: 500px;
+        width: 100%;
+      }
+      .wa-number {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin: 0.5rem 0 1.2rem;
+        color: var(--text);
+      }
+      .wa-desc {
+        color: #666;
+        margin-bottom: 1.2rem;
+      }
+      .wa-button {
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+        background: #25d366;
+        color: white;
+        padding: 0.9rem 1.6rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .wa-button svg {
+        width: 20px;
+        height: 20px;
+      }
+      .small-link {
+        display: block;
+        margin-top: 1rem;
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      footer {
+        margin-top: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="wa-card">
+        <h1>Reservasi Berhasil Dikirim</h1>
+        <h1>Hubungi Admin melalui WhatsApp</h1>
+        <p class="wa-desc">
+          Jika reservasi sudah dibuat atau ada pertanyaan, silakan hubungi admin
+          via WhatsApp:
+        </p>
+        <div class="wa-number">+62 894-7468-4583</div>
+        <a
+          class="wa-button"
+          href="https://wa.me/6289474684583"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M20.52 3.478A11.953 11.953 0 0012 0C5.373 0 0 5.373 0 12c0 2.112.552 4.149 1.598 5.956L0 24l6.337-1.64A11.948 11.948 0 0012 24c6.627 0 12-5.373 12-12 0-3.208-1.247-6.217-3.48-8.522zM12 21.6c-1.78 0-3.515-.476-5.025-1.37l-.36-.213-3.76.973.998-3.664-.234-.374A9.6 9.6 0 0112 2.4c5.304 0 9.6 4.296 9.6 9.6S17.304 21.6 12 21.6zM17.02 14.13c-.283-.142-1.67-.822-1.927-.915-.257-.094-.445-.142-.633.151-.187.293-.72 1.004-.881 1.213-.162.21-.324.236-.606.089-.283-.147-1.195-.44-2.282-1.402-.97-.863-1.623-1.929-1.796-2.227-.172-.297-.02-.457.128-.603.135-.133.3-.347.447-.519.147-.174.196-.297.295-.495.099-.199.05-.371-.025-.52-.075-.15-.668-1.613-.915-2.209-.248-.596-.5-.515-.687-.525-.186-.01-.372-.01-.571-.01-.199 0-.52.074-.792.371-.272.297-1.038 1.014-1.038 2.478 0 1.463 1.064 2.875 1.212 3.074.149.198 2.096 3.2 5.076 4.487.708.308 1.26.49 1.69.626.715.227 1.362.195 1.873.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.125-.272-.199-.57-.347z"
+            />
+          </svg>
+          Chat WhatsApp
+        </a>
+        <a class="small-link" href="../beranda.html">Kembali ke Beranda</a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Restoran</h3>
+          <p>
+            Menyajikan cita rasa autentik rasa khas dengan bahan bahan terbaik
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Jam Buka</h3>
+          <ul>
+            <li>Senin - Jumat: 09.00 - 10.00</li>
+            <li>Sabtu - Minggu: 10.00 - 23.00</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Kontak</h3>
+          <p>
+            Jl. Simonangkir No. 120, Medan<br />
+            +62 894-7468-4583<br />
+            info.email@gmail.com
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Restoran. All right reserved</p>
+      </div>
+    </footer>
+  </body>
+</html>

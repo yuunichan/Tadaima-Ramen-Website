@@ -1,185 +1,158 @@
 // pemesanan.js - JavaScript untuk halaman pemesanan/checkout
 
 document.addEventListener('DOMContentLoaded', function () {
+  // Update total & jumlah item saat halaman dimuat
+  updateItemCount();
+  updateOrderSummary();
 
-    // Payment method selection
-    const paymentOptions = document.querySelectorAll('input[name="payment"]');
-    paymentOptions.forEach(option => {
-        option.addEventListener('change', function () {
-            console.log('Metode pembayaran dipilih:', this.value);
-            // You can add visual feedback or additional logic here
-        });
+  // Payment method selection (opsional log)
+  document.querySelectorAll('input[name="payment"]').forEach(option => {
+    option.addEventListener('change', function () {
+      console.log('Metode pembayaran dipilih:', this.value);
     });
+  });
 
-    // Delete item buttons
-    const deleteButtons = document.querySelectorAll('.delete-item-btn');
-    deleteButtons.forEach(btn => {
-        btn.addEventListener('click', function () {
-            const orderItem = this.closest('.order-item');
-            const itemName = orderItem.querySelector('.item-name').textContent;
+  // Tombol hapus item
+  document.querySelectorAll('.delete-item-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const orderItem = this.closest('.order-item');
+      const itemName = orderItem.querySelector('.item-name')?.textContent || 'item ini';
 
-            if (confirm(`Apakah Anda yakin ingin menghapus "${itemName}" dari pesanan?`)) {
-                // Add removing animation class
-                orderItem.classList.add('removing');
+      if (confirm(`Hapus "${itemName}" dari pesanan?`)) {
+        orderItem.style.transition = 'opacity 0.3s, transform 0.3s';
+        orderItem.style.opacity = '0';
+        orderItem.style.transform = 'translateX(-20px)';
 
-                // Remove item after animation
-                setTimeout(() => {
-                    orderItem.remove();
-                    updateOrderSummary();
-                    updateItemCount();
-
-                    // Check if cart is empty
-                    const remainingItems = document.querySelectorAll('.order-item');
-                    if (remainingItems.length === 0) {
-                        showEmptyCartMessage();
-                    }
-                }, 300);
-            }
-        });
-    });
-
-    // Continue payment button
-    const continueBtn = document.querySelector('.continue-payment-btn');
-    if (continueBtn) {
-        continueBtn.addEventListener('click', function () {
-            const selectedPayment = document.querySelector('input[name="payment"]:checked');
-
-            if (!selectedPayment) {
-                alert('Silakan pilih metode pembayaran terlebih dahulu');
-                return;
-            }
-
-            const orderItems = document.querySelectorAll('.order-item');
-            if (orderItems.length === 0) {
-                alert('Keranjang Anda kosong');
-                return;
-            }
-
-            const paymentMethod = selectedPayment.value.toUpperCase();
-            const totalAmount = document.querySelector('.total-amount').textContent;
-
-            // Show confirmation
-            const confirmMsg = `Lanjutkan pembayaran dengan ${paymentMethod}?\n\nTotal: ${totalAmount}`;
-            if (confirm(confirmMsg)) {
-                // Simulate payment processing
-                processPayment(paymentMethod, totalAmount);
-                window.location.href = 'payment.html';
-
-            }
-        });
-    }
-
-    // Helper Functions
-    function updateItemCount() {
-        const items = document.querySelectorAll('.order-item');
-        const itemCount = document.querySelector('.item-count');
-        if (itemCount) {
-            const count = items.length;
-            itemCount.textContent = `(${count} Item${count !== 1 ? '' : ''})`;
-        }
-    }
-
-    function updateOrderSummary() {
-        const orderItems = document.querySelectorAll('.order-item');
-        let subtotal = 0;
-
-        orderItems.forEach(item => {
-            const priceText = item.querySelector('.item-total-price').textContent;
-            const price = parseInt(priceText.replace(/[^0-9]/g, ''));
-            subtotal += price;
-        });
-
-        // Fixed costs
-        const ongkir = 15000;
-        const biayaLayanan = 2000;
-        const total = subtotal + ongkir + biayaLayanan;
-
-        // Update UI
-        const subtotalEl = document.querySelector('.summary-details .summary-row:nth-child(1) .summary-value');
-        const totalEl = document.querySelector('.total-amount');
-
-        if (subtotalEl) {
-            subtotalEl.textContent = `Rp ${subtotal.toLocaleString('id-ID')}`;
-        }
-
-        if (totalEl) {
-            totalEl.textContent = `Rp ${total.toLocaleString('id-ID')}`;
-        }
-    }
-
-    function showEmptyCartMessage() {
-        const checkoutLeft = document.querySelector('.checkout-left');
-        if (checkoutLeft) {
-            checkoutLeft.innerHTML = `
-                <div style="text-align: center; padding: 3rem;">
-                    <h2 style="font-size: 1.5rem; color: #666; margin-bottom: 1rem;">
-                        Keranjang Anda Kosong
-                    </h2>
-                    <p style="color: #999; margin-bottom: 2rem;">
-                        Silakan tambahkan item ke keranjang terlebih dahulu
-                    </p>
-                    <a href="menu.html" style="display: inline-block; padding: 0.8rem 2rem; background: var(--primary); color: white; text-decoration: none; border-radius: 10px; font-weight: 600;">
-                        Lihat Menu
-                    </a>
-                </div>
-            `;
-        }
-
-        // Disable payment button
-        const continueBtn = document.querySelector('.continue-payment-btn');
-        if (continueBtn) {
-            continueBtn.disabled = true;
-            continueBtn.style.opacity = '0.5';
-            continueBtn.style.cursor = 'not-allowed';
-        }
-    }
-
-    function processPayment(method, amount) {
-        // Show loading state
-        const continueBtn = document.querySelector('.continue-payment-btn');
-        const originalText = continueBtn.textContent;
-        continueBtn.textContent = 'Memproses...';
-        continueBtn.disabled = true;
-
-        // Simulate payment processing delay
         setTimeout(() => {
-            continueBtn.textContent = originalText;
-            continueBtn.disabled = false;
+          orderItem.remove();
+          updateItemCount();
+          updateOrderSummary();
 
-            // Show success message
-            alert(`Pembayaran berhasil diproses!\n\nMetode: ${method}\nTotal: ${amount}\n\nTerima kasih atas pesanan Anda!`);
+          ReservationNotification.showSuccess({
+            message: `${itemName} berhasil dihapus dari pesanan`,
+            duration: 3500
+          });
 
-            // Redirect to success page or home
-            // window.location.href = 'payment-success.html';
-        }, 2000);
+          if (document.querySelectorAll('.order-item').length === 0) {
+            showEmptyCartMessage();
+          }
+        }, 300);
+      }
+    });
+  });
+
+  // Tombol Lanjutkan Pembayaran – langsung delay 1800ms lalu redirect
+  const continueBtn = document.querySelector('.continue-payment-btn');
+  if (continueBtn) {
+    continueBtn.addEventListener('click', function () {
+      const selectedPayment = document.querySelector('input[name="payment"]:checked');
+
+      // Validasi metode pembayaran
+      if (!selectedPayment) {
+        ReservationNotification.showError({
+          message: 'Silakan pilih metode pembayaran terlebih dahulu',
+          duration: 4000
+        });
+        return;
+      }
+
+      // Validasi keranjang tidak kosong
+      const orderItems = document.querySelectorAll('.order-item');
+      if (orderItems.length === 0) {
+        ReservationNotification.showError({
+          message: 'Pesanan Anda kosong. Silakan tambah item terlebih dahulu',
+          duration: 4000
+        });
+        return;
+      }
+
+      const paymentMethod = selectedPayment.value.toUpperCase();
+      const totalAmount = document.querySelector('.total-amount')?.textContent || 'Rp 0';
+
+      // Tampilkan loading state pada tombol
+      const originalText = continueBtn.textContent;
+      continueBtn.textContent = 'Memproses...';
+      continueBtn.disabled = true;
+
+      // Notifikasi sukses langsung + info proses
+      ReservationNotification.showSuccess({
+        message: `Pembayaran dengan <strong>${paymentMethod}</strong> sedang diproses...<br>Total: ${totalAmount}`,
+        duration: 2500,  // notifikasi muncul selama ~2.5 detik
+        autoClose: true
+      });
+
+      // Delay 1800 ms lalu redirect
+      setTimeout(() => {
+        continueBtn.textContent = originalText;
+        continueBtn.disabled = false;
+
+        // Redirect ke halaman selanjutnya
+        window.location.href = 'payment.html';  // GANTI sesuai kebutuhan: 'payment-success.html', 'konfirmasi.html', dll
+      }, 1800);
+    });
+  }
+
+  // ================= Helper Functions =================
+
+  function updateItemCount() {
+    const items = document.querySelectorAll('.order-item');
+    const countEl = document.querySelector('.item-count');
+    if (countEl) {
+      const count = items.length;
+      countEl.textContent = `(${count} Item${count !== 1 ? '' : ''})`;
     }
+  }
 
-    // Payment option hover effect
-    const paymentLabels = document.querySelectorAll('.payment-option label');
-    paymentLabels.forEach(label => {
-        label.addEventListener('mouseenter', function () {
-            this.style.transform = 'translateY(-2px)';
-        });
+  function updateOrderSummary() {
+    let subtotal = 0;
 
-        label.addEventListener('mouseleave', function () {
-            const radio = this.previousElementSibling;
-            if (!radio.checked) {
-                this.style.transform = 'translateY(0)';
-            }
-        });
+    document.querySelectorAll('.order-item').forEach(item => {
+      const priceText = item.querySelector('.item-total-price')?.textContent || '0';
+      const price = parseInt(priceText.replace(/[^0-9]/g, '')) || 0;
+      subtotal += price;
     });
 
-    // Format currency on load
-    function formatCurrency(number) {
-        return new Intl.NumberFormat('id-ID', {
-            style: 'currency',
-            currency: 'IDR',
-            minimumFractionDigits: 0
-        }).format(number);
+    const ongkir = 15000;
+    const biayaLayanan = 2000;
+    const total = subtotal + ongkir + biayaLayanan;
+
+    const subtotalEl = document.querySelector('.summary-details .summary-row:nth-child(1) .summary-value');
+    const totalEl = document.querySelector('.total-amount');
+
+    if (subtotalEl) subtotalEl.textContent = `Rp ${subtotal.toLocaleString('id-ID')}`;
+    if (totalEl) totalEl.textContent = `Rp ${total.toLocaleString('id-ID')}`;
+  }
+
+  function showEmptyCartMessage() {
+    const checkoutLeft = document.querySelector('.checkout-left');
+    if (checkoutLeft) {
+      checkoutLeft.innerHTML = `
+        <div style="text-align: center; padding: 3rem 1rem;">
+          <h2 style="font-size: 1.6rem; color: #444; margin-bottom: 1rem;">
+            Pesanan Anda Kosong
+          </h2>
+          <p style="color: #777; margin-bottom: 2rem;">
+            Silakan kembali ke menu dan tambahkan item favorit Anda
+          </p>
+          <a href="menu.html" style="display: inline-block; padding: 0.9rem 2.2rem; background: var(--primary); color: white; text-decoration: none; border-radius: 10px; font-weight: 600;">
+            Lihat Menu
+          </a>
+        </div>
+      `;
     }
 
-    // Initialize
-    updateItemCount();
+    if (continueBtn) {
+      continueBtn.disabled = true;
+      continueBtn.style.opacity = '0.5';
+      continueBtn.style.cursor = 'not-allowed';
+      continueBtn.textContent = 'Keranjang Kosong';
+    }
 
-    console.log('Pemesanan page loaded successfully');
+    ReservationNotification.showInfo({
+      message: 'Pesanan Anda saat ini kosong. Silakan tambahkan item terlebih dahulu.',
+      duration: 5000
+    });
+  }
+
+  console.log('Halaman pemesanan dimuat');
 });

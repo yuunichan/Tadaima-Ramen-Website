@@ -1,333 +1,254 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Keranjang - Restoran</title>
-    <link rel="stylesheet" href="../css/keranjang.css" />
-    <link rel="stylesheet" href="../css/styles.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keranjang - Tadaima Balige Restaurant</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/keranjang.css" />
+</head>
+<body>
 
-  <body>
-    <!-- Navigation -->
-    <nav>
-      <div class="logo">
-        <div class="logo-icon">
-          <img src="../images/logo.jpg" alt="Logo" />
-        </div>
-        <span>Tadaima Balige Restaurant</span>
+  <!-- Navigation (sudah disesuaikan dengan tema login) -->
+  <nav>
+    <div class="logo">
+      <div class="logo-icon">
+        <img src="../images/logo.jpg" alt="Logo" />
       </div>
-      <ul class="nav-menu">
-        <li><a href="../beranda.html">Beranda</a></li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="reservasi.html">Reservasi</a></li>
-        <li><a href="about.html">Tentang Kami</a></li>
-        <li>
-          <a href="keranjang.html">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="25"
-              fill="currentColor"
-              class="bi bi-cart"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
-              />
-            </svg>
-          </a>
-        </li>
-        <li>
-          <a href="../login_page.html">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="25"
-              fill="white"
-              class="bi bi-person-fill"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
-              />
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="cart-container">
-      <div class="cart-content">
-        <!-- Cart Header -->
-        <div class="cart-header">
-          <h1>Keranjang Anda <span class="item-count">(3 Item)</span></h1>
-          <label class="select-all-container">
-            <input type="checkbox" id="selectAll" />
-            <span>Pilih Semua</span>
-          </label>
-        </div>
-
-        <div class="cart-actions-top">
-          <a href="#" class="clear-cart">Hapus Pilihan</a>
-        </div>
-
-        <!-- Cart Items -->
-        <div class="cart-items">
-          <!-- Item 1 -->
-          <div class="cart-item">
-            <input type="checkbox" class="item-checkbox" />
-            <div class="item-image">
-              <img src="../images/udangbakar.png" alt="Udang Bakar" />
-            </div>
-            <div class="item-details">
-              <h3 class="item-name">Udang Bakar Jimbaran</h3>
-              <p class="item-price">Rp 45.000</p>
-              <a href="#" class="item-notes">Tulis Catatan 📝</a>
-            </div>
-            <div class="item-actions">
-              <div class="quantity-controls">
-                <button class="qty-btn minus">−</button>
-                <input type="number" value="1" class="qty-input" min="1" />
-                <button class="qty-btn plus">+</button>
-              </div>
-              <button class="delete-btn">
-                <img src="../images/icons/trash3.svg" alt="" />
-              </button>
-            </div>
-          </div>
-
-          <!-- Item 2 -->
-          <div class="cart-item">
-            <input type="checkbox" class="item-checkbox" />
-            <div class="item-image">
-              <img src="../images/udangtempura.png" alt="Udang Tempura" />
-            </div>
-            <div class="item-details">
-              <h3 class="item-name">Udang Tempura</h3>
-              <p class="item-price">Rp 35.000</p>
-              <a href="#" class="item-notes">Tulis Catatan 📝</a>
-            </div>
-            <div class="item-actions">
-              <div class="quantity-controls">
-                <button class="qty-btn minus">−</button>
-                <input type="number" value="1" class="qty-input" min="1" />
-                <button class="qty-btn plus">+</button>
-              </div>
-              <button class="delete-btn">
-                <img src="../images/icons/trash3.svg" alt="" />
-              </button>
-            </div>
-          </div>
-
-          <!-- Item 3 -->
-          <div class="cart-item">
-            <input type="checkbox" class="item-checkbox" />
-            <div class="item-image">
-              <img src="../images/orangejuice.png" alt="Orange Juice" />
-            </div>
-            <div class="item-details">
-              <h3 class="item-name">Orange Juice</h3>
-              <p class="item-price">Rp 18.000</p>
-              <a href="#" class="item-notes">Tulis Catatan 📝</a>
-            </div>
-            <div class="item-actions">
-              <div class="quantity-controls">
-                <button class="qty-btn minus">−</button>
-                <input type="number" value="1" class="qty-input" min="1" />
-                <button class="qty-btn plus">+</button>
-              </div>
-              <button class="delete-btn">
-                <img src="../images/icons/trash3.svg" alt="" />
-              </button>
-            </div>
-          </div>
-
-          <!-- Item 4 -->
-          <div class="cart-item">
-            <input type="checkbox" class="item-checkbox" />
-            <div class="item-image">
-              <img src="../images/suptomyam.png" alt="Sup Tomyam" />
-            </div>
-            <div class="item-details">
-              <h3 class="item-name">Sup Tomyam</h3>
-              <p class="item-price">Rp 35.000</p>
-              <a href="#" class="item-notes">Tulis Catatan 📝</a>
-            </div>
-            <div class="item-actions">
-              <div class="quantity-controls">
-                <button class="qty-btn minus">−</button>
-                <input type="number" value="1" class="qty-input" min="1" />
-                <button class="qty-btn plus">+</button>
-              </div>
-              <button class="delete-btn">
-                <img src="../images/icons/trash3.svg" alt="" />
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Suggestions Section -->
-        <div class="suggestions-section">
-          <h2 class="suggestions-title">Mungkin Anda Suka</h2>
-          <div class="suggestions-nav">
-            <button class="nav-arrow prev">‹</button>
-            <button class="nav-arrow next">›</button>
-          </div>
-          <div class="suggestions-list">
-            <div class="suggestion-item">
-              <img src="../images/float.png" alt="Float Chocolate" />
-              <div class="suggestion-info">
-                <h4>Float Chocolate</h4>
-                <p class="suggestion-price">Rp 20.000</p>
-              </div>
-              <button class="suggestion-add-btn">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="25"
-                  height="25"
-                  fill="currentColor"
-                  class="bi bi-cart"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            <div class="suggestion-item">
-              <img src="i../mages/americano.png" alt="Americano" />
-              <div class="suggestion-info">
-                <h4>Americano</h4>
-                <p class="suggestion-price">Rp 15.000</p>
-              </div>
-              <button class="suggestion-add-btn">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="25"
-                  height="25"
-                  fill="currentColor"
-                  class="bi bi-cart"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            <div class="suggestion-item">
-              <img src="../images/guritabakar.png" alt="Gurita Bakar" />
-              <div class="suggestion-info">
-                <h4>Gurita Bakar</h4>
-                <p class="suggestion-price">Rp 70.000</p>
-              </div>
-              <button class="suggestion-add-btn">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="25"
-                  height="25"
-                  fill="currentColor"
-                  class="bi bi-cart"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Order Summary Sidebar -->
-      <div class="order-summary">
-        <h2>Detail Pesanan</h2>
-
-        <div class="voucher-section">
-          <label>Voucher</label>
-          <div class="voucher-input-group">
-            <input
-              type="text"
-              placeholder="Kode Voucher"
-              class="voucher-input"
-            />
-            <button class="voucher-btn">KLAIM</button>
-          </div>
-        </div>
-
-        <div class="summary-details">
-          <div class="summary-row">
-            <span>Subtotal (3 Produk)</span>
-            <span>Rp 45.000</span>
-          </div>
-          <div class="summary-row">
-            <span>PPN (10%)</span>
-            <span>Rp 4.500</span>
-          </div>
-        </div>
-
-        <div class="summary-total">
-          <span>Total Tagihan</span>
-          <span class="total-amount">Rp 51.000</span>
-        </div>
-
-        <button class="checkout-btn">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            height="25"
-            fill="currentColor"
-            class="bi bi-credit-card"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"
-            />
-            <path
-              d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"
-            />
+      <span>Tadaima Balige Restaurant</span>
+    </div>
+    <ul class="nav-menu">
+      <li><a href="../beranda.html">Beranda</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="reservasi.html">Meja</a></li>
+      <li><a href="about.html">Tentang Kami</a></li>
+      <li>
+        <a href="keranjang.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+            <path d="M0 1.5a.5.5 0 0 1 .5-.5H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
           </svg>
-          Checkout
+        </a>
+      </li>
+      <li>
+        <button class="user-profile-btn" onclick="toggleUserDropdown()" style="background: none; border: none; cursor: pointer; padding: 0;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+          </svg>
         </button>
+        <div class="user-dropdown" id="userDropdown">
+          <a href="user_profile.html" class="dropdown-item">👤 Profil Saya</a>
+          <button class="dropdown-item" onclick="openLogoutModal(event)">🚪 Logout</button>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="cart-container">
+    <div class="cart-content">
+      <!-- Cart Header -->
+      <div class="cart-header">
+        <h1>Keranjang Anda <span class="item-count">(4 Item)</span></h1>
+        <label class="select-all-container">
+          <input type="checkbox" id="selectAll" />
+          <span>Pilih Semua</span>
+        </label>
+      </div>
+
+      <div class="cart-actions-top">
+        <a href="#" class="clear-cart">Hapus Pilihan</a>
+      </div>
+
+      <!-- Cart Items -->
+      <div class="cart-items">
+        <!-- Item 1 -->
+        <div class="cart-item">
+          <input type="checkbox" class="item-checkbox" checked />
+          <div class="item-image">
+            <img src="../images/udangbakar.png" alt="Udang Bakar Jimbaran" />
+          </div>
+          <div class="item-details">
+            <h3 class="item-name">Udang Bakar Jimbaran</h3>
+            <p class="item-price">Rp 45.000</p>
+            <a href="#" class="item-notes">Tulis Catatan 📝</a>
+          </div>
+          <div class="item-actions">
+            <div class="quantity-controls">
+              <button class="qty-btn minus">−</button>
+              <input type="number" value="1" class="qty-input" min="1" />
+              <button class="qty-btn plus">+</button>
+            </div>
+            <button class="delete-btn">
+              <img src="../images/icons/trash3.svg" alt="Hapus" />
+            </button>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="cart-item">
+          <input type="checkbox" class="item-checkbox" checked />
+          <div class="item-image">
+            <img src="../images/udangtempura.png" alt="Udang Tempura" />
+          </div>
+          <div class="item-details">
+            <h3 class="item-name">Udang Tempura</h3>
+            <p class="item-price">Rp 35.000</p>
+            <a href="#" class="item-notes">Tulis Catatan 📝</a>
+          </div>
+          <div class="item-actions">
+            <div class="quantity-controls">
+              <button class="qty-btn minus">−</button>
+              <input type="number" value="1" class="qty-input" min="1" />
+              <button class="qty-btn plus">+</button>
+            </div>
+            <button class="delete-btn">
+              <img src="../images/icons/trash3.svg" alt="Hapus" />
+            </button>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="cart-item">
+          <input type="checkbox" class="item-checkbox" checked />
+          <div class="item-image">
+            <img src="../images/orangejuice.png" alt="Orange Juice" />
+          </div>
+          <div class="item-details">
+            <h3 class="item-name">Orange Juice</h3>
+            <p class="item-price">Rp 18.000</p>
+            <a href="#" class="item-notes">Tulis Catatan 📝</a>
+          </div>
+          <div class="item-actions">
+            <div class="quantity-controls">
+              <button class="qty-btn minus">−</button>
+              <input type="number" value="1" class="qty-input" min="1" />
+              <button class="qty-btn plus">+</button>
+            </div>
+            <button class="delete-btn">
+              <img src="../images/icons/trash3.svg" alt="Hapus" />
+            </button>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="cart-item">
+          <input type="checkbox" class="item-checkbox" />
+          <div class="item-image">
+            <img src="../images/suptomyam.png" alt="Sup Tomyam" />
+          </div>
+          <div class="item-details">
+            <h3 class="item-name">Sup Tomyam</h3>
+            <p class="item-price">Rp 35.000</p>
+            <a href="#" class="item-notes">Tulis Catatan 📝</a>
+          </div>
+          <div class="item-actions">
+            <div class="quantity-controls">
+              <button class="qty-btn minus">−</button>
+              <input type="number" value="1" class="qty-input" min="1" />
+              <button class="qty-btn plus">+</button>
+            </div>
+            <button class="delete-btn">
+              <img src="../images/icons/trash3.svg" alt="Hapus" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Suggestions Section -->
+      <div class="suggestions-section">
+        <h2 class="suggestions-title">Mungkin Anda Suka</h2>
+        <div class="suggestions-nav">
+          <button class="nav-arrow prev">‹</button>
+          <button class="nav-arrow next">›</button>
+        </div>
+        <div class="suggestions-list">
+          <div class="suggestion-item">
+            <img src="../images/float.png" alt="Float Chocolate" />
+            <div class="suggestion-info">
+              <h4>Float Chocolate</h4>
+              <p class="suggestion-price">Rp 20.000</p>
+            </div>
+            <button class="suggestion-add-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                <path d="M0 1.5a.5.5 0 0 1 .5-.5H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- item lain bisa ditambahkan -->
+        </div>
       </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Restoran</h3>
-          <p>
-            Menyajikan cita rasa autentik rasa khas dengan bahan bahan terbaik
-          </p>
-        </div>
-        <div class="footer-section">
-          <h3>Jam Buka</h3>
-          <ul>
-            <li>Senin - Jumat: 09.00 - 10.00</li>
-            <li>Sabtu - Minggu: 10.00 - 23.00</li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Kontak</h3>
-          <p>
-            Jl. Simonangkir No. 120, Medan<br />
-            +62 894-7468-4583<br />
-            info.email@gmail.com
-          </p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2025 Restoran. All right reserved</p>
-      </div>
-    </footer>
+    <!-- Order Summary Sidebar -->
+    <div class="order-summary">
+      <h2>Detail Pesanan</h2>
 
-    <script src="../js/keranjang.js"></script>
-  </body>
+      <div class="voucher-section">
+        <label>Voucher</label>
+        <div class="voucher-input-group">
+          <input type="text" placeholder="Masukkan kode voucher" class="voucher-input" />
+          <button class="voucher-btn">KLAIM</button>
+        </div>
+      </div>
+
+      <div class="summary-details">
+        <div class="summary-row">
+          <span>Subtotal (0 Produk)</span>
+          <span>Rp 0</span>
+        </div>
+        <div class="summary-row">
+          <span>PPN (10%)</span>
+          <span>Rp 0</span>
+        </div>
+      </div>
+
+      <div class="summary-total">
+        <span>Total Tagihan</span>
+        <span class="total-amount">Rp 0</span>
+      </div>
+
+      <button class="checkout-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
+          <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+          <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+        </svg>
+        Checkout
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Restoran</h3>
+        <p>Menyajikan cita rasa autentik dengan bahan-bahan terbaik dan segar setiap hari</p>
+      </div>
+      <div class="footer-section">
+        <h3>Jam Buka</h3>
+        <ul>
+          <li>Senin - Jumat: 09.00 - 22.00</li>
+          <li>Sabtu - Minggu: 10.00 - 23.00</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Kontak</h3>
+        <p>
+          Jl. Simonangkir No. 120, Medan<br>
+          +62 894-7468-4583<br>
+          info@tadaimabalgie.com
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Tadaima Balige Restaurant. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/notification.js"></script> <!-- modul notifikasi -->
+  <script src="../js/keranjang.js"></script>
+
+</body>
 </html>
