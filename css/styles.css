@@ -1848,3 +1848,182 @@ a.button {
 @keyframes progress {
   to { transform: scaleX(1); }
 }
+/* Notifikasi sederhana & netral - tanpa warna hijau mencolok */
+.notification {
+  margin-bottom: 12px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transform: translateX(120%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.notification.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Ganti .notification-success jadi netral */
+.notification-success,
+.notification-checkout {  /* bisa pakai class baru kalau mau bedakan */
+  color: #1f2937; /* abu gelap / hitam lembut */
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  position: relative;
+}
+
+.notification-icon {
+  margin-right: 12px;
+  flex-shrink: 0;
+  color: #6b7280; /* abu-abu sedang, atau bisa diganti #3b82f6 untuk aksen biru */
+  font-size: 24px; /* kalau pakai emoji atau ikon besar */
+}
+
+/* Kalau masih pakai SVG centang */
+.notification-icon svg {
+  stroke: #6b7280;          /* abu-abu netral */
+  /* atau pakai biru lembut: #3b82f6 */
+  /* stroke: #3b82f6; */
+}
+
+.notification-message {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.notification-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #9ca3af;
+  cursor: pointer;
+  margin-left: 8px;
+  padding: 0 4px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.notification-close:hover {
+  opacity: 1;
+  color: #4b5563;
+}
+
+/* Progress bar jadi netral */
+.notification-progress {
+  height: 3px;
+  background: #e5e7eb; /* abu sangat terang */
+}
+
+.notification-progress::after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: #9ca3af; /* abu sedang */
+  animation: progress 4s linear forwards;
+}
+
+@keyframes progress {
+  from { width: 100%; }
+  to   { width: 0; }
+}
+.notification-container {
+  pointer-events: none;
+}
+
+.notification {
+  margin-bottom: 12px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  overflow: hidden;
+  transform: translateX(120%);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  pointer-events: auto;
+}
+
+.notification.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.notification-content {
+  display: flex;
+  align-items: flex-start;
+  padding: 14px 16px;
+  gap: 12px;
+}
+
+.notification-icon {
+  flex-shrink: 0;
+  color: #6b7280;
+  line-height: 1;
+}
+
+.notification-body {
+  flex: 1;
+}
+
+.notification-title {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 4px;
+  color: #111827;
+}
+
+.notification-message {
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.45;
+}
+
+.notification-close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.notification-close:hover {
+  color: #4b5563;
+}
+
+.notification-progress {
+  height: 3px;
+  background: #e5e7eb;
+}
+
+.notification-progress::after {
+  content: '';
+  display: block;
+  height: 100%;
+  background: #9ca3af;
+  width: 100%;
+  animation: progress linear forwards;
+  animation-duration: var(--duration, 5s);
+}
+
+@keyframes progress {
+  from { width: 100%; }
+  to   { width: 0; }
+}
+
+/* Warna berdasarkan tipe (override jika ingin lebih kuat) */
+.notification-success .notification-icon { color: #10b981; }
+.notification-error   .notification-icon { color: #ef4444; }
+.notification-info    .notification-icon { color: #3b82f6; }
+.notification-warning .notification-icon { color: #f59e0b; }

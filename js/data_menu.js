@@ -1,109 +1,109 @@
 // ../js/data-menu.js
 const menuItems = {
-  "seafood-tumpah": {
-    title: "Seafood Tumpah",
+  "tori-paitan-ramen": {
+    title: "Tori Paitan Ramen",
     category: "Makanan",
-    description: "Seafood Tumpah lezat kaya bumbu melimpah dengan campuran seafood segar.",
-    price: 60000,
-    image: "../images/seafood.png"
+    description: "Dengan kaldu ayam yang direbus selama 6 jam.",
+    price: 30000,
+    image: "../images/tori_ramen.png"
   },
-  "cumi-bakar": {
-    title: "Cumi Bakar",
+  "hokkaido-miso-ramen": {
+    title: "Hokkaido Miso Ramen",
     category: "Makanan",
-    description: "Cumi Bakar gurih segar dengan aroma khas panggangan.",
-    price: 50000,
-    image: "../images/cumibakar.png"
+    description: "Menggunakan Pasta kedelaifermentasi khas Jepang.",
+    price: 30000,
+    image: "../images/hokkaido_ramen.png"
   },
-  "spaghetti-aglio-olio": {
-    title: "Spaghetti Aglio Olio",
+  "japanese-kare-ramen": {
+    title: "Japanese Kare Ramen",
     category: "Makanan",
-    description: "Spaghetti Aglio Olio dengan cita rasa gurih olive oil dan bawang putih.",
+    description: "Ramen berkuah kental, kari Jeoang kaya rempah",
     price: 45000,
-    image: "../images/spaghetti.png"
+    image: "../images/japanese_ramen.png"
   },
-  "udang-bakar-jimbaran": {
-    title: "Udang Bakar Jimbaran",
+  "souted-brokoli": {
+    title: "Souted Brokoli",
     category: "Makanan",
-    description: "Udang Bakar Jimbaran khas bumbu pedas manis Bali.",
-    price: 45000,
-    image: "../images/udangbakar.png"
+    description: "Brokoli Segar yang ditumis bertekstur renyah dan gurih.",
+    price: 15000,
+    image: "../images/souted_brokoli.png"
   },
-  "sup-tomyam": {
-    title: "Sup Tomyam",
+  "onigiri": {
+    title: "Onigiri",
     category: "Makanan",
-    description: "Sup Tomyam pedas segar kaya rempah Thailand autentik.",
-    price: 35000,
-    image: "../images/suptomyam.png"
+    description: "Irisan daging ayam, mayonaise dan nori.",
+    price: 10000,
+    image: "../images/onigiri.png"
   },
-  "gulai-kepala-kakap": {
-    title: "Gulai Kepala Kakap",
+  "karage": {
+    title: "Karage",
     category: "Makanan",
-    description: "Gulai Kepala Kakap kaya rempah khas Minang.",
-    price: 95000,
-    image: "../images/gulaikakap.png"
+    description: "Potongan daging ayam yang dibalut dengan tepung.",
+    price: 25000,
+    image: "../images/karage.png"
   },
-  "gurita-bakar": {
-    title: "Gurita Bakar",
+  "chicken-katsu": {
+    title: "Chicken Katsu",
     category: "Makanan",
-    description: "Gurita Bakar empuk gurih dengan aroma smokey.",
-    price: 70000,
-    image: "../images/guritabakar.png"
+    description: "Hidangan ayam goreng khas Jepang dengan potongan ayam.",
+    price: 27000,
+    image: "../images/chicken_katsu.png"
   },
-  "udang-tempura": {
-    title: "Udang Tempura",
+  "brokoli-tempura": {
+    title: "Brocoli Tempura",
     category: "Makanan",
-    description: "Udang Tempura renyah lembut bercita rasa Jepang.",
-    price: 35000,
-    image: "../images/udangtempura.png"
+    description: "Brocoli goreng yang dilapisiadonan tempura.",
+    price: 15000,
+    image: "../images/brokoli.png"
   },
   "matcha-latte": {
     title: "Matcha Latte",
     category: "Minuman",
     description: "Matcha Latte creamy lembut dengan aroma matcha premium.",
     price: 20000,
-    image: "https://images.unsplash.com/photo-1582793988-9d4b4972ea38?w=600"  // bisa ganti pakai gambar lokal nanti
+    image: "../images/matcha.png"  // bisa ganti pakai gambar lokal nanti
   },
-  "es-melon-salsih": {
-    title: "Es Melon Salsih",
+  "es-melon-selasih": {
+    title: "Es Melon Selasih",
     category: "Minuman",
-    description: "Es Melon Salsih segar manis dingin cocok untuk cuaca panas.",
+    description: "Es Melon Selasih segar manis dingin cocok untuk cuaca panas.",
     price: 15000,
-    image: "https://images.unsplash.com/photo-1623066463831-3f7f6762734d?w=600"
+    image: "../images/es_selasih.png"
   },
   "strawberry-mojito": {
     title: "Strawberry Mojito",
     category: "Minuman",
     description: "Strawberry Mojito segar manis dengan sentuhan mint.",
     price: 22000,
-    image: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=600"
+    image: "../images/strawberry.png"
   },
   "chocolate": {
     title: "Chocolate",
     category: "Minuman",
     description: "Chocolate lembut manis pekat yang nikmat.",
     price: 20000,
-    image: "https://images.unsplash.com/photo-1542995478-2d9ecf138b3e?w=600"
+    image: "../images/chocolatte.png"
   },
   "float-chocolate": {
     title: "Float Chocolate",
     category: "Minuman",
     description: "Float Chocolate manis creamy segar dingin.",
     price: 18000,
-    image: "https://images.unsplash.com/photo-1570545887596-2a6eba775d1c?w=600"
+    image: "../images/float.png"
   },
   "orange-juice": {
-    title: "Orange Juice",
+    title: "Orange Juice", 
     category: "Minuman",
     description: "Orange Juice segar manis asam alami dari jeruk pilihan.",
     price: 18000,
-    image: "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=600"
+    image: "../images/orange.png"
   },
   "americano-coffee": {
     title: "Americano Coffee",
     category: "Minuman",
     description: "Americano Coffee pahit ringan khas espresso.",
     price: 15000,
-    image: "https://images.unsplash.com/photo-1554110397-9bac0831f8f5?w=600"
+    image: "../images/americano.png"
   }
   // tambahkan item lain jika ada
 };

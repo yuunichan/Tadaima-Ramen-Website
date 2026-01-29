@@ -114,7 +114,9 @@
 
   <!-- Scripts -->
   <script src="../js/data_menu.js"></script>
+  <script src="../js/notification.js"></script>
   <script src="../js/logout.js"></script> <!-- jika ada fungsi logout -->
+
   <script>
     // Ambil parameter dari URL
     const urlParams = new URLSearchParams(window.location.search);
@@ -148,10 +150,24 @@
 
       let message = `${title} berhasil ditambahkan ke keranjang!`;
       if (notes) {
-        message += `\n\nCatatan: ${notes}`;
+        message += ` (Catatan: ${notes})`;
       }
 
-      alert(message);
+      // Gunakan notifikasi modern
+      if (window.ReservationNotification && window.ReservationNotification.showSuccess) {
+        ReservationNotification.showSuccess({
+          message: message,
+          duration: 3000,          // 3 detik cukup untuk info singkat
+          autoClose: true,
+          onClose: () => {
+            // Optional: bisa redirect atau lakukan aksi lain setelah notif hilang
+            // contoh: window.location.href = "keranjang.html";
+          }
+        });
+      } else {
+        // Fallback jika notifikasi gagal load
+        alert(message);
+      }
 
       // Optional: simpan ke localStorage (untuk halaman keranjang nanti)
       // let cart = JSON.parse(localStorage.getItem("cart") || "[]");

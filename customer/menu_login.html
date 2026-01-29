@@ -645,8 +645,49 @@
     </footer>
 
     <script src="../js/nav-active.js"></script>
+    <script src="../js/notification.js"></script>
     <script>
-      // Filter functionality
+      // =============================================
+      // Fungsi redirect ke login dengan alert
+      // =============================================
+      function goToLogin() {
+        alert(
+          "Silakan login terlebih dahulu untuk menambahkan menu ke keranjang.",
+        );
+
+        // Opsional: simpan halaman saat ini agar bisa kembali setelah login
+        localStorage.setItem("loginRedirect", window.location.href);
+
+        window.location.href = "../login_page.html"; // sesuaikan path jika perlu (misal ../login_page.html)
+      }
+
+      // =============================================
+      // Pasang event ke SEMUA tombol add-btn (ikon keranjang di setiap card)
+      // =============================================
+      document.querySelectorAll(".add-btn").forEach((button) => {
+        button.addEventListener("click", function (e) {
+          e.stopPropagation(); // cegah klik card (yang membuka detail) ikut terpicu
+          e.preventDefault(); // aman-aman saja
+          goToLogin();
+        });
+      });
+
+      // =============================================
+      // (Opsional) Jika ikon keranjang di navbar juga ingin sama perilakunya
+      // =============================================
+      const navbarCart = document.querySelector(
+        'a[href="customer/keranjang.html"]',
+      );
+      if (navbarCart) {
+        navbarCart.addEventListener("click", function (e) {
+          e.preventDefault();
+          goToLogin();
+        });
+      }
+
+      // =============================================
+      // Kode filter & klik card ke detail (tetap dipertahankan)
+      // =============================================
       const tabs = document.querySelectorAll(".tab-btn");
       const cards = document.querySelectorAll(".menu-card");
 
@@ -669,31 +710,26 @@
         });
       });
 
-      // initialize filter (in case non-default active tab set)
+      // Set filter awal
       const activeTab = document.querySelector(".tab-btn.active");
       if (activeTab) {
         filterMenu(activeTab.dataset.filter || "semua");
       }
 
-      // Add to cart functionality & prevent card click navigation
-      const addBtns = document.querySelectorAll(".add-btn");
-      addBtns.forEach((btn) => {
-        btn.addEventListener("click", function (e) {
-          e.stopPropagation(); // prevent parent card click
-          alert("Item ditambahkan ke keranjang!");
-        });
-      });
-
-      // Card click navigation and keyboard accessibility
+      // Klik card → buka detail (kecuali bagian button sudah dicegah di atas)
       const clickableCards = document.querySelectorAll(".menu-card");
       clickableCards.forEach((card) => {
-        card.addEventListener("click", function () {
-          const id = card.dataset.id;
-          if (id) {
-            window.location.href =
-              "menu_detail.html?item=" + encodeURIComponent(id);
+        card.addEventListener("click", function (e) {
+          // Jika klik bukan di button add-btn (sudah dicegah di atas), lanjut ke detail
+          if (!e.target.closest(".add-btn")) {
+            const id = card.dataset.id;
+            if (id) {
+              window.location.href =
+                "menu_detail.html?item=" + encodeURIComponent(id);
+            }
           }
         });
+
         card.addEventListener("keydown", function (e) {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();

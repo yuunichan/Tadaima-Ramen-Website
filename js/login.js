@@ -1,8 +1,8 @@
 /* login.js
-   Demo client-side login logic.
-   - Decides admin vs customer automatically based on credentials (no dropdown needed)
-   - Demo admin credentials: username/email: "admin" or "admin@restoran.com" with password "admin123"
-   - In production, replace this with secure server-side authentication and never store real credentials in client-side code
+   Demo client-side login logic dengan notifikasi modern.
+   - Menggunakan ReservationNotification.showSuccess & showError
+   - Demo admin credentials: "admin" atau "admin@restoran.com" + "admin123"
+   - Di production → ganti dengan autentikasi server-side yang aman!
 */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!form || !emailInput || !passwordInput) return;
 
+  // Pastikan modul notifikasi sudah ada
+  if (!window.ReservationNotification) {
+    console.warn('ReservationNotification tidak ditemukan. Pastikan notification.js di-load sebelum login.js');
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -19,34 +24,52 @@ document.addEventListener('DOMContentLoaded', function () {
     const password = passwordInput.value.trim();
 
     if (!email || !password) {
-      alert('Mohon lengkapi semua field!');
+      ReservationNotification?.showError({
+        message: 'Mohon lengkapi email/username dan kata sandi!',
+        duration: 4000
+      });
       return;
     }
 
     const normalized = email.toLowerCase();
 
     const adminEmails = ['admin', 'admin@restoran.com'];
-    const adminPassword = 'admin123'; // demo only
+    const adminPassword = 'admin123'; // hanya untuk demo!
 
-    // If user matches admin account, require admin password
+    // Cek apakah mencoba login sebagai admin
     if (adminEmails.includes(normalized)) {
       if (password === adminPassword) {
         sessionStorage.setItem('role', 'admin');
-        alert('Login admin berhasil. Mengalihkan ke dashboard admin...');
-        window.location.href = 'admin/dashboard.html';
+
+        ReservationNotification.showSuccess({
+          message: 'Login admin berhasil! Mengalihkan ke dashboard...',
+          duration: 2500,
+          onClose: () => {
+            window.location.href = 'admin/dashboard.html';
+          }
+        });
       } else {
-        alert('Login admin gagal. Periksa email/username dan kata sandi.');
+        ReservationNotification.showError({
+          message: 'Kata sandi admin salah. Silakan coba lagi.',
+          duration: 4500
+        });
       }
       return;
     }
 
-    // Otherwise treat as customer (for demo: accept any credentials)
+    // Login sebagai customer (demo: terima semua kredensial selain admin)
     sessionStorage.setItem('role', 'customer');
-    alert('Login pelanggan berhasil. Mengalihkan ke menu...');
-    window.location.href = 'customer/menu_login.html';
+
+    ReservationNotification.showSuccess({
+      message: 'Login pelanggan berhasil! Mengalihkan ke menu...',
+      duration: 2200,
+      onClose: () => {
+        window.location.href = 'customer/menu.html';
+      }
+    });
   });
 
-  // Optional: toggle password visibility by clicking the icon span before the input
+  // Toggle visibility password (tetap dipertahankan)
   const passwordIcon = passwordInput.previousElementSibling;
   if (passwordIcon) {
     let visible = false;
@@ -55,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
       visible = !visible;
       passwordInput.type = visible ? 'text' : 'password';
       passwordIcon.textContent = visible ? '🔓' : '🔒';
+      // Optional: ganti ikon ke SVG yang lebih bagus jika mau
     });
   }
 });
